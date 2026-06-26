@@ -1,45 +1,65 @@
-from rdflib import URIRef, RDF, Namespace
+from rdflib.namespace import RDF, RDFS, OWL
 
-PL = Namespace("https://peculiarlibrarian.org/ontology/")
+from contracts.manager_contract import ManagerContract
 
 
-class InstanceManager:
+class InstanceManager(ManagerContract):
 
-    def discover(self):
-        self.assets = []
-
-    def load(self):
+    def __init__(self):
         self.instances = {}
 
-    def parse(self):
+    @property
+    def name(self):
+        return "InstanceManager"
+
+    def handshake(self):
+        return {
+            "manager": self.name,
+            "version": "1.0",
+            "contract": "manager_contract",
+            "capabilities": [
+                "load",
+                "discover",
+                "validate",
+                "expose",
+                "execute",
+            ],
+        }
+
+    def load(self, graph=None):
+        self.graph = graph
+
+    def discover(self):
+
+        opportunities = []
+
+        for subject, _, obj in self.graph.triples((None, RDF.type, OWL.Class)):
+            uri = str(subject)
+
+            if uri.endswith("Opportunity") or "Opportunity" in uri:
+                opportunities.append({
+                    "uri": uri,
+                    "label": uri.rsplit("/", 1)[-1]
+                })
+
+        self.instances = {
+            "person_competencies": {},
+            "opportunities": opportunities,
+        }
+
         return self.instances
 
-    def bind(self, context):
-        context["instances"] = self.instances
-        return context
-
-    def validate(self, context):
-        return True
+    def validate(self, payload):
+        return isinstance(payload, dict)
 
     def expose(self):
         return self.instances
 
-    def materialize_into_graph(self, graph):
+    def execute(self, graph):
+        self.load(graph)
+        payload = self.discover()
 
-        for s, p, o in list(graph):
+        if not self.validate(payload):
+            raise RuntimeError("Instance validation failed")
 
-            # ALWAYS convert safely
-            s_uri = URIRef(str(s))
-            p_uri = URIRef(str(p)) if str(p).startswith("http") else None
-            o_uri = URIRef(str(o)) if str(o).startswith("http") else None
-
-            # -------------------------
-            # ONLY TYPE ASSERTIONS
-            # -------------------------
-            if "Competency" in str(s):
-                graph.add((s_uri, RDF.type, PL.Person))
-
-            if "CapabilityRegistry" in str(s):
-                graph.add((s_uri, RDF.type, PL.Opportunity))
-
-        return graph
+        return payload

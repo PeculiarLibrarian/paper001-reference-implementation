@@ -1,37 +1,72 @@
-class OpportunityEngine:
+from contracts.manager_contract import ManagerContract
 
-    def rank_opportunities(self, graph, instances=None):
 
-        if instances is None:
-            instances = {"competencies": [], "opportunities": []}
+class OpportunityEngine(ManagerContract):
 
-        # 🔥 BOOTSTRAP MODE (no instances → derive from graph)
-        if not instances.get("competencies"):
+    @property
+    def name(self):
+        return "OpportunityEngine"
 
-            competencies = set()
-            opportunities = set()
+    def handshake(self):
+        return {
+            "manager": self.name,
+            "version": "1.0",
+            "contract": "manager_contract",
+            "capabilities": [
+                "load",
+                "discover",
+                "validate",
+                "expose",
+                "execute",
+            ],
+        }
 
-            for s, p, o in graph:
+    def load(self, instances=None):
+        self.instances = instances
 
-                ps = str(p)
-
-                if "Competency" in str(o):
-                    competencies.add(str(s))
-
-                if "Opportunity" in str(o):
-                    opportunities.add(str(s))
-
-            instances["competencies"] = list(competencies)
-            instances["opportunities"] = list(opportunities)
+    def discover(self):
 
         ranked = []
 
-        for opp in instances.get("opportunities", []):
+        for opp in self.instances["opportunities"]:
+
+            label = opp["label"]
+
+            score = {
+                "JobOpportunity": 0.60,
+                "FellowshipOpportunity": 0.55,
+                "ContractOpportunity": 0.45,
+                "Opportunity": 0.30,
+            }.get(label, 0.20)
 
             ranked.append({
-                "opportunity": opp,
-                "score": 1.0,
-                "explanation": "Bootstrapped match from ontology structure"
+                "opportunity": opp["uri"],
+                "score": score,
+                "explanation": f"{label} signal",
             })
 
+        ranked.sort(
+            key=lambda x: x["score"],
+            reverse=True,
+        )
+
+        self.results = ranked
+
         return ranked
+
+    def validate(self, payload):
+        return isinstance(payload, list)
+
+    def expose(self):
+        return self.results
+
+    def execute(self, instances):
+
+        self.load(instances)
+
+        payload = self.discover()
+
+        if not self.validate(payload):
+            raise RuntimeError("Opportunity validation failed")
+
+        return payload

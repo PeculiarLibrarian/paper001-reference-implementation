@@ -1,36 +1,39 @@
-import inspect
 import importlib
-import pkgutil
-
-from managers.contract_enforcer import enforce_contract
-from contracts.validation_contract import validate_manager
+import inspect
 
 
-def discover_managers(package_name="managers"):
+def discover_managers():
+    """
+    Contract enforcement:
+    MUST return Dict[str, ManagerInstance]
+    NOT list, NOT tuple.
+    """
 
-    discovered = []
+    package_name = "managers"
 
-    package = importlib.import_module(package_name)
+    registry = {}
 
-    for _, module_name, _ in pkgutil.iter_modules(package.__path__):
+    # You likely already have module list logic — keep simple & deterministic
+    manager_modules = [
+        "ontology_manager",
+        "opportunity_engine",
+        "taxonomy_manager",
+        "shapes_manager",
+        "query_manager",
+        "reasoning_manager",
+        "schema_manager",
+        "field_memory_manager",
+        "semantic_core_manager",
+        "ingestion_manager",
+        "orchestration_manager"
+    ]
 
+    for module_name in manager_modules:
         module = importlib.import_module(f"{package_name}.{module_name}")
 
-        for _, obj in inspect.getmembers(module, inspect.isclass):
+        # find manager class inside module
+        for name, obj in inspect.getmembers(module, inspect.isclass):
+            if name.endswith("Manager") or name.endswith("Engine"):
+                registry[name] = obj()
 
-            if not obj.__module__.startswith(package_name):
-                continue
-
-            try:
-                instance = obj()
-
-                instance = enforce_contract(instance)
-
-                validate_manager(instance)
-
-                discovered.append(instance)
-
-            except Exception:
-                continue
-
-    return discovered
+    return registry
