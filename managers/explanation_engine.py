@@ -1,59 +1,83 @@
-from rdflib import Graph
+from typing import Any, Dict, List
+
+from contracts.manager_contract import ManagerContract
 
 
-class ExplanationEngine:
+class ExplanationEngine(ManagerContract):
 
-    def explain_opportunity(self, graph: Graph, person: str, opportunity: str):
+    @property
+    def name(self) -> str:
+        return "ExplanationEngine"
 
-        query = """
-        PREFIX pl: <https://peculiarlibrarian.org/ontology/>
+    def __init__(self):
+        self.state = {}
 
-        SELECT ?competency
-        WHERE {
-            <PERSON> pl:hasCompetency ?competency .
-            <OPPORTUNITY> pl:requiresCompetency ?competency .
+    def handshake(self):
+        return {
+            "manager": self.name,
+            "version": "1.0",
+            "contract": "manager_contract",
+            "capabilities": [
+                "load",
+                "discover",
+                "validate",
+                "expose",
+                "execute",
+            ],
         }
-        """
 
-        query = query.replace("<PERSON>", f"<{person}>")
-        query = query.replace("<OPPORTUNITY>", f"<{opportunity}>")
+    def load(self):
+        self.state = {}
 
-        results = graph.query(query)
+    def discover(self):
+        return self.state
 
-        evidence = [str(r.competency) for r in results]
+    def validate(self, payload: Dict[str, Any]) -> bool:
+        return isinstance(payload, dict) and "explanations" in payload
 
-        if evidence:
-            explanation = (
-                "Match established via shared competency overlap across ontology graph paths: "
-                + ", ".join(evidence)
-            )
+    def expose(self):
+        return self.state
+
+    def _explain(self, opportunity: Dict[str, Any]) -> Dict[str, Any]:
+
+        label = opportunity.get("opportunity")
+
+        score = opportunity.get("score", 0)
+
+        reasons = []
+
+        if score >= 0.6:
+            reasons.append("Strong semantic match")
+        elif score >= 0.4:
+            reasons.append("Moderate semantic match")
         else:
-            explanation = (
-                "No direct competency overlap detected; match inferred via structural proximity in graph."
-            )
+            reasons.append("Weak structural match")
+
+        raw = opportunity.get("explanation", "")
+        if raw:
+            reasons.append(raw)
 
         return {
-            "person": person,
-            "opportunity": opportunity,
-            "matched_on": evidence,
-            "explanation": explanation
+            "opportunity": label,
+            "score": score,
+            "why": reasons,
         }
 
-    def explain_ranked_list(self, graph: Graph, ranked_list):
+    def execute(self, ranked):
 
-        explained = []
+        # normalize input shape
+        if isinstance(ranked, dict) and "ranked_opportunities" in ranked:
+            ranked = ranked["ranked_opportunities"]
 
-        for item in ranked_list:
+        explanations = []
 
-            explanation = self.explain_opportunity(
-                graph,
-                item["person"],
-                item["opportunity"]
-            )
+        for opp in ranked:
+            explanations.append(self._explain(opp))
 
-            item["explanation"] = explanation["explanation"]
-            item["matched_on"] = explanation["matched_on"]
+        self.state = {
+            "explanations": explanations
+        }
 
-            explained.append(item)
+        assert self.validate(self.state)
 
-        return explained
+        return self.expose()

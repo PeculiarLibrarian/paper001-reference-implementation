@@ -1,65 +1,41 @@
-from rdflib.namespace import RDF, RDFS, OWL
-
-from contracts.manager_contract import ManagerContract
+from rdflib import RDF, OWL
 
 
-class InstanceManager(ManagerContract):
+class InstanceManager:
 
-    def __init__(self):
-        self.instances = {}
+    def load(self):
+        pass
 
-    @property
-    def name(self):
-        return "InstanceManager"
+    def execute(self, context=None):
 
-    def handshake(self):
+        graph = context.get("graph") if isinstance(context, dict) else None
+
+        if graph is None:
+            raise ValueError("InstanceManager requires 'graph' in context")
+
+        instances = []
+
+        for uri in graph.subjects(RDF.type, OWL.Class):
+
+            if "Opportunity" not in str(uri):
+                continue
+
+            instances.append({
+                "uri": str(uri),
+                "label": self._label(graph, uri),
+            })
+
+        # 🔥 CRITICAL FIX: match contract
         return {
-            "manager": self.name,
-            "version": "1.0",
-            "contract": "manager_contract",
-            "capabilities": [
-                "load",
-                "discover",
-                "validate",
-                "expose",
-                "execute",
-            ],
+            "instances": {
+                "opportunities": instances
+            }
         }
 
-    def load(self, graph=None):
-        self.graph = graph
+    def _label(self, graph, uri):
+        from rdflib.namespace import RDFS
 
-    def discover(self):
+        for _, _, label in graph.triples((uri, RDFS.label, None)):
+            return str(label)
 
-        opportunities = []
-
-        for subject, _, obj in self.graph.triples((None, RDF.type, OWL.Class)):
-            uri = str(subject)
-
-            if uri.endswith("Opportunity") or "Opportunity" in uri:
-                opportunities.append({
-                    "uri": uri,
-                    "label": uri.rsplit("/", 1)[-1]
-                })
-
-        self.instances = {
-            "person_competencies": {},
-            "opportunities": opportunities,
-        }
-
-        return self.instances
-
-    def validate(self, payload):
-        return isinstance(payload, dict)
-
-    def expose(self):
-        return self.instances
-
-    def execute(self, graph):
-        self.load(graph)
-        payload = self.discover()
-
-        if not self.validate(payload):
-            raise RuntimeError("Instance validation failed")
-
-        return payload
+        return uri.split("/")[-1]

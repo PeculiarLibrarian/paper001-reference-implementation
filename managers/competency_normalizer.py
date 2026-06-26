@@ -1,40 +1,48 @@
-from rdflib import URIRef
+from contracts.manager_contract import ManagerContract
+from managers.canonicalization_manager import CanonicalizationManager
 
 
-class CompetencyNormalizer:
+class CompetencyNormalizer(ManagerContract):
 
-    def normalize(self, graph):
+    @property
+    def name(self):
+        return "CompetencyNormalizer"
 
-        normalized = set()
+    def __init__(self):
+        self.canonicalizer = CanonicalizationManager()
 
-        mapping = {}
+    def handshake(self):
+        return {
+            "manager": self.name,
+            "version": "1.0",
+            "contract": "manager_contract",
+            "capabilities": [
+                "load",
+                "discover",
+                "validate",
+                "expose",
+                "execute",
+            ],
+        }
 
-        for s, p, o in graph:
+    def load(self):
+        self.canonicalizer.execute()
 
-            s = URIRef(s)
-            p = URIRef(p)
-            o = URIRef(o)
+    def discover(self):
+        return self.canonicalizer.expose()
 
-            # -----------------------------
-            # NORMALIZE COMPETENCY SPACE
-            # -----------------------------
-            if "Capability" in str(o):
+    def validate(self, payload):
+        return len(payload) > 0
 
-                canonical = str(o).replace("Capability", "Competency")
+    def expose(self):
+        return self.canonicalizer.expose()
 
-                mapping[str(o)] = canonical
+    def normalize(self, competency):
+        return self.canonicalizer.canonicalize(competency)
 
-                normalized.add((s, p, URIRef(canonical)))
+    def execute(self):
+        self.load()
+        payload = self.discover()
+        assert self.validate(payload)
+        return self.expose()
 
-            elif "Competency" in str(o):
-
-                normalized.add((s, p, o))
-
-            else:
-
-                normalized.add((s, p, o))
-
-        # rebuild graph-compatible iterable
-        graph.__iter__ = lambda: iter(normalized)
-
-        return graph

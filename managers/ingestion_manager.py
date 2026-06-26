@@ -1,61 +1,62 @@
-"""
-IngestionManager (MECE Layer 1)
-
-Responsibility:
-- Accept raw inputs (files, strings, RDF graphs, TTL, SPARQL results)
-- Normalize into a unified internal representation
-- DO NOT interpret meaning
-- DO NOT validate semantics
-- DO NOT transform ontology logic
-"""
-
-from rdflib import Graph
+from contracts.manager_contract import ManagerContract
 
 
-class IngestionManager:
+class IngestionManager(ManagerContract):
+
+    @property
+    def name(self):
+        return "IngestionManager"
+
     def __init__(self):
-        self.source_type = None
+        self.payload = {}
 
-    def load(self, source):
-        """
-        Load raw input into a normalized graph object.
-        """
-        if isinstance(source, Graph):
-            self.source_type = "rdflib.Graph"
-            return source
+    def handshake(self):
+        return {
+            "manager": self.name,
+            "version": "1.0",
+            "contract": "manager_contract",
+            "capabilities": [
+                "load",
+                "discover",
+                "validate",
+                "expose",
+                "execute",
+            ],
+        }
 
-        if isinstance(source, str):
-            g = Graph()
-            try:
-                g.parse(data=source, format="turtle")
-                self.source_type = "ttl_string"
-                return g
-            except Exception:
-                # fallback: treat as identifier-only graph seed
-                self.source_type = "string_seed"
-                return self._seed_graph(source)
+    def load(self):
+        self.payload = {}
 
-        raise TypeError("Unsupported ingestion type")
+    def discover(self):
+        return self.payload
 
-    def _seed_graph(self, seed):
-        """
-        Minimal deterministic placeholder graph.
-        No inference allowed here.
-        """
-        g = Graph()
-        return g
+    def validate(self, payload):
+        return isinstance(payload, dict)
 
-    def validate(self, graph):
-        """
-        Structural sanity check only.
-        """
-        if graph is None:
-            raise ValueError("Graph cannot be None")
+    def expose(self):
+        return self.payload
 
-        return True
+    def ingest(self, source):
 
-    def expose(self, graph):
-        """
-        Return raw graph unchanged.
-        """
-        return graph
+        self.payload = {
+            "person": source.get("person", {}),
+            "competencies": source.get("competencies", []),
+            "projects": source.get("projects", []),
+            "repositories": source.get("repositories", []),
+            "publications": source.get("publications", []),
+            "organizations": source.get("organizations", []),
+            "evidence": source.get("evidence", []),
+        }
+
+        return self.payload
+
+    def execute(self):
+
+        self.load()
+
+        payload = self.discover()
+
+        assert self.validate(payload)
+
+        return self.expose()
+

@@ -1,35 +1,14 @@
-from contracts.manager_registry import discover_managers
-from managers.opportunity_engine import OpportunityEngine
+from typing import Any, Dict
+
+from orchestrator.execution_engine import ExecutionEngine
 
 
 class Orchestrator:
-    def __init__(self):
-        self.managers = discover_managers()
-        self.engine = OpportunityEngine()
+    """
+    Minimal A2A kernel entrypoint.
+    No knowledge of managers.
+    """
 
-    def run(self, ttl):
-        ontology_manager = self.managers["OntologyManager"]
-
-        ontology = ontology_manager.discover()
-        graph = ontology["graph"]
-        instances = ontology["instances"]
-
-        ranked = self.engine.rank_opportunities(graph, instances)
-
-        return {
-            # 🔑 GLOBAL CONTRACT SURFACE
-            "ready": True,
-            "status": "validated",
-
-            # CORE SUMMARY
-            "summary": {
-                "ontology_triples": len(graph),
-                "ranked_opportunities": len(ranked),
-                "shape_triples": 0
-            },
-
-            # DECISIONS LAYER
-            "decisions": {
-                "ranked_opportunities": ranked
-            }
-        }
+    def run(self, ttl: Any) -> Dict[str, Any]:
+        engine = ExecutionEngine()
+        return engine.run()

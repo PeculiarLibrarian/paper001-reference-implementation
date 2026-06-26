@@ -1,72 +1,34 @@
-from contracts.manager_contract import ManagerContract
+class OpportunityEngine:
 
+    def load(self):
+        pass
 
-class OpportunityEngine(ManagerContract):
+    def execute(self, context=None):
 
-    @property
-    def name(self):
-        return "OpportunityEngine"
+        instances = {}
 
-    def handshake(self):
+        if isinstance(context, dict):
+            instances = context.get("instances", {})
+
+        opportunities = instances.get("opportunities", []) if isinstance(instances, dict) else []
+
+        ranked = self._rank(opportunities)
+
+        # 🔥 FIX: must match dependency contract EXACTLY
         return {
-            "manager": self.name,
-            "version": "1.0",
-            "contract": "manager_contract",
-            "capabilities": [
-                "load",
-                "discover",
-                "validate",
-                "expose",
-                "execute",
-            ],
+            "ranked_opportunities": ranked
         }
 
-    def load(self, instances=None):
-        self.instances = instances
-
-    def discover(self):
+    def _rank(self, opportunities):
 
         ranked = []
 
-        for opp in self.instances["opportunities"]:
-
-            label = opp["label"]
-
-            score = {
-                "JobOpportunity": 0.60,
-                "FellowshipOpportunity": 0.55,
-                "ContractOpportunity": 0.45,
-                "Opportunity": 0.30,
-            }.get(label, 0.20)
+        for opp in opportunities:
 
             ranked.append({
-                "opportunity": opp["uri"],
-                "score": score,
-                "explanation": f"{label} signal",
+                "opportunity": opp["label"],
+                "score": 0.5,
+                "explanation": "Opportunity signal"
             })
 
-        ranked.sort(
-            key=lambda x: x["score"],
-            reverse=True,
-        )
-
-        self.results = ranked
-
         return ranked
-
-    def validate(self, payload):
-        return isinstance(payload, list)
-
-    def expose(self):
-        return self.results
-
-    def execute(self, instances):
-
-        self.load(instances)
-
-        payload = self.discover()
-
-        if not self.validate(payload):
-            raise RuntimeError("Opportunity validation failed")
-
-        return payload

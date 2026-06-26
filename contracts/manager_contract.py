@@ -3,11 +3,6 @@ from typing import Any, Dict
 
 
 class ManagerContract(ABC):
-    """
-    Global A2A protocol.
-
-    Every manager is an autonomous semantic agent.
-    """
 
     @property
     @abstractmethod
@@ -34,18 +29,10 @@ class ManagerContract(ABC):
     def expose(self) -> Dict[str, Any]:
         ...
 
+    # 🔥 NEW UNIFIED EXECUTION CONTRACT
     @abstractmethod
-    def execute(self) -> Dict[str, Any]:
+    def execute(self, context: Dict[str, Any] = None) -> Dict[str, Any]:
         """
-        Canonical A2A entrypoint.
-
-        Internally:
-
-            load()
-            discover()
-            validate()
-            expose()
-
-        Returns the exposed semantic bundle.
+        All managers MUST accept semantic context.
         """
         ...

@@ -1,38 +1,85 @@
-from rdflib import URIRef
+from rdflib import Graph, URIRef
+from rdflib.namespace import SKOS, RDFS
 
 
 class CompetencyInferenceManager:
 
-    def infer(self, graph):
+    def __init__(self):
+        self.graph = Graph()
 
-        inferred_edges = []
+    def handshake(self):
+        return {
+            "manager": "CompetencyInferenceManager",
+            "version": "1.0",
+            "contract": "manager_contract",
+            "capabilities": [
+                "load",
+                "discover",
+                "validate",
+                "expose",
+                "execute",
+            ],
+        }
 
-        for s, p, o in list(graph):
+    def load(self):
+        self.graph.parse(
+            "schemas/taxonomy/competency_registry.ttl",
+            format="turtle",
+        )
 
-            s = str(s)
-            p = str(p)
-            o = str(o)
+    def execute(self):
+        self.load()
 
-            # -----------------------------
-            # TAXONOMY ALIGNMENT RULE
-            # -----------------------------
-            if "Competency" in s and "Capability" in o:
+    def _label(self, uri):
 
-                inferred_edges.append((
-                    URIRef(s),
-                    URIRef("https://peculiarlibrarian.org/ontology/hasCompetency"),
-                    URIRef(o)
-                ))
+        label = self.graph.value(uri, SKOS.prefLabel)
 
-            if "Opportunity" in s and "Competency" in o:
+        if label:
+            return str(label)
 
-                inferred_edges.append((
-                    URIRef(s),
-                    URIRef("https://peculiarlibrarian.org/ontology/requiresCompetency"),
-                    URIRef(o)
-                ))
+        label = self.graph.value(uri, RDFS.label)
 
-        for edge in inferred_edges:
-            graph.add(edge)
+        if label:
+            return str(label)
 
-        return graph
+        return str(uri).split("/")[-1]
+
+    def _node(self, uri):
+
+        return {
+            "uri": str(uri),
+            "label": self._label(uri),
+        }
+
+    def infer(self, competency):
+
+        broader = [
+            self._node(parent)
+            for parent in self.graph.objects(
+                competency,
+                SKOS.broader,
+            )
+        ]
+
+        narrower = [
+            self._node(child)
+            for child in self.graph.subjects(
+                SKOS.broader,
+                competency,
+            )
+        ]
+
+        related = [
+            self._node(rel)
+            for rel in self.graph.objects(
+                competency,
+                SKOS.related,
+            )
+        ]
+
+        return {
+            "competency": self._node(competency),
+            "broader": broader,
+            "narrower": narrower,
+            "related": related,
+        }
