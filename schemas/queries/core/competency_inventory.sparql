@@ -1,0 +1,7 @@
+PREFIX pl: <https://peculiarlibrarian.org/ontology/>
+
+SELECT ?person ?competency
+WHERE {
+    ?person a pl:Person .
+    ?person pl:hasCompetency ?competency .
+}

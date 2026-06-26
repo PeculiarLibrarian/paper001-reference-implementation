@@ -1,0 +1,17 @@
+@prefix pl: <https://peculiarlibrarian.org/ontology/> .
+
+#################################################################
+# CANONICAL CAPABILITY REGISTRY
+#################################################################
+
+pl:CapabilityRegistry
+    pl:contains pl:KnowledgeGraphConstructionCapability ,
+                pl:GraphReasoningCapability ,
+                pl:OntologyAlignmentCapability ,
+                pl:OntologyModelingCapability ,
+                pl:OntologyEvaluationCapability ,
+                pl:SemanticQueryCapability ,
+                pl:QueryOptimizationCapability ,
+                pl:AgentOrchestrationCapability ,
+                pl:AgentCoordinationCapability ,
+                pl:ToolAugmentedAgentsCapability .

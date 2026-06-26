@@ -1,0 +1,25 @@
+@prefix pl: <https://peculiarlibrarian.org/ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+#################################################################
+# COMPETENCY → CAPABILITY BRIDGE (NORMALIZED)
+#################################################################
+
+pl:KnowledgeGraphEngineeringCompetency
+    pl:producesCapability pl:KnowledgeGraphConstructionCapability ;
+    pl:producesCapability pl:GraphReasoningCapability .
+
+pl:OntologyEngineeringCompetency
+    pl:producesCapability pl:OntologyAlignmentCapability ;
+    pl:producesCapability pl:OntologyModelingCapability ;
+    pl:producesCapability pl:OntologyEvaluationCapability .
+
+pl:QueryAndReasoningEngineeringCompetency
+    pl:producesCapability pl:SemanticQueryCapability ;
+    pl:producesCapability pl:GraphReasoningCapability ;
+    pl:producesCapability pl:QueryOptimizationCapability .
+
+pl:AgentSystemsCompetency
+    pl:producesCapability pl:AgentOrchestrationCapability ;
+    pl:producesCapability pl:AgentCoordinationCapability ;
+    pl:producesCapability pl:ToolAugmentedAgentsCapability .

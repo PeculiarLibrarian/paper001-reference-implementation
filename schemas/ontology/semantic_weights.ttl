@@ -1,0 +1,18 @@
+@prefix pl: <https://peculiarlibrarian.org/ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+#################################################################
+# WEIGHTING MODEL
+#################################################################
+
+pl:hasCompetencyWeight
+    a rdf:Property ;
+    rdfs:label "has competency weight" .
+
+pl:hasEvidenceWeight
+    a rdf:Property ;
+    rdfs:label "has evidence weight" .
+
+pl:hasOpportunityScore
+    a rdf:Property ;
+    rdfs:label "has opportunity score" .

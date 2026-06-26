@@ -1,0 +1,56 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+@prefix pltax: <https://peculiarlibrarian.org/taxonomy/> .
+@prefix plrel: <https://peculiarlibrarian.org/relation/> .
+
+#################################################################
+# CAREER TAXONOMY
+#################################################################
+
+pltax:CareerTaxonomy
+    a skos:ConceptScheme ;
+    dct:title "Peculiar Librarian Career Taxonomy" ;
+    dct:creator "Peculiar Librarian" ;
+    dct:description "Machine-readable taxonomy supporting autonomous career intelligence, semantic opportunity matching, competency management, and evidence-driven professional representation." ;
+    dct:issued "2026-06-25"^^xsd:date ;
+    owl:versionInfo "1.0.0" ;
+    skos:prefLabel "Peculiar Librarian Career Taxonomy" .
+
+#################################################################
+# CUSTOM RELATIONS
+#################################################################
+
+plrel:requiresCompetency
+    a rdf:Property ;
+    rdfs:label "requires competency" .
+
+plrel:supportedByTechnology
+    a rdf:Property ;
+    rdfs:label "supported by technology" .
+
+plrel:commonDomain
+    a rdf:Property ;
+    rdfs:label "common domain" .
+
+plrel:producesArtifact
+    a rdf:Property ;
+    rdfs:label "produces artifact" .
+
+plrel:demonstratedByEvidence
+    a rdf:Property ;
+    rdfs:label "demonstrated by evidence" .
+
+plrel:importanceScore
+    a rdf:Property ;
+    rdfs:label "importance score" .
+
+plrel:marketCategory
+    a rdf:Property ;
+    rdfs:label "market category" .
+

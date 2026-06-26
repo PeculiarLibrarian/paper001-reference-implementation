@@ -1,0 +1,22 @@
+@prefix pl: <https://peculiarlibrarian.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pl:Evidence
+    a owl:Class .
+
+pl:supportsCompetency
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Evidence ;
+    rdfs:range pl:Competency .
+
+pl:hasEvidenceWeight
+    a owl:DatatypeProperty ;
+    rdfs:domain pl:Evidence ;
+    rdfs:range xsd:float .
+
+pl:fromArtifact
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Evidence ;
+    rdfs:range pl:Repository .

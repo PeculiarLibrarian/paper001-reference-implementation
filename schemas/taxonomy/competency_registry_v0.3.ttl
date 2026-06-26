@@ -1,0 +1,312 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix pltax: <https://peculiarlibrarian.org/taxonomy/> .
+@prefix plrel: <https://peculiarlibrarian.org/relation/> .
+
+#################################################################
+# TOP COMPETENCIES
+#################################################################
+
+pltax:SemanticOrchestration
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Semantic Orchestration" ;
+    skos:definition "Coordination of semantic assets, workflows, agents, reasoning processes, interoperability mechanisms, and runtime execution." ;
+    skos:scopeNote "Core competency concerned with organizing and governing semantic execution environments." ;
+    plrel:importanceScore 10 ;
+    plrel:supportedByTechnology
+        pltax:MCP ,
+        pltax:LangGraph ,
+        pltax:Python .
+
+pltax:KnowledgeSystemsArchitecture
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Knowledge Systems Architecture" ;
+    skos:definition "Architecture and design of knowledge-centric systems, infrastructures, governance structures, and semantic platforms." ;
+    skos:scopeNote "Focuses on system-level design rather than implementation details." ;
+    plrel:importanceScore 10 .
+
+pltax:KnowledgeRepresentation
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Knowledge Representation" ;
+    skos:definition "Formal representation of concepts, entities, relationships, and meaning using semantic standards." ;
+    plrel:importanceScore 9 ;
+    plrel:supportedByTechnology
+        pltax:RDF ,
+        pltax:RDFS ,
+        pltax:OWL ,
+        pltax:SKOS .
+
+pltax:OntologyEngineering
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Ontology Engineering" ;
+    skos:definition "Design, governance, maintenance, evolution, and implementation of ontologies." ;
+    plrel:importanceScore 9 ;
+    plrel:supportedByTechnology
+        pltax:OWL ,
+        pltax:RDFS ,
+        pltax:SKOS .
+
+pltax:SemanticModeling
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Semantic Modeling" ;
+    skos:definition "Modeling real-world concepts and relationships through formal semantic structures." ;
+    plrel:importanceScore 9 .
+
+pltax:SemanticGovernance
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Semantic Governance" ;
+    skos:definition "Governance of semantic assets, constraints, compliance requirements, and quality controls." ;
+    plrel:importanceScore 8 ;
+    plrel:supportedByTechnology
+        pltax:SHACL .
+
+pltax:KnowledgeGraphEngineering
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Knowledge Graph Engineering" ;
+    skos:definition "Construction, integration, querying, reasoning, and maintenance of knowledge graphs." ;
+    plrel:importanceScore 9 ;
+    plrel:supportedByTechnology
+        pltax:RDF ,
+        pltax:SPARQL ,
+        pltax:GraphDB ,
+        pltax:Fuseki ,
+        pltax:Stardog .
+
+pltax:TaxonomyEngineering
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Taxonomy Engineering" ;
+    skos:definition "Development and governance of controlled vocabularies, classifications, and concept hierarchies." ;
+    plrel:importanceScore 8 ;
+    plrel:supportedByTechnology
+        pltax:SKOS .
+
+pltax:DataInteroperability
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Data Interoperability" ;
+    skos:definition "Ability to exchange, align, integrate, and interpret data across systems." ;
+    plrel:importanceScore 8 ;
+    plrel:supportedByTechnology
+        pltax:RDF ,
+        pltax:OWL ,
+        pltax:SKOS .
+
+pltax:InformationArchitecture
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Information Architecture" ;
+    skos:definition "Organization and structuring of information resources for discoverability, navigation, and use." ;
+    plrel:importanceScore 8 .
+
+pltax:AgentSystems
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Agent Systems" ;
+    skos:definition "Design and orchestration of autonomous and semi-autonomous software agents." ;
+    plrel:importanceScore 9 ;
+    plrel:supportedByTechnology
+        pltax:MCP ,
+        pltax:LangGraph ,
+        pltax:Python .
+
+pltax:ResearchAndAnalysis
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:topConceptOf pltax:CompetencyScheme ;
+    skos:prefLabel "Research and Analysis" ;
+    skos:definition "Systematic investigation, evaluation, synthesis, and interpretation of information." ;
+    plrel:importanceScore 8 .
+
+#################################################################
+# TOP CONCEPT REGISTRATION
+#################################################################
+
+pltax:CompetencyScheme
+    skos:hasTopConcept
+        pltax:SemanticOrchestration ,
+        pltax:KnowledgeSystemsArchitecture ,
+        pltax:KnowledgeRepresentation ,
+        pltax:OntologyEngineering ,
+        pltax:SemanticModeling ,
+        pltax:SemanticGovernance ,
+        pltax:KnowledgeGraphEngineering ,
+        pltax:TaxonomyEngineering ,
+        pltax:DataInteroperability ,
+        pltax:InformationArchitecture ,
+        pltax:AgentSystems ,
+        pltax:ResearchAndAnalysis .
+
+
+#################################################################
+# SEMANTIC ORCHESTRATION
+#################################################################
+
+pltax:SemanticRuntimeDesign
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Semantic Runtime Design" ;
+    skos:definition "Design of runtime environments that execute semantic workflows, reasoning processes, and knowledge operations." ;
+    skos:scopeNote "Concerned with execution environments rather than static knowledge structures." ;
+    plrel:importanceScore 10 ;
+    plrel:supportedByTechnology
+        pltax:Python ,
+        pltax:MCP ,
+        pltax:LangGraph .
+
+pltax:ExecutionGraphEngineering
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Execution Graph Engineering" ;
+    skos:definition "Construction and management of execution graphs representing semantic processing pipelines." ;
+    plrel:importanceScore 10 ;
+    plrel:supportedByTechnology
+        pltax:LangGraph ,
+        pltax:Python .
+
+pltax:KnowledgePipelineEngineering
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Knowledge Pipeline Engineering" ;
+    skos:definition "Design and operation of pipelines that transform, enrich, validate, and distribute knowledge assets." ;
+    plrel:importanceScore 9 ;
+    plrel:supportedByTechnology
+        pltax:Python .
+
+pltax:SemanticWorkflowDesign
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Semantic Workflow Design" ;
+    skos:definition "Design of workflow structures governing semantic operations and decision paths." ;
+    plrel:importanceScore 9 .
+
+pltax:InferenceCoordination
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Inference Coordination" ;
+    skos:definition "Management and orchestration of reasoning activities across semantic systems." ;
+    plrel:importanceScore 9 ;
+    plrel:supportedByTechnology
+        pltax:OWL ,
+        pltax:SPARQL .
+
+pltax:SemanticStateManagement
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Semantic State Management" ;
+    skos:definition "Representation, persistence, transition, and governance of semantic system state." ;
+    plrel:importanceScore 10 .
+
+pltax:SemanticAgentCoordination
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Semantic Agent Coordination" ;
+    skos:definition "Coordination of autonomous agents through shared semantic models and governance structures." ;
+    plrel:importanceScore 10 ;
+    plrel:supportedByTechnology
+        pltax:MCP ,
+        pltax:LangGraph .
+
+pltax:ContextPropagation
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Context Propagation" ;
+    skos:definition "Maintenance and transmission of semantic context across workflows, agents, and system boundaries." ;
+    plrel:importanceScore 9 .
+
+pltax:KnowledgeLifecycleOrchestration
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Knowledge Lifecycle Orchestration" ;
+    skos:definition "Governance and coordination of knowledge creation, validation, publication, evolution, and retirement." ;
+    plrel:importanceScore 9 .
+
+pltax:SemanticInteroperabilityEngineering
+    a skos:Concept ;
+    skos:inScheme pltax:CompetencyScheme ;
+    skos:broader pltax:SemanticOrchestration ;
+    skos:prefLabel "Semantic Interoperability Engineering" ;
+    skos:definition "Engineering of interoperable semantic ecosystems across heterogeneous systems and organizations." ;
+    plrel:importanceScore 10 ;
+    plrel:supportedByTechnology
+        pltax:RDF ,
+        pltax:OWL ,
+        pltax:SKOS ,
+        pltax:SPARQL .
+
+#################################################################
+# EXPLICIT NARROWER RELATIONSHIPS
+#################################################################
+
+pltax:SemanticOrchestration
+    skos:narrower
+        pltax:SemanticRuntimeDesign ,
+        pltax:ExecutionGraphEngineering ,
+        pltax:KnowledgePipelineEngineering ,
+        pltax:SemanticWorkflowDesign ,
+        pltax:InferenceCoordination ,
+        pltax:SemanticStateManagement ,
+        pltax:SemanticAgentCoordination ,
+        pltax:ContextPropagation ,
+        pltax:KnowledgeLifecycleOrchestration ,
+        pltax:SemanticInteroperabilityEngineering .
+
+#################################################################
+# INTERNAL RELATIONSHIPS
+#################################################################
+
+pltax:SemanticRuntimeDesign
+    skos:related
+        pltax:ExecutionGraphEngineering ,
+        pltax:SemanticStateManagement .
+
+pltax:ExecutionGraphEngineering
+    skos:related
+        pltax:KnowledgePipelineEngineering ,
+        pltax:SemanticWorkflowDesign .
+
+pltax:SemanticAgentCoordination
+    skos:related
+        pltax:ContextPropagation ,
+        pltax:SemanticStateManagement .
+
+pltax:SemanticInteroperabilityEngineering
+    skos:related
+        pltax:DataInteroperability ,
+        pltax:KnowledgeRepresentation .
+
+pltax:KnowledgeLifecycleOrchestration
+    skos:related
+        pltax:SemanticGovernance ,
+        pltax:OntologyEngineering .
+

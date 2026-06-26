@@ -1,0 +1,21 @@
+PREFIX pl: <https://peculiarlibrarian.org/ontology/>
+
+SELECT ?person ?opportunity
+       (SUM(?score) AS ?totalScore)
+WHERE {
+
+    ?person pl:instantiatesCompetency ?ci .
+    ?ci pl:instanceOfCompetency ?comp .
+
+    ?opportunity pl:requiresCompetency ?comp .
+
+    OPTIONAL {
+        ?ci pl:hasCompetencyWeight ?cw .
+        ?opportunity pl:hasOpportunityScore ?ow .
+        BIND(?cw * ?ow AS ?score)
+    }
+
+    FILTER(?score > 0)
+}
+GROUP BY ?person ?opportunity
+ORDER BY DESC(?totalScore)
