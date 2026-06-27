@@ -1,36 +1,61 @@
+from contracts.architecture_validator import ArchitectureValidator
 from orchestrator.execution_engine import ExecutionEngine
 
 
 class Orchestrator:
 
     def __init__(self):
+
+        self.validator = ArchitectureValidator()
+
         self.engine = ExecutionEngine()
 
-    def run(self, ttl):
+    def run(self, ttl=None):
+
+        #
+        # Architecture gate
+        #
+
+        self.validator.validate()
+
+        #
+        # Runtime execution
+        #
 
         result = self.engine.run()
 
         outputs = result.get("outputs", {})
 
         ranked = []
+
         explanations = []
 
-        # --------------------------
-        # SAFE CONTRACT ASSEMBLY
-        # --------------------------
-        for _, payload in outputs.items():
+        #
+        # Safe contract assembly
+        #
 
-            if isinstance(payload, dict):
+        for payload in outputs.values():
 
-                if "ranked_opportunities" in payload:
-                    ranked = payload["ranked_opportunities"]
+            if not isinstance(payload, dict):
+                continue
 
-                if "explanations" in payload:
-                    explanations = payload["explanations"]
+            ranked.extend(
+                payload.get(
+                    "ranked_opportunities",
+                    [],
+                )
+            )
+
+            explanations.extend(
+                payload.get(
+                    "explanations",
+                    [],
+                )
+            )
 
         result["decisions"] = {
             "ranked_opportunities": ranked,
-            "explanations": explanations
+            "explanations": explanations,
         }
 
         return result
