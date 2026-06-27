@@ -1,83 +1,66 @@
-from typing import Any, Dict, List
-
-from contracts.manager_contract import ManagerContract
-
-
-class ExplanationEngine(ManagerContract):
-
-    @property
-    def name(self) -> str:
-        return "ExplanationEngine"
-
-    def __init__(self):
-        self.state = {}
-
-    def handshake(self):
-        return {
-            "manager": self.name,
-            "version": "1.0",
-            "contract": "manager_contract",
-            "capabilities": [
-                "load",
-                "discover",
-                "validate",
-                "expose",
-                "execute",
-            ],
-        }
+class ExplanationEngine:
 
     def load(self):
-        self.state = {}
+        pass
 
-    def discover(self):
-        return self.state
+    def execute(self, context=None):
 
-    def validate(self, payload: Dict[str, Any]) -> bool:
-        return isinstance(payload, dict) and "explanations" in payload
+        ranked = (context or {}).get("ranked_opportunities", [])
+        facts = (context or {}).get("facts", [])
 
-    def expose(self):
-        return self.state
+        # index facts by opportunity label
+        fact_index = {}
 
-    def _explain(self, opportunity: Dict[str, Any]) -> Dict[str, Any]:
-
-        label = opportunity.get("opportunity")
-
-        score = opportunity.get("score", 0)
-
-        reasons = []
-
-        if score >= 0.6:
-            reasons.append("Strong semantic match")
-        elif score >= 0.4:
-            reasons.append("Moderate semantic match")
-        else:
-            reasons.append("Weak structural match")
-
-        raw = opportunity.get("explanation", "")
-        if raw:
-            reasons.append(raw)
-
-        return {
-            "opportunity": label,
-            "score": score,
-            "why": reasons,
-        }
-
-    def execute(self, ranked):
-
-        # normalize input shape
-        if isinstance(ranked, dict) and "ranked_opportunities" in ranked:
-            ranked = ranked["ranked_opportunities"]
+        for f in facts:
+            label = f.get("label")
+            if label:
+                fact_index.setdefault(label, []).append(f)
 
         explanations = []
 
         for opp in ranked:
-            explanations.append(self._explain(opp))
 
-        self.state = {
+            label = opp.get("opportunity")
+            score = opp.get("score", 0)
+
+            related_facts = fact_index.get(label, [])
+
+            explanations.append({
+                "opportunity": label,
+                "score": score,
+                "why": self._build_reasoning_chain(opp, related_facts)
+            })
+
+        return {
             "explanations": explanations
         }
 
-        assert self.validate(self.state)
+    def _build_reasoning_chain(self, opp, facts):
 
-        return self.expose()
+        chain = []
+
+        score = opp.get("score", 0)
+
+        # --------------------------
+        # 1. score interpretation
+        # --------------------------
+        if score >= 0.7:
+            chain.append("Strong semantic alignment")
+        elif score >= 0.5:
+            chain.append("Moderate semantic alignment")
+        else:
+            chain.append("Weak structural alignment")
+
+        # --------------------------
+        # 2. fact-driven reasoning
+        # --------------------------
+        for f in facts[:3]:  # limit noise
+            chain.append(f.get("type", "SignalDetected") + " signal")
+
+        # --------------------------
+        # 3. fallback reasoning
+        # --------------------------
+        if not facts:
+            chain.append("Derived from ontology structure")
+
+        return chain
