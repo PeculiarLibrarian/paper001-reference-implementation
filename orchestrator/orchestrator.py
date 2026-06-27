@@ -1,5 +1,8 @@
 from contracts.architecture_validator import ArchitectureValidator
+
 from orchestrator.execution_engine import ExecutionEngine
+
+from kernel.runtime_descriptor import RuntimeDescriptor
 
 
 class Orchestrator:
@@ -10,16 +13,18 @@ class Orchestrator:
 
         self.engine = ExecutionEngine()
 
+        self.runtime = RuntimeDescriptor()
+
     def run(self, ttl=None):
 
         #
-        # Architecture gate
+        # Validate architecture before execution
         #
 
         self.validator.validate()
 
         #
-        # Runtime execution
+        # Execute runtime
         #
 
         result = self.engine.run()
@@ -31,7 +36,7 @@ class Orchestrator:
         explanations = []
 
         #
-        # Safe contract assembly
+        # Assemble decision outputs
         #
 
         for payload in outputs.values():
@@ -54,8 +59,17 @@ class Orchestrator:
             )
 
         result["decisions"] = {
+
             "ranked_opportunities": ranked,
+
             "explanations": explanations,
+
         }
+
+        #
+        # Attach canonical runtime descriptor
+        #
+
+        result["runtime"] = self.runtime.build()
 
         return result
