@@ -1,0 +1,22 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+PREFIX pl:   <https://peculiarlibrarian.org/ontology/>
+PREFIX plrt: <https://peculiarlibrarian.org/runtime/>
+
+SELECT
+    ?stage
+    ?label
+
+WHERE {
+
+    pl:VerificationPipeline
+        pl:hasStage
+        ?stage .
+
+    ?stage
+        skos:prefLabel
+        ?label .
+
+}
+ORDER BY ?label

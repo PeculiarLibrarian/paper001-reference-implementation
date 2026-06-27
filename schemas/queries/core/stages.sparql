@@ -1,0 +1,15 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+PREFIX pl: <https://peculiarlibrarian.org/ontology/>
+
+SELECT
+    ?stage
+
+WHERE {
+
+    ?stage
+        rdf:type
+        pl:Stage .
+
+}
+ORDER BY ?stage

@@ -1,71 +1,97 @@
-from managers.schema_manager import SchemaManager
-from contracts.data_contract import QueryBundle
 from rdflib import Graph
 
+from contracts.data_contract import QueryBundle
 
-class QueryManager(SchemaManager):
+from kernel.query_loader import QueryLoader
+from kernel.query_registry import QueryRegistry
+
+
+class QueryManager:
+
+    @staticmethod
+    def handshake():
+
+        return {
+
+            "manager": "QueryManager",
+
+            "version": "2.0",
+
+            "contract": "manager_contract",
+
+            "capabilities": [
+
+                "load_query",
+
+                "execute_query",
+
+            ],
+
+        }
 
     def discover(self):
-        self.assets = [
-            "schemas/queries/core/competency_coverage.sparql",
-            "schemas/queries/core/competency_inventory.sparql",
-            "schemas/queries/core/competency_taxonomy_mapping.sparql",
-            "schemas/queries/core/opportunity_matching.sparql"
-        ]
+
+        self.assets = {
+
+            "pipeline_stages": QueryRegistry.core("pipeline_stages"),
+
+            "pipelines": QueryRegistry.core("pipelines"),
+
+            "stages": QueryRegistry.core("stages"),
+
+            "artifacts": QueryRegistry.core("artifacts"),
+
+        }
+
+        return self.assets
 
     def load(self):
-        """
-        Load SPARQL queries into a catalog.
-        """
-        self.catalog = {}
 
-        for path in self.assets:
-            try:
-                with open(path, "r") as f:
-                    query_text = f.read()
-                    name = path.split("/")[-1].replace(".sparql", "")
-                    self.catalog[name] = query_text
-            except Exception:
-                continue
+        self.catalog = {
+
+            name: QueryLoader.load(name)
+
+            for name in self.assets
+
+        }
 
         return self.catalog
 
-    def parse(self):
-        """
-        Build executable registry.
-        """
-        self.registry = {
-            name: {
-                "file": name + ".sparql",
-                "query": query
-            }
-            for name, query in self.catalog.items()
-        }
-        return self.registry
-
     def execute(self, graph: Graph, query_name: str):
-        """
-        Execute SPARQL query against ontology graph.
-        """
+
         if query_name not in self.catalog:
+
             raise ValueError(f"Unknown query: {query_name}")
 
         return graph.query(self.catalog[query_name])
 
-    def bind(self, context: dict) -> dict:
+    def bind(self, context):
+
         context["queries"] = QueryBundle(
+
             catalog=self.catalog,
-            registry=self.registry,
-            queries=len(self.catalog)
+
+            registry=self.assets,
+
+            queries=len(self.catalog),
+
         )
+
         return context
 
-    def validate(self, context: dict) -> bool:
+    def validate(self, context):
+
         return isinstance(self.catalog, dict)
 
     def expose(self):
+
         return {
+
             "catalog": self.catalog,
-            "registry": self.registry,
-            "queries": len(self.catalog)
+
+            "registry": self.assets,
+
+            "queries": len(self.catalog),
+
         }
+

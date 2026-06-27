@@ -1,60 +1,57 @@
-from typing import List
-
-from contracts.manager_dependency_contract import ManagerDependencyContract
 from contracts.manager_manifest import ManagerManifest
+from contracts.manager_dependency_contract import ManagerDependencyContract
 
 
 class ExecutionPlanner:
 
-    def plan(self) -> List[str]:
+    def plan(self, profile="default"):
 
-        graph = ManagerDependencyContract.DEPENDENCIES
-        manifest = ManagerManifest.manifest()
+        manifest = ManagerManifest.manifest(profile)
 
-        #
-        # Architectural validation
-        #
+        dependency_graph = ManagerDependencyContract.DEPENDENCIES
 
-        for manager in graph:
+        active_managers = set(manifest.keys())
 
-            if manager not in manifest:
-                raise RuntimeError(
-                    f"{manager} missing from ManagerManifest."
-                )
+        dependency_graph = {
+            manager: spec
+            for manager, spec in dependency_graph.items()
+            if manager in active_managers
+        }
 
         resolved = []
 
-        unresolved = set(graph.keys())
+        unresolved = set(dependency_graph.keys())
 
-        available = set()
+        available_outputs = set()
 
         while unresolved:
 
             progress = False
 
-            for node in list(unresolved):
+            for manager in list(unresolved):
 
-                deps = graph[node]["depends_on"]
+                dependencies = dependency_graph[manager]["depends_on"]
 
-                if all(dep in available for dep in deps):
+                if all(
+                    dependency in available_outputs
+                    for dependency in dependencies
+                ):
 
-                    resolved.append(node)
+                    resolved.append(manager)
 
-                    unresolved.remove(node)
+                    unresolved.remove(manager)
 
-                    #
-                    # publish outputs
-                    #
-
-                    for output in graph[node]["produces"]:
-                        available.add(output)
+                    for produced in dependency_graph[manager]["produces"]:
+                        available_outputs.add(produced)
 
                     progress = True
 
             if not progress:
 
                 raise RuntimeError(
-                    f"Unresolvable dependency graph: {unresolved}"
+                    "Unable to resolve execution profile "
+                    f"'{profile}'. Remaining managers: "
+                    f"{sorted(unresolved)}"
                 )
 
         return resolved

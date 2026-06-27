@@ -1,124 +1,198 @@
-from typing import Dict
-
-
 class ManagerManifest:
-    """
-    Canonical architectural registry.
 
-    Every manager must declare:
+    @staticmethod
+    def manifest(profile: str = "default"):
 
-    - layer
-    - owns
-    - consumes
-    - produces
+        base = {
 
-    The execution planner and validators consume this registry.
-    """
+            "OntologyManager": {
+                "layer": "schema",
+                "produces": ["graph"],
+                "active": True
+            },
 
-    REGISTRY: Dict[str, Dict] = {
+            "InstanceManager": {
+                "layer": "semantic",
+                "produces": ["instances"],
+                "active": True
+            },
 
-        "OntologyManager": {
-            "layer": "schema",
-            "owns": ["ontology"],
-            "consumes": [],
-            "produces": ["graph"],
-        },
+            "SemanticCoreManager": {
+                "layer": "semantic",
+                "produces": ["core"],
+                "active": True
+            },
 
-        "InstanceManager": {
-            "layer": "semantic",
-            "owns": ["instances"],
-            "consumes": ["graph"],
-            "produces": ["instances"],
-        },
+            "ReasoningManager": {
+                "layer": "decision",
+                "produces": ["facts"],
+                "active": True
+            },
 
-        "SemanticCoreManager": {
-            "layer": "semantic",
-            "owns": ["semantic_core"],
-            "consumes": [
-                "graph",
-                "instances",
-            ],
-            "produces": ["core"],
-        },
+            "ProvenanceManager": {
+                "layer": "semantic",
+                "produces": ["provenance"],
+                "active": True
+            },
 
-        "ReasoningManager": {
-            "layer": "decision",
-            "owns": ["reasoning"],
-            "consumes": ["core"],
-            "produces": ["facts"],
-        },
+            "OpportunityEngine": {
+                "layer": "decision",
+                "produces": ["ranked_opportunities"],
+                "active": True
+            },
 
-        "OpportunityEngine": {
-            "layer": "decision",
-            "owns": ["opportunity_ranking"],
-            "consumes": [
-                "instances",
-                "facts",
-            ],
-            "produces": [
-                "ranked_opportunities",
-            ],
-        },
+            "ExplanationEngine": {
+                "layer": "decision",
+                "produces": ["explanations"],
+                "active": True
+            },
 
-        "ExplanationEngine": {
-            "layer": "decision",
-            "owns": ["explanations"],
-            "consumes": [
-                "ranked_opportunities",
-            ],
-            "produces": [
-                "explanations",
-            ],
-        },
+            "TaxonomyManager": {
+                "layer": "schema",
+                "produces": ["taxonomy", "concepts"],
+                "active": True
+            },
 
-        "TaxonomyManager": {
-            "layer": "schema",
-            "owns": ["taxonomy"],
-            "consumes": [],
-            "produces": [
-                "taxonomy",
-                "concepts",
-            ],
-        },
+            "GraphTraversalManager": {
+                "layer": "infrastructure",
+                "produces": ["graph_services"],
+                "active": True
+            },
 
-        "GraphTraversalManager": {
-            "layer": "infrastructure",
-            "owns": [
-                "graph_traversal",
-            ],
-            "consumes": [
-                "graph",
-            ],
-            "produces": [
-                "graph_services",
-            ],
-        },
+            "CanonicalizationManager": {
+                "layer": "infrastructure",
+                "produces": ["canonical_values"],
+                "active": True
+            },
 
-        "CanonicalizationManager": {
-            "layer": "infrastructure",
-            "owns": [
-                "canonicalization",
-            ],
-            "consumes": [],
-            "produces": [
-                "canonical_values",
-            ],
-        },
+            "CompetencyInferenceManager": {
+                "layer": "semantic",
+                "produces": ["inferred_competencies"],
+                "active": True
+            },
 
-        "CompetencyInferenceManager": {
-            "layer": "semantic",
-            "owns": [
-                "competency_inference",
-            ],
-            "consumes": [
-                "core",
-            ],
-            "produces": [
-                "inferred_competencies",
-            ],
-        },
-    }
+            # Optional / extended runtime components
 
-    @classmethod
-    def manifest(cls):
-        return cls.REGISTRY
+            "CompetencyNormalizer": {
+                "layer": "semantic",
+                "produces": ["normalized_competencies"],
+                "active": False
+            },
+
+            "ContractEnforcer": {
+                "layer": "infrastructure",
+                "produces": ["contract_validation"],
+                "active": False
+            },
+
+            "FieldMemoryManager": {
+                "layer": "infrastructure",
+                "produces": ["memory_fields"],
+                "active": False
+            },
+
+            "IngestionManager": {
+                "layer": "infrastructure",
+                "produces": ["raw_inputs"],
+                "active": False
+            },
+
+            "OrchestrationManager": {
+                "layer": "decision",
+                "produces": ["execution_plan"],
+                "active": False
+            },
+
+            "QueryManager": {
+                "layer": "decision",
+                "produces": ["queries"],
+                "active": False
+            },
+
+            "SchemaAuditManager": {
+                "layer": "infrastructure",
+                "produces": ["schema_audit"],
+                "active": False
+            },
+
+            "SHACLEngine": {
+                "layer": "infrastructure",
+                "produces": ["shacl_validation"],
+                "active": False
+            },
+
+            "ShapesManager": {
+                "layer": "infrastructure",
+                "produces": ["shapes"],
+                "active": False
+            },
+
+            "RuntimeHealthManager": {
+                "layer": "infrastructure",
+                "produces": ["health"],
+                "active": True
+            },
+
+            "OntologyManagerBase": {
+                "layer": "infrastructure",
+                "produces": ["ontology_base"],
+                "active": False
+            },
+
+            "CanonicalizationRegistry": {
+                "layer": "infrastructure",
+                "produces": ["canonical_registry"],
+                "active": False
+            },
+
+        }
+
+        # -------------------------
+        # PROFILE FILTERING
+        # -------------------------
+
+        if profile == "minimal":
+
+            return {
+
+                "OntologyManager":
+                    base["OntologyManager"],
+
+                "TaxonomyManager":
+                    base["TaxonomyManager"],
+
+                "InstanceManager":
+                    base["InstanceManager"],
+
+                "SemanticCoreManager":
+                    base["SemanticCoreManager"],
+
+                "CompetencyInferenceManager":
+                    base["CompetencyInferenceManager"],
+
+                "ReasoningManager":
+                    base["ReasoningManager"],
+
+                "ProvenanceManager":
+                    base["ProvenanceManager"],
+
+            }
+
+        if profile == "debug":
+
+            return base  # everything visible
+
+        if profile == "observability":
+
+            return {
+                k: v for k, v in base.items()
+                if v.get("active", False)
+                or v["layer"] == "infrastructure"
+            }
+
+        # default production runtime
+
+        return {
+            k: v for k, v in base.items()
+            if v.get("active", False)
+        }

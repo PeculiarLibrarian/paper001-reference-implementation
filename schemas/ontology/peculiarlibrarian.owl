@@ -224,3 +224,85 @@ pl:documentsProject
     rdfs:domain pl:Repository ;
     rdfs:range pl:Project ;
     rdfs:label "documents project" .
+
+#################################################################
+# EXECUTION MODEL
+#################################################################
+
+pl:Pipeline
+    a owl:Class ;
+    rdfs:label "Pipeline" ;
+    rdfs:comment "A deterministic sequence of executable semantic stages." .
+
+pl:Stage
+    a owl:Class ;
+    rdfs:label "Stage" ;
+    rdfs:comment "An executable semantic unit within a pipeline." .
+
+pl:Artifact
+    a owl:Class ;
+    rdfs:label "Artifact" ;
+    rdfs:comment "A knowledge artifact consumed or produced during execution." .
+
+pl:Execution
+    a owl:Class ;
+    rdfs:label "Execution" ;
+    rdfs:comment "A realized execution of a pipeline." .
+
+pl:Contract
+    a owl:Class ;
+    rdfs:label "Contract" ;
+    rdfs:comment "A semantic contract governing artifacts, stages, or execution." .
+
+#################################################################
+# EXECUTION RELATIONSHIPS
+#################################################################
+
+pl:hasStage
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Pipeline ;
+    rdfs:range pl:Stage ;
+    rdfs:label "has stage" .
+
+pl:dependsOnStage
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Stage ;
+    rdfs:range pl:Stage ;
+    rdfs:label "depends on stage" .
+
+pl:producesArtifact
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Stage ;
+    rdfs:range pl:Artifact ;
+    rdfs:label "produces artifact" .
+
+pl:consumesArtifact
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Stage ;
+    rdfs:range pl:Artifact ;
+    rdfs:label "consumes artifact" .
+
+pl:implementsContract
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Artifact ;
+    rdfs:range pl:Contract ;
+    rdfs:label "implements contract" .
+
+pl:verifiedByContract
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Artifact ;
+    rdfs:range pl:Contract ;
+    rdfs:label "verified by contract" .
+
+pl:realizesPipeline
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Execution ;
+    rdfs:range pl:Pipeline ;
+    rdfs:label "realizes pipeline" .
+
+pl:executesStage
+    a owl:ObjectProperty ;
+    rdfs:domain pl:Execution ;
+    rdfs:range pl:Stage ;
+    rdfs:label "executes stage" .
+
