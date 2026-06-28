@@ -1,31 +1,11 @@
+@prefix fin:  <https://peculiarlibrarian.org/finance/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-
-@prefix fin: <https://peculiarlibrarian.org/finance/> .
-
-####################################################
-# Evidence Record
-####################################################
 
 fin:SafaricomAnnualReport2025
     rdf:type fin:AnnualReport ;
-
-    rdfs:label
-        "Safaricom PLC Annual Report 2025" ;
-
-    fin:describesCompany
-        fin:SafaricomPLC ;
-
-    fin:publicationDate
-        ""^^xsd:date ;
-
-    fin:hasReportingPeriod
-        fin:FY2025 ;
-
-    fin:hasSource
-        "" ;
-
-    fin:status
-        "Catalogued" .
-
+    fin:describesCompany fin:SafaricomPLC ;
+    fin:publicationDate "2025-06-30"^^xsd:date ;
+    fin:hasReportingPeriod fin:FY2025 ;
+    fin:hasSource "Safaricom PLC Annual Report 2025" ;
+    fin:status "Verified" .
