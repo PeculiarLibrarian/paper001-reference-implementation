@@ -1,0 +1,30 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+fin:SafaricomPLC
+    rdf:type fin:Company ;
+    rdfs:label "Safaricom PLC" ;
+    fin:ticker "SCOM" ;
+    fin:status "Listed" ;
+    fin:belongsToSector fin:Telecommunications ;
+    fin:domiciledIn fin:Kenya ;
+    fin:tradesInCurrency fin:KES ;
+    fin:issuesSecurity fin:SCOM .
+
+fin:SCOM
+    rdf:type fin:Equity ;
+    rdfs:label "Safaricom PLC Ordinary Shares" ;
+    fin:issuedBy fin:SafaricomPLC ;
+    fin:listedOn fin:NSE .
+
+fin:NSE
+    fin:listsSecurity fin:SCOM ;
+    fin:operatesWithin fin:KenyanCapitalMarket .
+
+fin:KenyanCapitalMarket
+    rdf:type fin:Market ;
+    rdfs:label "Kenyan Capital Market" ;
+    fin:containsExchange fin:NSE .
+

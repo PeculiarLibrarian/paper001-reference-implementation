@@ -42,6 +42,30 @@ Infrastructure must never become the source of truth.
 
 ---
 
+## Collections are the product.
+
+Software is infrastructure.
+
+Collections are the product.
+
+A collection is a curated body of governed knowledge.
+
+Every collection contains its own ontology, taxonomy, shapes, queries, and instances.
+
+The librarian does not create knowledge.
+
+The librarian curates collections.
+
+New domains are introduced by curating new collections, never by rewriting infrastructure.
+
+Infrastructure should stabilize.
+
+Collections should evolve.
+
+The library grows through knowledge, not through code.
+
+---
+
 ## Every collection has a custodian.
 
 Each schema has a dedicated manager.

@@ -1,0 +1,32 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+####################################################
+# Reporting Period
+####################################################
+
+fin:ReportingPeriod
+    rdf:type rdfs:Class .
+
+fin:FY2021
+    rdf:type fin:ReportingPeriod ;
+    rdfs:label "Financial Year 2021" .
+
+fin:FY2022
+    rdf:type fin:ReportingPeriod ;
+    rdfs:label "Financial Year 2022" .
+
+fin:FY2023
+    rdf:type fin:ReportingPeriod ;
+    rdfs:label "Financial Year 2023" .
+
+fin:FY2024
+    rdf:type fin:ReportingPeriod ;
+    rdfs:label "Financial Year 2024" .
+
+fin:FY2025
+    rdf:type fin:ReportingPeriod ;
+    rdfs:label "Financial Year 2025" .
+

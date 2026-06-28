@@ -1,0 +1,88 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix lib: <https://peculiarlibrarian.org/library/> .
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+####################################################
+# Collection Ontology
+####################################################
+
+lib:Collection
+    a owl:Class ;
+    rdfs:label "Collection" .
+
+lib:SemanticArtifact
+    a owl:Class ;
+    rdfs:label "Semantic Artifact" .
+
+####################################################
+# Collection Properties
+####################################################
+
+lib:containsArtifact
+    a owl:ObjectProperty ;
+    rdfs:domain lib:Collection ;
+    rdfs:range lib:SemanticArtifact .
+
+lib:hasCustodian
+    a owl:DatatypeProperty .
+
+lib:hasVersion
+    a owl:DatatypeProperty .
+
+lib:hasStatus
+    a owl:DatatypeProperty .
+
+####################################################
+# Finance Collection
+####################################################
+
+fin:FinanceCollection
+    a lib:Collection ;
+
+    rdfs:label "Finance Collection" ;
+
+    lib:hasCustodian "Head Librarian" ;
+
+    lib:hasVersion "0.1.0" ;
+
+    lib:hasStatus "Active" .
+
+####################################################
+# Artifacts
+####################################################
+
+fin:FinanceOntology
+    a lib:SemanticArtifact ;
+    rdfs:label "finance.owl" .
+
+fin:FinanceTaxonomy
+    a lib:SemanticArtifact ;
+    rdfs:label "finance_taxonomy.ttl" .
+
+fin:FinanceShapes
+    a lib:SemanticArtifact ;
+    rdfs:label "finance_shapes.ttl" .
+
+fin:FinanceQueries
+    a lib:SemanticArtifact ;
+    rdfs:label "finance_queries" .
+
+fin:FinanceInstances
+    a lib:SemanticArtifact ;
+    rdfs:label "finance_instances" .
+
+####################################################
+# Membership
+####################################################
+
+fin:FinanceCollection
+    lib:containsArtifact fin:FinanceOntology ;
+    lib:containsArtifact fin:FinanceTaxonomy ;
+    lib:containsArtifact fin:FinanceShapes ;
+    lib:containsArtifact fin:FinanceQueries ;
+    lib:containsArtifact fin:FinanceInstances .
+

@@ -1,0 +1,19 @@
+@prefix pl: <https://peculiarlibrarian.org/ontology/> .
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+fin:NSEActiveInvestorPipeline
+
+    a pl:Pipeline ;
+
+    pl:hasStage fin:MarketObservation ;
+
+    pl:hasStage fin:OpportunityInference ;
+
+    pl:hasStage fin:RiskEvaluation ;
+
+    pl:hasStage fin:CapitalAllocation ;
+
+    pl:hasStage fin:OrderGeneration ;
+
+    pl:hasStage fin:ExecutionSimulation .
+

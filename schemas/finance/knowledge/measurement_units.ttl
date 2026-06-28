@@ -1,0 +1,9 @@
+
+####################################################
+# Measurement Scale
+####################################################
+
+fin:NoScale
+    rdf:type fin:MeasurementScale ;
+    rdfs:label "No Scale" .
+

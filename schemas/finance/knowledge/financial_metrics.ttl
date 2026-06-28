@@ -1,0 +1,87 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+####################################################
+# Financial Metric Class
+####################################################
+
+fin:FinancialMetric
+    rdf:type rdfs:Class .
+
+####################################################
+# Income Statement Metrics
+####################################################
+
+fin:Revenue
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Revenue" ;
+    fin:belongsToStatement fin:IncomeStatement .
+
+fin:OperatingProfit
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Operating Profit" ;
+    fin:belongsToStatement fin:IncomeStatement .
+
+fin:NetProfit
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Net Profit" ;
+    fin:belongsToStatement fin:IncomeStatement .
+
+fin:EarningsPerShare
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Earnings Per Share" ;
+    fin:belongsToStatement fin:IncomeStatement .
+
+####################################################
+# Balance Sheet Metrics
+####################################################
+
+fin:Assets
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Total Assets" ;
+    fin:belongsToStatement fin:BalanceSheet .
+
+fin:Liabilities
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Total Liabilities" ;
+    fin:belongsToStatement fin:BalanceSheet .
+
+fin:Equity
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Shareholders' Equity" ;
+    fin:belongsToStatement fin:BalanceSheet .
+
+####################################################
+# Cash Flow Metrics
+####################################################
+
+fin:OperatingCashFlow
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Operating Cash Flow" ;
+    fin:belongsToStatement fin:CashFlowStatement .
+
+fin:FreeCashFlow
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Free Cash Flow" ;
+    fin:belongsToStatement fin:CashFlowStatement .
+
+####################################################
+# Statement of Changes in Equity Metrics
+####################################################
+
+fin:RetainedEarnings
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Retained Earnings" ;
+    fin:belongsToStatement fin:StatementOfEquity .
+
+####################################################
+# Dividend Metrics
+####################################################
+
+fin:DividendPerShare
+    rdf:type fin:FinancialMetric ;
+    rdfs:label "Dividend Per Share" ;
+    fin:belongsToStatement fin:IncomeStatement .
+

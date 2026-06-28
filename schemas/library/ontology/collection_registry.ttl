@@ -1,0 +1,29 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix lib: <https://peculiarlibrarian.org/library/> .
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+####################################################
+# Collection Registry
+####################################################
+
+lib:CollectionRegistry
+    rdf:type lib:SemanticArtifact ;
+    rdfs:label "Collection Registry" .
+
+####################################################
+# Registered Collections
+####################################################
+
+fin:FinanceCollection
+    rdf:type lib:Collection ;
+    rdfs:label "Finance Collection" .
+
+####################################################
+# Registry Membership
+####################################################
+
+lib:CollectionRegistry
+    lib:containsArtifact
+        fin:FinanceCollection .

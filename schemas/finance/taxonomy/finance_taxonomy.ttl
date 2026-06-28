@@ -1,0 +1,48 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+fin:FinanceTaxonomy
+
+    a skos:ConceptScheme ;
+
+    skos:prefLabel "Finance Taxonomy" .
+
+####################################################
+
+fin:MarketObservation
+
+    a skos:Concept ;
+
+    skos:inScheme fin:FinanceTaxonomy .
+
+fin:OpportunityInference
+
+    a skos:Concept ;
+
+    skos:inScheme fin:FinanceTaxonomy .
+
+fin:RiskEvaluation
+
+    a skos:Concept ;
+
+    skos:inScheme fin:FinanceTaxonomy .
+
+fin:CapitalAllocation
+
+    a skos:Concept ;
+
+    skos:inScheme fin:FinanceTaxonomy .
+
+fin:OrderGeneration
+
+    a skos:Concept ;
+
+    skos:inScheme fin:FinanceTaxonomy .
+
+fin:ExecutionSimulation
+
+    a skos:Concept ;
+
+    skos:inScheme fin:FinanceTaxonomy .
+

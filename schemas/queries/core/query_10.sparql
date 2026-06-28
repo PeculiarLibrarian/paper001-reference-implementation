@@ -1,0 +1,24 @@
+# Query 10 - Safaricom Multi-Metric Financial Synthesis
+
+SELECT ?year ?revenue ?netProfit ?eps ?fcf
+WHERE {
+    ?r a fin:Observation ;
+       fin:hasMetric fin:Revenue ;
+       fin:hasReportingPeriod ?year ;
+       fin:value ?revenue .
+
+    ?n a fin:Observation ;
+       fin:hasMetric fin:NetProfit ;
+       fin:hasReportingPeriod ?year ;
+       fin:value ?netProfit .
+
+    ?e a fin:Observation ;
+       fin:hasMetric fin:EarningsPerShare ;
+       fin:hasReportingPeriod ?year ;
+       fin:value ?eps .
+
+    ?f a fin:Observation ;
+       fin:hasMetric fin:FreeCashFlow ;
+       fin:hasReportingPeriod ?year ;
+       fin:value ?fcf .
+}

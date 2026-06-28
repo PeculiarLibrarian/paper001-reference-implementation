@@ -1,0 +1,74 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+####################################################
+# Operating Cash Flow Observations
+####################################################
+
+fin:SafaricomOperatingCashFlowFY2021
+    rdf:type fin:Observation ;
+    fin:observesCompany fin:SafaricomPLC ;
+    fin:hasMetric fin:OperatingCashFlow ;
+    fin:hasReportingPeriod fin:FY2021 ;
+    fin:value "105377.4"^^xsd:decimal ;
+    fin:hasCurrency fin:KenyanShilling ;
+    fin:hasScale fin:Million ;
+    fin:derivedFromEvidence fin:SafaricomAnnualReport2021 ;
+    fin:hasCitation fin:SafaricomOperatingCashFlowCitationFY2021 ;
+    fin:hasObservationStatus fin:Verified ;
+    fin:hasObservationConfidence fin:HighConfidence .
+
+fin:SafaricomOperatingCashFlowFY2022
+    rdf:type fin:Observation ;
+    fin:observesCompany fin:SafaricomPLC ;
+    fin:hasMetric fin:OperatingCashFlow ;
+    fin:hasReportingPeriod fin:FY2022 ;
+    fin:value "110700.5"^^xsd:decimal ;
+    fin:hasCurrency fin:KenyanShilling ;
+    fin:hasScale fin:Million ;
+    fin:derivedFromEvidence fin:SafaricomAnnualReport2022 ;
+    fin:hasCitation fin:SafaricomOperatingCashFlowCitationFY2022 ;
+    fin:hasObservationStatus fin:Verified ;
+    fin:hasObservationConfidence fin:HighConfidence .
+
+fin:SafaricomOperatingCashFlowFY2023
+    rdf:type fin:Observation ;
+    fin:observesCompany fin:SafaricomPLC ;
+    fin:hasMetric fin:OperatingCashFlow ;
+    fin:hasReportingPeriod fin:FY2023 ;
+    fin:value "116151.1"^^xsd:decimal ;
+    fin:hasCurrency fin:KenyanShilling ;
+    fin:hasScale fin:Million ;
+    fin:derivedFromEvidence fin:SafaricomAnnualReport2024 ;
+    fin:hasCitation fin:SafaricomOperatingCashFlowCitationFY2023 ;
+    fin:hasObservationStatus fin:Verified ;
+    fin:hasObservationConfidence fin:HighConfidence .
+
+fin:SafaricomOperatingCashFlowFY2024
+    rdf:type fin:Observation ;
+    fin:observesCompany fin:SafaricomPLC ;
+    fin:hasMetric fin:OperatingCashFlow ;
+    fin:hasReportingPeriod fin:FY2024 ;
+    fin:value "107923.6"^^xsd:decimal ;
+    fin:hasCurrency fin:KenyanShilling ;
+    fin:hasScale fin:Million ;
+    fin:derivedFromEvidence fin:SafaricomAnnualReport2024 ;
+    fin:hasCitation fin:SafaricomOperatingCashFlowCitationFY2024 ;
+    fin:hasObservationStatus fin:Verified ;
+    fin:hasObservationConfidence fin:HighConfidence .
+
+fin:SafaricomOperatingCashFlowFY2025
+    rdf:type fin:Observation ;
+    fin:observesCompany fin:SafaricomPLC ;
+    fin:hasMetric fin:OperatingCashFlow ;
+    fin:hasReportingPeriod fin:FY2025 ;
+    fin:value "137693.9"^^xsd:decimal ;
+    fin:hasCurrency fin:KenyanShilling ;
+    fin:hasScale fin:Million ;
+    fin:derivedFromEvidence fin:SafaricomAnnualReport2025 ;
+    fin:hasCitation fin:SafaricomOperatingCashFlowCitationFY2025 ;
+    fin:hasObservationStatus fin:Verified ;
+    fin:hasObservationConfidence fin:HighConfidence .
+

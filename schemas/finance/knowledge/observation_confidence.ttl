@@ -1,0 +1,28 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix fin: <https://peculiarlibrarian.org/finance/> .
+
+####################################################
+# Observation Confidence
+####################################################
+
+fin:ObservationConfidence
+    rdf:type rdfs:Class .
+
+####################################################
+# Confidence Levels
+####################################################
+
+fin:HighConfidence
+    rdf:type fin:ObservationConfidence ;
+    rdfs:label "High Confidence" .
+
+fin:MediumConfidence
+    rdf:type fin:ObservationConfidence ;
+    rdfs:label "Medium Confidence" .
+
+fin:LowConfidence
+    rdf:type fin:ObservationConfidence ;
+    rdfs:label "Low Confidence" .
+
