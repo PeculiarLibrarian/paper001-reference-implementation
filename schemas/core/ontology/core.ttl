@@ -1,0 +1,105 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core: <https://peculiarlibrary.org/ontology/core#> .
+
+<https://peculiarlibrary.org/ontology/core>
+    a owl:Ontology ;
+    rdfs:label "Peculiar Librarian Platform Kernel" ;
+    owl:versionInfo "6.1.0" ;
+    owl:imports
+        <http://www.w3.org/ns/prov-o#>,
+        <http://www.w3.org/2006/time#> .
+
+########################################################
+# FOUNDATION
+########################################################
+
+core:TemporalStatement
+    a owl:Class ;
+    skos:definition "A statement whose validity is bounded in time." .
+
+core:Association
+    a owl:Class ;
+    rdfs:subClassOf core:TemporalStatement ;
+    skos:definition "Generic root for reified n-ary relationships." .
+
+core:Membership
+    a owl:Class ;
+    rdfs:subClassOf core:Association ;
+    skos:definition "Temporal participation of an agent in a collection." .
+
+########################################################
+# RESULT HIERARCHY
+########################################################
+
+core:Result
+    a owl:Class ;
+    skos:definition "Abstract result produced by an observation." .
+
+core:NumericResult
+    a owl:Class ;
+    rdfs:subClassOf core:Result .
+
+core:ReferenceResult
+    a owl:Class ;
+    rdfs:subClassOf core:Result ;
+    skos:definition "Result referring to controlled reference data." .
+
+########################################################
+# OBSERVATION MODEL
+########################################################
+
+core:Observation
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "Evidence-bearing observation." .
+
+core:Event
+    a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    skos:definition "An event producing or modifying observations." .
+
+########################################################
+# OBJECT PROPERTIES
+########################################################
+
+core:hasParticipant
+    a owl:ObjectProperty ;
+    rdfs:domain core:Association .
+
+core:hasSubject
+    a owl:ObjectProperty ;
+    rdfs:domain core:Association .
+
+core:hasObject
+    a owl:ObjectProperty ;
+    rdfs:domain core:Association .
+
+core:hasResult
+    a owl:ObjectProperty ;
+    rdfs:domain core:Observation ;
+    rdfs:range core:Result .
+
+core:generatedBy
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasGeneratedBy ;
+    rdfs:domain core:Observation ;
+    rdfs:range core:Event .
+
+########################################################
+# DATATYPE PROPERTIES
+########################################################
+
+core:validFrom
+    a owl:DatatypeProperty ;
+    rdfs:domain core:TemporalStatement ;
+    rdfs:range xsd:date .
+
+core:validTo
+    a owl:DatatypeProperty ;
+    rdfs:domain core:TemporalStatement ;
+    rdfs:range xsd:date .
