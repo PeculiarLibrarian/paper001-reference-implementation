@@ -1,0 +1,47 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix core: <https://peculiarlibrary.org/ontology/core#> .
+@prefix fin:  <https://peculiarlibrary.org/ontology/finance#> .
+
+########################################################
+# FINANCIAL OBSERVATION VALIDATION CONTRACT
+########################################################
+
+fin:FinancialObservationShape
+    a sh:NodeShape ;
+    sh:targetClass fin:FinancialObservation ;
+
+    # subject axis
+    sh:property [
+        sh:path fin:observedEntity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    # result must be reified monetary object
+    sh:property [
+        sh:path core:hasResult ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class fin:MonetaryResult ;
+    ] ;
+
+    # temporal anchoring
+    sh:property [
+        sh:path core:validFrom ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date ;
+    ] ;
+
+    sh:property [
+        sh:path core:validTo ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date ;
+    ] ;
+
+    # reporting basis constraint
+    sh:property [
+        sh:path fin:hasReportingBasis ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
