@@ -1,48 +1,126 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix finance: <https://peculiarlibrarian.org/finance/taxonomy#> .
 
-@prefix fin: <https://peculiarlibrarian.org/finance/> .
+#################################################################
+# Finance Concept Scheme
+#################################################################
 
-fin:FinanceTaxonomy
-
+finance:FinanceTaxonomy
     a skos:ConceptScheme ;
+    skos:prefLabel "Finance Taxonomy"@en ;
+    skos:definition "Controlled vocabulary for financial knowledge."@en .
 
-    skos:prefLabel "Finance Taxonomy" .
+#################################################################
+# Company
+#################################################################
 
-####################################################
-
-fin:MarketObservation
-
+finance:Company
     a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Company"@en .
 
-    skos:inScheme fin:FinanceTaxonomy .
+#################################################################
+# Financial Statements
+#################################################################
 
-fin:OpportunityInference
-
+finance:IncomeStatement
     a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Income Statement"@en .
 
-    skos:inScheme fin:FinanceTaxonomy .
-
-fin:RiskEvaluation
-
+finance:BalanceSheet
     a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Balance Sheet"@en .
 
-    skos:inScheme fin:FinanceTaxonomy .
-
-fin:CapitalAllocation
-
+finance:CashFlowStatement
     a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Cash Flow Statement"@en .
 
-    skos:inScheme fin:FinanceTaxonomy .
+#################################################################
+# Metrics
+#################################################################
 
-fin:OrderGeneration
-
+finance:Revenue
     a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Revenue"@en .
 
-    skos:inScheme fin:FinanceTaxonomy .
-
-fin:ExecutionSimulation
-
+finance:OperatingProfit
     a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Operating Profit"@en .
 
-    skos:inScheme fin:FinanceTaxonomy .
+finance:NetProfit
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Net Profit"@en .
 
+finance:EPS
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Earnings Per Share"@en .
+
+finance:Dividend
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Dividend"@en .
+
+finance:TotalAssets
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Total Assets"@en .
+
+finance:TotalLiabilities
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Total Liabilities"@en .
+
+finance:Equity
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Equity"@en .
+
+finance:OperatingCashFlow
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Operating Cash Flow"@en .
+
+finance:FreeCashFlow
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Free Cash Flow"@en .
+
+#################################################################
+# Reporting Periods
+#################################################################
+
+finance:FY2025
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "FY2025"@en .
+
+#################################################################
+# Units
+#################################################################
+
+finance:KES
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Kenyan Shilling"@en .
+
+finance:Millions
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Millions"@en .
+
+finance:Billions
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Billions"@en .
+
+finance:Percent
+    a skos:Concept ;
+    skos:inScheme finance:FinanceTaxonomy ;
+    skos:prefLabel "Percent"@en .
