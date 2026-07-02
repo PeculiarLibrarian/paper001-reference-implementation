@@ -1,0 +1,23 @@
+{
+  "registry_id": "peculiarlibrarian.registry.namespaces",
+  "version": "1.0.0",
+  "description": "Reserved identifier namespaces.",
+  "items": [
+    {
+      "prefix": "scom",
+      "purpose": "Timeless domain entities"
+    },
+    {
+      "prefix": "obs",
+      "purpose": "Temporal observations"
+    },
+    {
+      "prefix": "prov",
+      "purpose": "Evidence and provenance anchors"
+    },
+    {
+      "prefix": "system",
+      "purpose": "Kernel metadata"
+    }
+  ]
+}

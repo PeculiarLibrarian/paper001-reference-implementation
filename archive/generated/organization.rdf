@@ -1,0 +1,404 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:org="https://peculiarlibrary.org/ontology/organization#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:vann="http://purl.org/vocab/vann/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#" > 
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#SignificantInfluence">
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipBasis"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#IAS29">
+    <skos:prefLabel>IAS 29</skos:prefLabel>
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#FinancialReportingFramework"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A0">
+    <rdf:rest rdf:nodeID="A1"/>
+    <rdf:first rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#CorporateRestructuringEvent">
+    <skos:definition>A legal or operational event transforming one or more organizations (e.g., Repurposing).</skos:definition>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <rdfs:label>Corporate Restructuring Event</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#controlBasis">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#ControlBasis"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#ControlStatement"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isControlBasisFor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A2">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="https://peculiarlibrary.org/ontology/organization#Identifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#Organization">
+    <rdfs:subClassOf rdf:nodeID="A3"/>
+    <skos:definition>A timeless legal or corporate anchor (e.g., Safaricom PLC).</skos:definition>
+    <rdfs:label>Organization</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#hasState">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isStateOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A4">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#ListingStatus"/>
+    <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:maxQualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#listingStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A5">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#controller"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#Private">
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#ListingStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#OwnershipBasis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#TemporalStatement">
+    <skos:definition>An assertion valid for a specific period (Entity-State realization).</skos:definition>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <rdfs:label>Temporal Statement</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A3">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:minQualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#hasState"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isReportingCurrencyOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#identifiesOrganization">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A6">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipBasis"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#ownershipBasis"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#IFRS">
+    <skos:prefLabel>IFRS</skos:prefLabel>
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#FinancialReportingFramework"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#EquityOwnership">
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipBasis"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A7">
+    <owl:members rdf:nodeID="A0"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isControllerOf">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#ControlStatement"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#economicInterestPercentage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization.owl">
+    <vann:preferredNamespaceUri>https://peculiarlibrary.org/ontology/organization#</vann:preferredNamespaceUri>
+    <vann:preferredNamespacePrefix>org</vann:preferredNamespacePrefix>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-06-29</dcterms:modified>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-06-29</dcterms:created>
+    <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
+    <owl:backwardCompatibleWith rdf:resource="https://peculiarlibrary.org/ontology/v2.5.0/organization.owl"/>
+    <owl:priorVersion rdf:resource="https://peculiarlibrary.org/ontology/v2.8.0/organization.owl"/>
+    <owl:versionIRI rdf:resource="https://peculiarlibrary.org/ontology/v3.0.0/organization.owl"/>
+    <owl:versionInfo>3.0.0</owl:versionInfo>
+    <skos:definition>The definitive actor model for the Safaricom Knowledge Graph, strictly separating timeless entities from versioned states, investment linkages, and restructuring events.</skos:definition>
+    <rdfs:label>Peculiar Librarian Organization Module</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A8">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#ControlBasis"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#controlBasis"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A9">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#investee"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isReportingFrameworkFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A10">
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#legalName"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#ISIN">
+    <rdfs:label>ISIN</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#hasJurisdiction">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Country"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isJurisdictionFor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#Location">
+    <rdfs:label>Location</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#legalName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#ownershipBasis">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipBasis"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipStatement"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isOwnershipBasisFor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#OrganizationState">
+    <rdfs:subClassOf rdf:nodeID="A11"/>
+    <rdfs:subClassOf rdf:nodeID="A4"/>
+    <rdfs:subClassOf rdf:nodeID="A10"/>
+    <owl:disjointWith rdf:resource="https://peculiarlibrary.org/ontology/organization#InvestmentStatement"/>
+    <rdfs:label>Organization State</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#TemporalStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#StockTicker">
+    <rdfs:label>Stock Ticker</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#InvestmentStatement">
+    <rdfs:subClassOf rdf:nodeID="A9"/>
+    <rdfs:label>Investment Statement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#TemporalStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#hadParticipant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#investor">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipStatement"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isInvestorOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#KES">
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#Currency"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#GRI">
+    <skos:prefLabel>GRI</skos:prefLabel>
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#SustainabilityReportingFramework"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#SustainabilityReportingFramework">
+    <rdfs:label>Sustainability Reporting Framework</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#ReportingFramework"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#FinancialReportingFramework">
+    <rdfs:label>Financial Reporting Framework</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#ReportingFramework"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#ControlStatement">
+    <rdfs:subClassOf rdf:nodeID="A8"/>
+    <rdfs:subClassOf rdf:nodeID="A5"/>
+    <rdfs:label>Control Statement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#InvestmentStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#IntegratedReportingFramework">
+    <rdfs:label>Integrated Reporting Framework</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#ReportingFramework"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#Country">
+    <rdfs:label>Country</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#reportingFramework">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#ReportingFramework"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isReportingFrameworkFor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#Currency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#reportedIn">
+    <skos:definition>Relates a statement to the specific Annual Report publication.</skos:definition>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#TemporalStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isControlBasisFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#IFRS10Control">
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#ControlBasis"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#IIRF">
+    <skos:prefLabel>International Integrated Reporting Framework</skos:prefLabel>
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#IntegratedReportingFramework"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A12">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#investor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isListingStatusOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isInvesteeOf">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#InvestmentStatement"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#ControlBasis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#OwnershipStatement">
+    <rdfs:subClassOf rdf:nodeID="A6"/>
+    <rdfs:subClassOf rdf:nodeID="A12"/>
+    <owl:disjointWith rdf:resource="https://peculiarlibrary.org/ontology/organization#ControlStatement"/>
+    <rdfs:label>Ownership Statement</rdfs:label>
+    <rdfs:subClassOf rdf:resource="https://peculiarlibrary.org/ontology/organization#InvestmentStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isJurisdictionFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isStateOf">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#ListingStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#listingStatus">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#ListingStatus"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isListingStatusOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#Identifier">
+    <skos:definition>Abstract superclass for structured identity instances.</skos:definition>
+    <rdfs:label>Identifier</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isInvestorOf">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipStatement"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A13">
+    <rdf:rest rdf:nodeID="A2"/>
+    <rdf:first rdf:resource="https://peculiarlibrary.org/ontology/organization#Location"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#votingRightsPercentage">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OwnershipStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#investee">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#InvestmentStatement"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isInvesteeOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#ReportingFramework">
+    <rdfs:label>Reporting Framework</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A1">
+    <rdf:rest rdf:nodeID="A13"/>
+    <rdf:first rdf:resource="https://peculiarlibrary.org/ontology/organization#Country"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#reportingCurrency">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Currency"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#OrganizationState"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isReportingCurrencyOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#hasIdentifier">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Identifier"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#identifiesOrganization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#controller">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#ControlStatement"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#isControllerOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="A11">
+    <owl:onClass rdf:resource="https://peculiarlibrary.org/ontology/organization#Country"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="https://peculiarlibrary.org/ontology/organization#hasJurisdiction"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#Listed">
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#ListingStatus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#isOwnershipBasisFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#participatedIn">
+    <rdfs:range rdf:resource="https://peculiarlibrary.org/ontology/organization#CorporateRestructuringEvent"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#Organization"/>
+    <owl:inverseOf rdf:resource="https://peculiarlibrary.org/ontology/organization#hadParticipant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#effectiveTo">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#TemporalStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#effectiveFrom">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="https://peculiarlibrary.org/ontology/organization#TemporalStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://peculiarlibrary.org/ontology/organization#ETB">
+    <rdf:type rdf:resource="https://peculiarlibrary.org/ontology/organization#Currency"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+</rdf:RDF>

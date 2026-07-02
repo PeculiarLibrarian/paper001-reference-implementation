@@ -1,0 +1,13 @@
+{
+  "registry_id": "peculiarlibrarian.registry.opcodes",
+  "version": "1.0.0",
+  "description": "Normative opcode registry.",
+  "items": [
+    "CONSTRUCT",
+    "LINK",
+    "OBSERVE",
+    "PROVE",
+    "RETRACT",
+    "SUPERSEDE"
+  ]
+}

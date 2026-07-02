@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "dataset": "Safaricom FY2021-FY2025 Canonical Financial Record",
+    "version": "1.0.0",
+    "status": "authoritative",
+    "currency": "KES",
+    "unit": "KShs million",
+    "publisher": "Safaricom PLC",
+    "description": "Deterministic financial record extracted from audited annual reports. This file is the canonical source for RDF compilation."
+  },
+
+  "financial_years": {
+
+  }
+}

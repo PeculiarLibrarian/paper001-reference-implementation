@@ -1,0 +1,12 @@
+
+@prefix fin: <https://peculiarlibrary.org/ontology/finance#> .
+@prefix core: <https://peculiarlibrary.org/ontology/core#> .
+@prefix org: <https://peculiarlibrary.org/ontology/organization#> .
+
+
+saf-fin:obs-service-revenue-safaricom-group-2024-04-01
+    a fin:RevenueObservation ;
+    fin:observedEntity org:safaricom-group ;
+    core:hasResult saf-fin:res-SAF-FY25-GROUP-SRV-REV ;
+    fin:amount 371415.4 ;
+    fin:currency "KES" .

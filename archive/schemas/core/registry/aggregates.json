@@ -1,0 +1,16 @@
+{
+  "registry_id": "peculiarlibrarian.registry.aggregates",
+  "version": "1.0.0",
+  "description": "Normative aggregate registry.",
+  "items": [
+    "OrganizationAggregate",
+    "FinancialAggregate",
+    "InfrastructureAggregate",
+    "InvestmentAggregate",
+    "GovernanceAggregate",
+    "TechnologyAggregate",
+    "StrategyAggregate",
+    "ObservationAggregate",
+    "ProvenanceAggregate"
+  ]
+}

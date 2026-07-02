@@ -1,7 +1,0 @@
-PREFIX pl: <https://peculiarlibrarian.org/ontology/>
-
-SELECT ?competency ?taxonomyConcept
-WHERE {
-    ?competency a pl:Competency .
-    ?competency pl:referencesTaxonomyConcept ?taxonomyConcept .
-}

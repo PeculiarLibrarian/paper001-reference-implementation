@@ -1,0 +1,88 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+# Module-level namespace declarations
+@prefix org: <https://peculiarlibrary.org/ontology/organization#> .
+@prefix gov: <https://peculiarlibrary.org/ontology/governance#> .
+@prefix ctx: <https://peculiarlibrary.org/ontology/context#> .
+@prefix fin: <https://peculiarlibrary.org/ontology/finance#> .
+@prefix rep: <https://peculiarlibrary.org/ontology/reporting#> .
+@prefix ev:  <https://peculiarlibrary.org/ontology/evidence#> .
+@prefix rsn: <https://peculiarlibrary.org/ontology/reasoning#> .
+
+#################################################################
+# PECULIAR LIBRARIAN ROOT ONTOLOGY
+# Version: 1.7.0
+#################################################################
+
+<https://peculiarlibrary.org/ontology/peculiar-librarian.owl>
+    a owl:Ontology ;
+
+    #################################################################
+    # Identity
+    #################################################################
+
+    rdfs:label "Peculiar Librarian Root Ontology" ;
+    dcterms:title "Peculiar Librarian Epistemic Architecture" ;
+    dcterms:description "Canonical knowledge infrastructure for representing financial claims, governance events, observations, measurements, reasoning and verifiable evidence." ;
+
+    #################################################################
+    # Classification
+    #################################################################
+
+    dcterms:type <https://peculiarlibrary.org/resource/EpistemicKernel> ;
+    dcterms:conformsTo <https://www.w3.org/TR/owl2-overview/> ;
+
+    #################################################################
+    # Stewardship
+    #################################################################
+
+    dcterms:creator <https://peculiarlibrary.org/organization/peculiar-librarian> ;
+    dcterms:publisher <https://peculiarlibrary.org/organization/peculiar-librarian> ;
+
+    #################################################################
+    # Lifecycle
+    #################################################################
+
+    dcterms:created "2026-06-29"^^xsd:date ;
+    dcterms:issued  "2026-06-29"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+
+    #################################################################
+    # Versioning
+    #################################################################
+
+    owl:versionInfo "1.7.0" ;
+    owl:versionIRI
+        <https://peculiarlibrary.org/ontology/v1.7.0/peculiar-librarian.owl> ;
+    owl:priorVersion
+        <https://peculiarlibrary.org/ontology/v1.6.0/peculiar-librarian.owl> ;
+
+    #################################################################
+    # Namespace metadata
+    #################################################################
+
+    vann:preferredNamespacePrefix "pl" ;
+    vann:preferredNamespaceUri
+        "https://peculiarlibrary.org/ontology/" ;
+
+    #################################################################
+    # Module dependency graph
+    #
+    # The root imports every module.
+    # Individual modules MUST NOT import the root ontology.
+    #################################################################
+
+    owl:imports
+        <https://peculiarlibrary.org/ontology/organization.owl> ,
+        <https://peculiarlibrary.org/ontology/governance.owl> ,
+        <https://peculiarlibrary.org/ontology/context.owl> ,
+        <https://peculiarlibrary.org/ontology/finance.owl> ,
+        <https://peculiarlibrary.org/ontology/reporting.owl> ,
+        <https://peculiarlibrary.org/ontology/evidence.owl> ,
+        <https://peculiarlibrary.org/ontology/reasoning.owl> .
+

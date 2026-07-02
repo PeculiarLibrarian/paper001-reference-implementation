@@ -1,0 +1,30 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core: <https://peculiarlibrary.org/ontology/core#> .
+
+<https://peculiarlibrary.org/ontology/core>
+    a owl:Ontology ;
+    rdfs:label "Platform Kernel" ;
+    owl:versionInfo "6.1.0" ;
+    owl:imports <http://www.w3.org/ns/prov-o#> , <http://www.w3.org/2006/time#> .
+
+core:Observation a owl:Class ; rdfs:subClassOf prov:Entity .
+core:Event a owl:Class ; rdfs:subClassOf prov:Activity .
+
+core:Result a owl:Class .
+core:NumericResult a owl:Class ; rdfs:subClassOf core:Result .
+core:ReferenceResult a owl:Class ; rdfs:subClassOf core:Result .
+
+core:hasResult a owl:ObjectProperty ;
+    rdfs:domain core:Observation ;
+    rdfs:range core:Result .
+
+core:validFrom a owl:DatatypeProperty ;
+    rdfs:range xsd:date .
+
+core:validTo a owl:DatatypeProperty ;
+    rdfs:range xsd:date .
