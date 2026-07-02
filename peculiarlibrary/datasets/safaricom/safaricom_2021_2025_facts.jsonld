@@ -1,0 +1,228 @@
+{
+  "facts": [
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "service_revenue",
+      "object": 250351.8,
+      "unit": "KES Millions",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "2021_Annual_Report_Single_Spread_Final.pdf",
+        "page": 49,
+        "section": "Notes to the Financial Statements",
+        "context": "Service revenue 80,635.8 167,550.0 248,185.8 83,135.6 166,693.4 249,829.0"
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "ebitda",
+      "object": 134129.2,
+      "unit": "KES Millions",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "2021_Annual_Report_Single_Spread_Final.pdf",
+        "page": 40,
+        "section": "Statement of Profit or Loss",
+        "context": "Earnings before interest, taxes, depreciation and amortisation (EBITDA) 134,129.2"
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "board_approval_date",
+      "object": "2021-05-12",
+      "unit": null,
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "2021_Annual_Report_Single_Spread_Final.pdf",
+        "page": 7,
+        "section": "Board approval",
+        "context": "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 12 May 2021."
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "service_revenue",
+      "object": 281107.3,
+      "unit": "KES Millions",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "2024-Annual-Report-Update.pdf",
+        "page": 105,
+        "section": "Chief Finance Officer’s review",
+        "context": "Service revenue 281,107.3"
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "ebitda",
+      "object": 149061.9,
+      "unit": "KES Millions",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Safaricom_IR_2022_Final.pdf",
+        "page": 105,
+        "section": "Statement of Profit or Loss",
+        "context": "Earnings before interest, taxes, depreciation and amortisation (EBITDA) 149,061.9"
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "board_approval_date",
+      "object": "2022-05-11",
+      "unit": null,
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Safaricom_IR_2022_Final.pdf",
+        "page": 3,
+        "section": "About our report",
+        "context": "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 11 May 2022."
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "service_revenue",
+      "object": 295692.3,
+      "unit": "KES Millions",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "2023-Safaricom-Annual-Report.pdf",
+        "page": 167,
+        "section": "Notes to the Financial Statements",
+        "context": "Service revenue 117,117.9 178,063.4 295,181.3 – 518.9 518.9 (7.9) 295,692.3"
+      }
+    },
+    {
+      "subject": "Safaricom Telecommunication Ethiopia PLC",
+      "predicate": "monetary_gain_ias29",
+      "object": 10383.1,
+      "unit": "KES Millions",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "2023-Safaricom-Annual-Report.pdf",
+        "page": 207,
+        "section": "Notes to the Financial Statements",
+        "context": "The gain in monetary position as a result of translating the financial statements as at 31 March 2023 was KShs 10,383.1 million."
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "board_approval_date",
+      "object": "2023-05-10",
+      "unit": null,
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "2023-Safaricom-Annual-Report.pdf",
+        "page": 85,
+        "section": "About Our Report",
+        "context": "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 10 May 2023."
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "service_revenue",
+      "object": 335353.1,
+      "unit": "KES Millions",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "2024-Annual-Report-Update.pdf",
+        "page": 253,
+        "section": "Chief Finance Officer’s review",
+        "context": "Service revenue 335,353.1"
+      }
+    },
+    {
+      "subject": "Safaricom Telecommunication Ethiopia PLC",
+      "predicate": "monetary_gain_ias29",
+      "object": 22363.2,
+      "unit": "KES Millions",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "2024-Annual-Report-Update.pdf",
+        "page": 330,
+        "section": "Notes to the Financial Statements",
+        "context": "The gain in monetary position as a result of translating the financial statements as at 31 March 2024 was KShs 22,363.2 million"
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "board_approval_date",
+      "object": "2024-05-08",
+      "unit": null,
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "2024-Annual-Report-Update.pdf",
+        "page": 225,
+        "section": "About Our Report",
+        "context": "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 8 May 2024."
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "service_revenue",
+      "object": 371415.4,
+      "unit": "KES Millions",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "annual-2025-report.pdf",
+        "page": 419,
+        "section": "Commercial Value",
+        "context": "371,415.4"
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "mpesa_revenue",
+      "object": 161131.2,
+      "unit": "KES Millions",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "annual-2025-report.pdf",
+        "page": 401,
+        "section": "Key Highlights",
+        "context": "M-PESA revenue 161,131.2"
+      }
+    },
+    {
+      "subject": "Safaricom Telecommunication Ethiopia PLC",
+      "predicate": "monetary_gain_ias29",
+      "object": 11222.3,
+      "unit": "KES Millions",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "annual-2025-report.pdf",
+        "page": 450,
+        "section": "Notes to the Financial Statements",
+        "context": "The gain in monetary position as a result of translating the financial statements as at 31 March 2025 was KShs 11,222.3 million."
+      }
+    },
+    {
+      "subject": "Safaricom PLC",
+      "predicate": "mpesa_capacity_tps",
+      "object": 4500,
+      "unit": "transactions per second",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "annual-2025-report.pdf",
+        "page": 413,
+        "section": "Our value-creating business model",
+        "context": "4,500 transactions/sec on M-PESA"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+# FIXED ALIGNMENT LAYER (RELAXED CONSTRAINT MODE)
+
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+@prefix padi-org: <http://padi.s.m.gitandu.bs/org#> .
+@prefix padi-fin: <http://padi.s.m.gitandu.bs/fin#> .
+@prefix padi-gov: <http://padi.s.m.gitandu.bs/gov#> .
+@prefix padi-align: <http://padi.s.m.gitandu.bs/align#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://padi.s.m.gitandu.bs/align>
+    a owl:Ontology ;
+    owl:imports
+        <http://padi.s.m.gitandu.bs/core>,
+        <http://padi.s.m.gitandu.bs/org>,
+        <http://padi.s.m.gitandu.bs/fin> ;
+    rdfs:label "PADI Alignment Contract (Relaxed)" ;
+    owl:versionInfo "0.4.1" .
+
+padi-align:reportsFor a owl:ObjectProperty ;
+    rdfs:domain padi-fin:FinancialStatement ;
+    rdfs:range padi-org:Organization .
+
+padi-align:governs a owl:ObjectProperty ;
+    rdfs:domain padi-gov:GovernanceBody ;
+    rdfs:range padi-org:Organization .
+
+padi-align:FinancialAlignmentShape a sh:NodeShape ;
+    sh:targetClass padi-fin:FinancialStatement ;
+    sh:property [
+        sh:path padi-align:reportsFor ;
+        sh:minCount 0 ;
+        sh:class padi-org:Organization ;
+        sh:message "Optional alignment: financial statement may link to organization"
+    ] .
+
+padi-align:GovernanceAlignmentShape a sh:NodeShape ;
+    sh:targetClass padi-gov:GovernanceBody ;
+    sh:property [
+        sh:path padi-align:governs ;
+        sh:minCount 0 ;
+        sh:class padi-org:Organization ;
+        sh:message "Optional alignment: governance body may link to organization"
+    ] .

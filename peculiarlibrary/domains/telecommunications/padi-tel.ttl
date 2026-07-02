@@ -1,0 +1,4 @@
+@prefix padi-tel: <http://padi.s.m.gitandu.bs/tel#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+padi-tel: a owl:Ontology .

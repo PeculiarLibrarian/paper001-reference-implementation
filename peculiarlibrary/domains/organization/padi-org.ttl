@@ -1,0 +1,16 @@
+# v0.3.0 Organization Domain (compiled artifact)
+
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+@prefix padi-org: <http://padi.s.m.gitandu.bs/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://padi.s.m.gitandu.bs/org>
+    a owl:Ontology ;
+    owl:imports <http://padi.s.m.gitandu.bs/core> ;
+    rdfs:label "PADI Organization Domain Library" ;
+    owl:versionInfo "0.3.0" .
+
+padi-org:Organization a owl:Class ;
+    rdfs:subClassOf padi:Organization ;
+    rdfs:label "Organization (Domain Root)" .

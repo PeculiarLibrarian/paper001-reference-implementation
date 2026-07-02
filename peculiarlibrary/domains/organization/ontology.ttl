@@ -1,0 +1,83 @@
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix padi:   <http://padi.s.m.gitandu.bs/core#> .
+@prefix padi-org:<http://padi.s.m.gitandu.bs/org#> .
+
+padi-org: a owl:Ontology ;
+    rdfs:label "PADI Organization Domain (State-aware v5.3.0)" ;
+    owl:imports <http://padi.s.m.gitandu.bs/core> .
+
+# =========================
+# CORE ENTITY
+# =========================
+
+padi-org:Organization a owl:Class ;
+    rdfs:subClassOf padi:Entity ;
+    rdfs:label "Organization" .
+
+# =========================
+# STRUCTURAL ENTITIES
+# =========================
+
+padi-org:OrganizationalRole a owl:Class ;
+    rdfs:subClassOf padi:Entity ;
+    rdfs:label "Organizational Role" .
+
+padi-org:BusinessUnit a owl:Class ;
+    rdfs:subClassOf padi:Entity ;
+    rdfs:label "Business Unit" .
+
+padi-org:Subsidiary a owl:Class ;
+    rdfs:subClassOf padi-org:Organization .
+
+padi-org:Brand a owl:Class ;
+    rdfs:subClassOf padi:Entity .
+
+padi-org:Department a owl:Class ;
+    rdfs:subClassOf padi:Entity .
+
+padi-org:Position a owl:Class ;
+    rdfs:subClassOf padi:Entity .
+
+# =========================
+# TEMPORAL ENTITIES (STATE MODEL)
+# =========================
+
+padi-org:Employment a owl:Class ;
+    rdfs:subClassOf padi:State ;
+    rdfs:comment "Employment as a temporal state." .
+
+padi-org:Membership a owl:Class ;
+    rdfs:subClassOf padi:State ;
+    rdfs:comment "Board/committee membership as a state." .
+
+# =========================
+# RELATIONSHIPS
+# =========================
+
+padi-org:hasBusinessUnit a owl:ObjectProperty ;
+    rdfs:domain padi-org:Organization ;
+    rdfs:range padi-org:BusinessUnit .
+
+padi-org:hasSubsidiary a owl:ObjectProperty ;
+    rdfs:domain padi-org:Organization ;
+    rdfs:range padi-org:Subsidiary .
+
+padi-org:ownsBrand a owl:ObjectProperty ;
+    rdfs:domain padi-org:Organization ;
+    rdfs:range padi-org:Brand .
+
+padi-org:hasDepartment a owl:ObjectProperty ;
+    rdfs:domain padi-org:Organization ;
+    rdfs:range padi-org:Department .
+
+padi-org:hasRole a owl:ObjectProperty ;
+    rdfs:range padi-org:OrganizationalRole .
+
+padi-org:occupiesPosition a owl:ObjectProperty ;
+    rdfs:range padi-org:Position .
+
+padi-org:reportsTo a owl:ObjectProperty ;
+    rdfs:domain padi-org:Position ;
+    rdfs:range padi-org:Position .

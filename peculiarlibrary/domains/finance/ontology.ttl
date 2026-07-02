@@ -1,0 +1,36 @@
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+@prefix padi-fin: <http://padi.s.m.gitandu.bs/finance#> .
+@prefix padi-org: <http://padi.s.m.gitandu.bs/organization#> .
+@prefix padi-align: <http://padi.s.m.gitandu.bs/align#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://padi.s.m.gitandu.bs/finance>
+    a owl:Ontology ;
+    owl:imports
+        <http://padi.s.m.gitandu.bs/core>,
+        <http://padi.s.m.gitandu.bs/align> ;
+    rdfs:label "PADI Finance Domain Library" ;
+    owl:versionInfo "0.4.0" .
+
+padi-fin:FinancialStatement
+    a owl:Class ;
+    rdfs:subClassOf padi:Entity ;
+    rdfs:label "Financial Statement" .
+
+padi-fin:BalanceSheet
+    a owl:Class ;
+    rdfs:subClassOf padi-fin:FinancialStatement .
+
+padi-fin:IncomeStatement
+    a owl:Class ;
+    rdfs:subClassOf padi-fin:FinancialStatement .
+
+padi-fin:CashFlowStatement
+    a owl:Class ;
+    rdfs:subClassOf padi-fin:FinancialStatement .
+
+padi-fin:hasReportingPeriod
+    a owl:ObjectProperty ;
+    rdfs:domain padi-fin:FinancialStatement ;
+    rdfs:range padi:ReportingPeriod .

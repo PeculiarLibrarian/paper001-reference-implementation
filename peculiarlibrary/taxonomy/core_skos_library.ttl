@@ -1,0 +1,18 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+skos:ConceptScheme a skos:Concept .
+
+padi:FinanceConcept a skos:Concept ;
+    skos:prefLabel "Finance Concept" .
+
+padi:RevenueConcept a skos:Concept ;
+    skos:broader padi:FinanceConcept .
+
+padi:EBITDAConcept a skos:Concept ;
+    skos:broader padi:FinanceConcept .
+
+padi:GovernanceConcept a skos:Concept .
+
+padi:StateConcept a skos:Concept ;
+    skos:prefLabel "State Semantics" .
