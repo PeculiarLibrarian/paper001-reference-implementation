@@ -1,0 +1,32 @@
+registry:
+  name: Peculiar Librarian Operator Registry
+  version: "1.0.0"
+  status: locked
+
+operators:
+
+  compile:
+    class: CompileOperator
+    stage: compile
+    description: Execute semantic compilation.
+
+  reason:
+    class: ReasonOperator
+    stage: reason
+    description: Execute semantic inference.
+
+  validate:
+    class: ValidateOperator
+    stage: validate
+    description: Execute invariance validation.
+
+  audit:
+    class: AuditOperator
+    stage: audit
+    description: Execute kernel audits.
+
+defaults:
+  compile: compile
+  reason: reason
+  validate: validate
+  audit: audit

@@ -26,7 +26,7 @@ class Repository:
 
 
 def load_repository(root: Path) -> Repository:
-    manifest = root / "peculiarlibrary.yaml"
+    manifest = root / "peculiarlibrarian.yaml"
 
     with open(manifest, "r", encoding="utf-8") as f:
         spec = yaml.safe_load(f)
