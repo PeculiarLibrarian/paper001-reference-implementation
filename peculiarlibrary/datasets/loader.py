@@ -1,35 +1,33 @@
 """
-Dataset loader.
+Dataset Loader
+Version: 1.1.0
 
 Responsibilities
 ----------------
-• Deserialize JSON-LD.
-• Produce an RDF Graph.
+• Deserialize canonical JSON datasets.
+• Produce canonical dataset objects.
 
 Non-responsibilities
 --------------------
+• RDF construction
 • Namespace canonicalization
 • Ontology alignment
 • SHACL validation
 • SKOS expansion
 • Inference
 • Materialization
-
-Those belong to the Semantic Compiler.
 """
 
-from rdflib import Graph
+import json
 
 
-class SafaricomDatasetLoader:
+class DatasetLoader:
+
+    VERSION = "1.1.0"
 
     def __init__(self, path):
         self.path = path
 
     def load(self):
-        g = Graph()
-        g.parse(self.path, format="json-ld")
-
-        # Pure deserialization only.
-        # No mutation, normalization, inference, or validation.
-        return g
+        with open(self.path, "r", encoding="utf-8") as f:
+            return json.load(f)

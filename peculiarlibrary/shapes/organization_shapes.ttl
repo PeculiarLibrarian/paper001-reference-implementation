@@ -1,0 +1,190 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix org: <https://peculiarlibrary.org/ontology/organization#> .
+@prefix gov: <https://peculiarlibrary.org/ontology/governance#> .
+
+#################################################################
+# 1. ORGANIZATION CONSTRAINTS
+#################################################################
+
+org:OrganizationShape
+    a sh:NodeShape ;
+    sh:targetClass org:Organization ;
+
+    # Must have at least one state
+    sh:property [
+        sh:path org:hasState ;
+        sh:minCount 1 ;
+        sh:message "Organization must have at least one OrganizationState." ;
+    ] ;
+
+    # Must have at least one identifier
+    sh:property [
+        sh:path org:hasIdentifier ;
+        sh:minCount 1 ;
+        sh:message "Organization must have at least one Identifier." ;
+    ] .
+
+
+#################################################################
+# 2. ORGANIZATION STATE CONSTRAINTS
+#################################################################
+
+org:OrganizationStateShape
+    a sh:NodeShape ;
+    sh:targetClass org:OrganizationState ;
+
+    # Exactly one legal name
+    sh:property [
+        sh:path org:legalName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "OrganizationState must have exactly one legalName." ;
+    ] ;
+
+    # Exactly one jurisdiction
+    sh:property [
+        sh:path org:hasJurisdiction ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class org:Country ;
+        sh:message "OrganizationState must have exactly one jurisdiction." ;
+    ] ;
+
+    # Optional listing status (max 1)
+    sh:property [
+        sh:path org:listingStatus ;
+        sh:maxCount 1 ;
+        sh:class org:ListingStatus ;
+    ] ;
+
+    # Temporal consistency
+    sh:property [
+        sh:path org:effectiveFrom ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "OrganizationState must define effectiveFrom." ;
+    ] .
+
+
+#################################################################
+# 3. OWNERSHIP CONSTRAINTS
+#################################################################
+
+org:OwnershipStatementShape
+    a sh:NodeShape ;
+    sh:targetClass org:OwnershipStatement ;
+
+    # Must have investor and investee
+    sh:property [
+        sh:path org:investor ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class org:Organization ;
+    ] ;
+
+    sh:property [
+        sh:path org:investee ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class org:Organization ;
+    ] ;
+
+    # Economic interest bounds
+    sh:property [
+        sh:path org:economicInterestPercentage ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 100 ;
+        sh:message "Economic interest must be between 0 and 100." ;
+    ] ;
+
+    # Voting rights bounds
+    sh:property [
+        sh:path org:votingRightsPercentage ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 100 ;
+    ] .
+
+
+#################################################################
+# 4. CONTROL STATEMENT CONSTRAINTS
+#################################################################
+
+org:ControlStatementShape
+    a sh:NodeShape ;
+    sh:targetClass org:ControlStatement ;
+
+    sh:property [
+        sh:path org:controller ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class org:Organization ;
+    ] ;
+
+    sh:property [
+        sh:path org:investee ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class org:Organization ;
+    ] .
+
+
+#################################################################
+# 5. GOVERNANCE CONSTRAINTS
+#################################################################
+
+gov:BoardShape
+    a sh:NodeShape ;
+    sh:targetClass gov:Board ;
+
+    sh:property [
+        sh:path gov:governsOrganization ;
+        sh:minCount 1 ;
+        sh:class org:Organization ;
+        sh:message "Board must govern at least one Organization." ;
+    ] .
+
+
+gov:MembershipShape
+    a sh:NodeShape ;
+    sh:targetClass gov:MembershipStatement ;
+
+    sh:property [
+        sh:path gov:member ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class gov:Person ;
+    ] ;
+
+    sh:property [
+        sh:path gov:isMemberOfAuthority ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class gov:Authority ;
+    ] ;
+
+    sh:property [
+        sh:path gov:hasRole ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class gov:GovernanceRole ;
+    ] .
+
+
+#################################################################
+# 6. TEMPORAL INTEGRITY RULES (LIGHT CONSTRAINTS)
+#################################################################
+
+org:TemporalStatementShape
+    a sh:NodeShape ;
+    sh:targetClass org:TemporalStatement ;
+
+    sh:property [
+        sh:path org:effectiveFrom ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date ;
+    ] .
