@@ -1,15 +1,12 @@
 """
-Safaricom Mapping Grammar
-Version: 0.2.0
+Canonical Mapping Grammar
+Version: 0.3.0
 
-Transforms canonical JSON-LD facts into generic compiler commands.
-
-The mapper performs NO RDF generation.
+Transforms canonical JSON facts into deterministic compiler commands.
 
 Output contract:
-
 {
-    "factory": "...",
+    "factory": "fin",
     "arguments": {...}
 }
 """
@@ -19,12 +16,11 @@ from rdflib import URIRef
 from peculiarlibrary.ontology.ontology_registry import OntologyRegistry
 
 
-class SafaricomMapper:
+class CanonicalMapper:
 
-    VERSION = "0.2.0"
+    VERSION = "0.3.0"
 
     def __init__(self):
-
         self.registry = OntologyRegistry()
 
     def map(self, dataset):
@@ -33,9 +29,12 @@ class SafaricomMapper:
 
         for fact in dataset["facts"]:
 
-            predicate = self.registry.resolve(
-                fact["predicate"]
-            )
+            predicate = self.registry.resolve(fact["predicate"])
+
+            if predicate is None:
+                raise ValueError(
+                    f"Unknown predicate: {fact['predicate']}"
+                )
 
             arguments = {
                 "subject": URIRef(
