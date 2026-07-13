@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Paper 001 Reference Implementation"
+version: "paper001-v1.0.1"
+doi: 10.5281/zenodo.21341462
+date-released: 2026-07-13
+
+authors:
+  - family-names: Gitandu
+    given-names: Samuel Muriithi
+    alias: Peculiar Librarian
+
+repository-code: "https://github.com/PeculiarLibrarian/paper001-reference-implementation"
+url: "https://github.com/PeculiarLibrarian/paper001-reference-implementation"
+license: MIT
+
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Gitandu
+      given-names: Samuel Muriithi
+      alias: Peculiar Librarian
+  title: "Paper 001 Reference Implementation"
+  version: "paper001-v1.0.1"
+  doi: 10.5281/zenodo.21341462
+  date-released: 2026-07-13
