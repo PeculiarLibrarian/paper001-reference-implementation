@@ -1,41 +1,54 @@
-# Paper 001 Reference Implementation
+# Paper 001 Reference Implementation v1.0.1
 
-This repository contains the canonical reference implementation accompanying **Paper 001**.
+**Paper 001:** *The Peculiar Library: A Deterministic Provenance-Enforced Knowledge Graph Architecture for Canonical Enterprise Information Extraction and Semantic Validation*
 
-Version **paper001-v1.0.1** represents the verified reference implementation evaluated in the paper and serves as the frozen replication artifact.
+**Author:** Samuel Muriithi Gitandu, B.S. *(Peculiar Librarian)*  
+**ORCID:** https://orcid.org/0009-0009-2784-9577
 
-## Contents
+This release accompanies **Paper 001** and contains the complete reproducible reference implementation used in the experimental evaluation reported in the manuscript.
 
-- PADI runtime
-- Semantic execution infrastructure
-- Canonical knowledge representation model
-- Inference engine
-- RDF materialization pipeline
-- System verification framework
-- Bureau research documents defining the theoretical and architectural foundations
+## Included
 
-## Verification
+- Final manuscript (`paper/PAPER001.md`)
+- Rendered HTML manuscript (`paper/PAPER001.html`)
+- BibTeX bibliography
+- Modular manuscript source
+- Deterministic build scripts
+- Reproducibility documentation
+- Experimental validation workflows
+- Semantic artifacts and reference implementation
 
-This release is validated through the repository's verification pipeline, including:
+## Experimental Evaluation
 
-- Dependency graph validation
-- Kernel verification
-- System verification entry points
+This release contains the complete artifacts supporting the three reported experiments:
 
-The `paper001-release` branch represents the maintained implementation corresponding to this publication.
+1. Ontology syntax validation using Apache Jena RIOT.
+2. Positive SHACL validation of the canonical enterprise knowledge graph.
+3. Deterministic adversarial validation demonstrating provenance constraint enforcement.
 
 ## Reproducibility
 
-This release serves as the canonical implementation required to reproduce the methods and results presented in Paper 001.
+Running the documented workflows reproduces the experimental results reported in the manuscript.
 
-**Repository**
+See:
+
+- `REPLICATION.md`
+- `RELEASE.md`
+- `paper/`
+
+## Archived Replication Package
+
+**Zenodo DOI**
+
+https://doi.org/10.5281/zenodo.21341462
+
+## Development Repository
 
 https://github.com/PeculiarLibrarian/paper001-reference-implementation
 
-**Release Tag**
+## Citation
 
-paper001-v1.0.1
+If you use this software or reproduce the experiments, please cite:
 
-**Branch**
+> Gitandu, S. M. (2026). *Paper 001 v1.0.1 — Deterministic Provenance-Enforced Knowledge Graph Reference Implementation* (Version paper001-v1.0.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21341462
 
-paper001-release
