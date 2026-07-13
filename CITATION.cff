@@ -1,26 +1,29 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it using the metadata below."
-title: "Paper 001 Reference Implementation"
+message: "If you use this software, please cite both the archived reference implementation and the accompanying manuscript."
+
+title: "Paper 001 v1.0.1 — Deterministic Provenance-Enforced Knowledge Graph Reference Implementation"
+
 version: "paper001-v1.0.1"
-doi: 10.5281/zenodo.21341462
+
 date-released: 2026-07-13
+
+doi: 10.5281/zenodo.21341462
+
+repository-code: "https://github.com/PeculiarLibrarian/paper001-reference-implementation"
+
+license: MIT
 
 authors:
   - family-names: Gitandu
     given-names: Samuel Muriithi
     alias: Peculiar Librarian
 
-repository-code: "https://github.com/PeculiarLibrarian/paper001-reference-implementation"
-url: "https://github.com/PeculiarLibrarian/paper001-reference-implementation"
-license: MIT
-
 preferred-citation:
   type: software
   authors:
     - family-names: Gitandu
       given-names: Samuel Muriithi
-      alias: Peculiar Librarian
-  title: "Paper 001 Reference Implementation"
+  title: "Paper 001 v1.0.1 — Deterministic Provenance-Enforced Knowledge Graph Reference Implementation"
   version: "paper001-v1.0.1"
   doi: 10.5281/zenodo.21341462
-  date-released: 2026-07-13
+  year: 2026
