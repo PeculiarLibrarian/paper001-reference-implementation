@@ -249,6 +249,7 @@ entities, relationships, controlled vocabularies, ontologies, and
 structural constraints. The Peculiar Library adopts these standards as
 the semantic foundation of its architecture rather than introducing a
 new knowledge representation language.</p>
+<h1 id="section"></h1>
 <h1 id="resource-description-framework-rdf">2.1 Resource Description
 Framework (RDF)</h1>
 <p>The Resource Description Framework (RDF) defines a graph-based data
@@ -260,6 +261,7 @@ Wide Web Consortium 2014)</span>.</p>
 <p>Within the Peculiar Library, canonical enterprise facts are
 materialized as RDF graphs that serve as the implementation-independent
 representation of extracted knowledge.</p>
+<h1 id="section-1"></h1>
 <h1 id="owl-2">2.2 OWL 2</h1>
 <p>OWL 2 extends RDF with formally defined ontology constructs that
 enable explicit modeling of classes, properties, domains, ranges,
@@ -268,6 +270,7 @@ data-cites="w3c-owl2">(World Wide Web Consortium 2012)</span>.</p>
 <p>The reference implementation employs OWL 2 to define the semantic
 vocabulary governing enterprise entities while leaving runtime behaviour
 outside the ontology itself.</p>
+<h1 id="section-2"></h1>
 <h1 id="shacl">2.3 SHACL</h1>
 <p>The Shapes Constraint Language (SHACL) provides a declarative
 mechanism for expressing structural constraints over RDF graphs
@@ -276,6 +279,7 @@ data-cites="w3c-shacl">(World Wide Web Consortium 2017)</span>.</p>
 <p>Rather than embedding validation rules within procedural code, the
 Peculiar Library specifies graph integrity requirements as SHACL shapes
 evaluated by standards-compliant validation engines.</p>
+<h1 id="section-3"></h1>
 <h1 id="skos">2.4 SKOS</h1>
 <p>The Simple Knowledge Organization System (SKOS) defines a
 standardized model for representing controlled vocabularies, concept
@@ -285,6 +289,7 @@ data-cites="w3c-skos">(World Wide Web Consortium 2009)</span>.</p>
 independently from executable runtime components, preserving clear
 separation between terminology management and knowledge
 materialization.</p>
+<h1 id="section-4"></h1>
 <h1 id="provenance-representation">2.5 Provenance Representation</h1>
 <p>Provenance has long been recognized as a fundamental requirement for
 trustworthy information systems. The W3C PROV ontology provides a
@@ -294,6 +299,7 @@ data-cites="w3c-prov">(World Wide Web Consortium 2013)</span>.</p>
 <p>The Peculiar Library builds upon these principles by requiring every
 canonical fact to preserve explicit provenance relationships throughout
 the materialization pipeline.</p>
+<h1 id="section-5"></h1>
 <h1 id="architectural-separation">2.6 Architectural Separation</h1>
 <p>Previous Semantic Web standards primarily define representation,
 reasoning, and validation mechanisms rather than prescribing software
@@ -304,6 +310,7 @@ in which semantic definitions, structural validation, runtime execution,
 and application services remain explicitly separated. Semantic meaning
 is therefore governed by declarative specifications rather than
 implementation-specific logic.</p>
+<h1 id="section-6"></h1>
 <h1 id="positioning-of-this-work">2.7 Positioning of This Work</h1>
 <p>This work does not propose new Semantic Web standards, ontology
 languages, or validation mechanisms.</p>
@@ -322,6 +329,7 @@ graph architecture designed to separate semantic representation,
 validation, execution, and application concerns.</p>
 <p>The architecture is organized around distinct semantic and
 operational layers.</p>
+<h1 id="section-7"></h1>
 <h1 id="semantic-representation-layer">3.1 Semantic Representation
 Layer</h1>
 <p>The semantic representation layer defines canonical enterprise
@@ -332,6 +340,7 @@ and concept organization mechanisms.</p>
 <p>Canonical enterprise facts are represented independently from runtime
 execution logic, allowing semantic definitions to remain stable across
 implementation environments.</p>
+<h1 id="section-8"></h1>
 <h1 id="constraint-validation-layer">3.2 Constraint Validation
 Layer</h1>
 <p>Structural integrity is enforced through SHACL constraint
@@ -345,6 +354,7 @@ definitions.</p>
 </ul>
 <p>Validation is performed independently from the application runtime
 using standards-compliant tooling.</p>
+<h1 id="section-9"></h1>
 <h1 id="runtime-execution-layer">3.3 Runtime Execution Layer</h1>
 <p>The runtime layer processes canonical knowledge artifacts through
 deterministic execution workflows.</p>
@@ -357,6 +367,7 @@ deterministic execution workflows.</p>
 </ul>
 <p>The runtime consumes semantic definitions rather than embedding
 domain constraints directly into procedural logic.</p>
+<h1 id="section-10"></h1>
 <h1 id="materialization-and-verification-layer">3.4 Materialization and
 Verification Layer</h1>
 <p>The materialization layer produces validated knowledge graph
@@ -367,6 +378,7 @@ validation, positive structural validation, and adversarial
 validation.</p>
 <p>This separation enables independent evaluation of semantic integrity
 without requiring inspection of internal implementation details.</p>
+<h1 id="section-11"></h1>
 <h1 id="architectural-contribution">3.5 Architectural Contribution</h1>
 <p>The contribution of the Peculiar Library is not a new Semantic Web
 language or validation standard.</p>
@@ -375,6 +387,7 @@ semantic standards are combined with deterministic verification
 workflows to create a reproducible provenance-enforced knowledge graph
 system.</p>
 <h1 id="methodology">4. Methodology</h1>
+<h1 id="section-12"></h1>
 <h1 id="evaluation-design">4.1 Evaluation Design</h1>
 <p>The evaluation is designed to assess the structural correctness of
 the Peculiar Library reference implementation using independently
@@ -390,6 +403,7 @@ invalid knowledge graphs.</p>
 </ol>
 <p>Each experiment executes deterministically from version-controlled
 artifacts.</p>
+<h1 id="section-13"></h1>
 <h1 id="reference-environment">4.2 Reference Environment</h1>
 <p>The evaluation was performed using Apache Jena 6.1.0 <span
 class="citation" data-cites="apache-jena">(Apache Software Foundation
@@ -400,6 +414,7 @@ class="citation" data-cites="apache-jena">(Apache Software Foundation
 </ul>
 <p>Python 3.11 was used to execute the accompanying verification scripts
 included within the replication package.</p>
+<h1 id="section-14"></h1>
 <h1 id="experiment-1-ontology-validation">4.3 Experiment 1 — Ontology
 Validation</h1>
 <p>The first experiment verifies that all semantic artifacts are
@@ -408,6 +423,7 @@ syntactically valid RDF and OWL documents.</p>
 artifact distributed with the reference implementation.</p>
 <p>The experiment succeeds only if every document parses successfully
 without syntax errors.</p>
+<h1 id="section-15"></h1>
 <h1 id="experiment-2-positive-shacl-validation">4.4 Experiment 2 —
 Positive SHACL Validation</h1>
 <p>The second experiment validates the canonical enterprise knowledge
@@ -416,6 +432,7 @@ graph against the SHACL constraint library.</p>
 constraint.</p>
 <p>Successful validation demonstrates that the materialization pipeline
 produces graphs conforming to the semantic specification.</p>
+<h1 id="section-16"></h1>
 <h1 id="experiment-3-adversarial-validation">4.5 Experiment 3 —
 Adversarial Validation</h1>
 <p>The third experiment evaluates the robustness of the constraint
@@ -427,6 +444,7 @@ validation.</p>
 modified graph.</p>
 <p>This demonstrates that structural provenance violations are detected
 independently of the runtime implementation.</p>
+<h1 id="section-17"></h1>
 <h1 id="deterministic-execution">4.6 Deterministic Execution</h1>
 <p>All experiments execute from version-controlled artifacts without
 manual intervention.</p>
@@ -437,6 +455,7 @@ manual intervention.</p>
 <li>deterministic expected outcomes.</li>
 </ul>
 <p>No stochastic components participate in the evaluation.</p>
+<h1 id="section-18"></h1>
 <h1 id="evaluation-criteria">4.7 Evaluation Criteria</h1>
 <p>The evaluation reports only structural correctness.</p>
 <p>Measured outcomes are binary:</p>
@@ -445,6 +464,7 @@ manual intervention.</p>
 <li>FAIL</li>
 </ul>
 <p>No probabilistic measures or statistical inference are used.</p>
+<h1 id="section-19"></h1>
 <h1 id="reproducibility">4.8 Reproducibility</h1>
 <p>All experiments are distributed as executable scripts within the
 replication package.</p>
@@ -457,6 +477,7 @@ implementation satisfies its declared semantic and structural integrity
 requirements.</p>
 <p>Three experiments were executed using the documented verification
 workflows.</p>
+<h1 id="section-20"></h1>
 <h1 id="experiment-1-ontology-syntax-validation">5.1 Experiment 1 —
 Ontology Syntax Validation</h1>
 <p>The first experiment validates the syntactic correctness of ontology
@@ -464,18 +485,22 @@ and vocabulary artifacts.</p>
 <p>Apache Jena RIOT is executed against the distributed semantic
 documents to verify that each artifact conforms to RDF parsing
 requirements.</p>
+<h1 id="section-21"></h1>
 <h2 id="result">Result</h2>
 <p>All evaluated semantic artifacts successfully passed syntax
 validation.</p>
+<h1 id="section-22"></h1>
 <h1 id="experiment-2-positive-shacl-validation-1">5.2 Experiment 2 —
 Positive SHACL Validation</h1>
 <p>The second experiment evaluates whether the canonical enterprise
 knowledge graph conforms to the declared SHACL constraints.</p>
 <p>The materialized graph is validated against the constraint library
 using Apache Jena SHACL.</p>
+<h1 id="section-23"></h1>
 <h2 id="result-1">Result</h2>
 <p>The canonical graph successfully satisfies all declared structural
 constraints.</p>
+<h1 id="section-24"></h1>
 <h1 id="experiment-3-adversarial-shacl-validation">5.3 Experiment 3 —
 Adversarial SHACL Validation</h1>
 <p>The third experiment evaluates whether the validation framework
@@ -484,9 +509,11 @@ detects deliberate structural corruption.</p>
 mandatory provenance relationship from the canonical graph.</p>
 <p>The modified graph is then submitted to the same SHACL validation
 process.</p>
+<h1 id="section-25"></h1>
 <h2 id="result-2">Result</h2>
 <p>The corrupted graph is rejected by the validator, demonstrating that
 provenance integrity constraints are actively enforced.</p>
+<h1 id="section-26"></h1>
 <h1 id="evaluation-summary">5.4 Evaluation Summary</h1>
 <p>The three experiments demonstrate:</p>
 <ul>
@@ -500,12 +527,12 @@ tooling.</p>
 <h1 id="reproducibility-1">6. Reproducibility</h1>
 <p>All experiments reported in this paper are distributed as executable
 workflows within the accompanying reference implementation.</p>
-<p><strong>Repository</strong></p>
+<p><strong>Archived replication package (DOI)</strong></p>
+<p>https://doi.org/10.5281/zenodo.21341462</p>
+<p><strong>Development repository</strong></p>
 <p>https://github.com/PeculiarLibrarian/paper001-reference-implementation</p>
-<p><strong>Verified Release</strong></p>
+<p><strong>Archived release</strong></p>
 <p>paper001-v1.0.1</p>
-<p><strong>Branch</strong></p>
-<p>paper001-release</p>
 <p>The replication package contains:</p>
 <ul>
 <li>Experiment 01 — RIOT syntax validation</li>
@@ -526,11 +553,13 @@ validation.</p>
 are used to support the evaluation reported in this paper; the remaining
 repository contents provide supporting implementation infrastructure and
 architectural documentation.</p>
-<p>Running the documented workflows from the
-<code>paper001-v1.0.1</code> release in an equivalent software
-environment is expected to reproduce the reported experimental
-results.</p>
-<h1 id="limitations">7. Limitations</h1>
+<p>The archived Zenodo release (DOI:
+https://doi.org/10.5281/zenodo.21341462) constitutes the canonical
+replication package for this publication. The GitHub repository serves
+as the active development repository for subsequent revisions.</p>
+<p>Running the documented workflows from the archived release in an
+equivalent software environment is expected to reproduce the
+experimental results reported in this paper. # 7. Limitations</p>
 <p>This work evaluates the structural integrity of the reference
 implementation using standards-compliant Semantic Web tooling.</p>
 <p>The evaluation does not constitute a formal proof of correctness,
@@ -567,7 +596,25 @@ standards-compliant validation engines.</p>
 experiments, automated verification procedures, and deterministic
 evaluation artifacts that enable independent reproduction of the
 reported results.</p>
-<h1 class="unnumbered" id="references">References</h1>
+<h1 id="references">References</h1>
+<p>The manuscript bibliography is maintained in
+<code>bibliography.bib</code> and contains the cited standards and
+academic references supporting the evaluation.</p>
+<p>The primary references include:</p>
+<ul>
+<li>RDF 1.1 Concepts and Abstract Syntax — W3C Recommendation.</li>
+<li>OWL 2 Web Ontology Language — W3C Recommendation.</li>
+<li>Simple Knowledge Organization System (SKOS) Reference — W3C
+Recommendation.</li>
+<li>Shapes Constraint Language (SHACL) — W3C Recommendation.</li>
+<li>PROV-O: The PROV Ontology — W3C Recommendation.</li>
+<li>Apache Jena documentation and implementation resources.</li>
+<li>Hitzler, P., Krötzsch, M., Parsia, B., Patel-Schneider, P. F., &amp;
+Rudolph, S. <em>Semantic Web for the Working Ontologist</em>. 2nd
+Edition. IOS Press, 2020.</li>
+</ul>
+<p>The complete citation metadata is provided in
+<code>bibliography.bib</code>.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
 <div id="ref-apache-jena" class="csl-entry" role="listitem">

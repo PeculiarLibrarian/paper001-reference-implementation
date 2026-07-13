@@ -8,8 +8,6 @@ The evaluation consists of three reproducible experiments. First, ontology and v
 
 The results demonstrate that provenance integrity can be specified declaratively and evaluated independently of the runtime implementation. All experiments are distributed as executable scripts with automated assertions to support independent reproduction through the archived Paper 001 reference implementation.
 
-
-
 # 1. Introduction
 
 Enterprise knowledge graphs increasingly serve as the semantic foundation for information integration, governance, and decision support. Although modern graph technologies provide expressive modeling capabilities, many implementations continue to couple semantic meaning tightly with application logic, reducing interoperability and making independent validation difficult. This observation is situated within the Semantic Web literature and discussed in Section 2.
@@ -24,12 +22,11 @@ This paper presents the architecture of the Peculiar Library and evaluates its s
 
 The contribution of this paper is a deterministic provenance-enforced knowledge graph architecture whose structural integrity is specified using W3C Semantic Web standards and empirically validated through independent-implementation positive and adversarial experiments.
 
-
-
 # 2. Related Work
 
 Enterprise knowledge graphs are commonly constructed using Semantic Web technologies that provide standardized mechanisms for representing entities, relationships, controlled vocabularies, ontologies, and structural constraints. The Peculiar Library adopts these standards as the semantic foundation of its architecture rather than introducing a new knowledge representation language.
 
+#
 
 # 2.1 Resource Description Framework (RDF)
 
@@ -37,6 +34,7 @@ The Resource Description Framework (RDF) defines a graph-based data model for re
 
 Within the Peculiar Library, canonical enterprise facts are materialized as RDF graphs that serve as the implementation-independent representation of extracted knowledge.
 
+#
 
 # 2.2 OWL 2
 
@@ -44,6 +42,7 @@ OWL 2 extends RDF with formally defined ontology constructs that enable explicit
 
 The reference implementation employs OWL 2 to define the semantic vocabulary governing enterprise entities while leaving runtime behaviour outside the ontology itself.
 
+#
 
 # 2.3 SHACL
 
@@ -51,6 +50,7 @@ The Shapes Constraint Language (SHACL) provides a declarative mechanism for expr
 
 Rather than embedding validation rules within procedural code, the Peculiar Library specifies graph integrity requirements as SHACL shapes evaluated by standards-compliant validation engines.
 
+#
 
 # 2.4 SKOS
 
@@ -58,6 +58,7 @@ The Simple Knowledge Organization System (SKOS) defines a standardized model for
 
 The Peculiar Library employs SKOS to organize semantic concepts independently from executable runtime components, preserving clear separation between terminology management and knowledge materialization.
 
+#
 
 # 2.5 Provenance Representation
 
@@ -65,6 +66,7 @@ Provenance has long been recognized as a fundamental requirement for trustworthy
 
 The Peculiar Library builds upon these principles by requiring every canonical fact to preserve explicit provenance relationships throughout the materialization pipeline.
 
+#
 
 # 2.6 Architectural Separation
 
@@ -72,6 +74,7 @@ Previous Semantic Web standards primarily define representation, reasoning, and 
 
 The Peculiar Library adopts a standards-based architectural approach in which semantic definitions, structural validation, runtime execution, and application services remain explicitly separated. Semantic meaning is therefore governed by declarative specifications rather than implementation-specific logic.
 
+#
 
 # 2.7 Positioning of This Work
 
@@ -81,14 +84,13 @@ Instead, it demonstrates how established W3C recommendations—including RDF, OW
 
 Accordingly, the primary contribution of this paper is architectural rather than linguistic: the design, implementation, and empirical validation of a standards-based semantic interoperability infrastructure whose structural integrity can be independently verified using existing Semantic Web tooling.
 
-
-
 # 3. System Architecture
 
 The Peculiar Library is a deterministic provenance-enforced knowledge graph architecture designed to separate semantic representation, validation, execution, and application concerns.
 
 The architecture is organized around distinct semantic and operational layers.
 
+#
 
 # 3.1 Semantic Representation Layer
 
@@ -98,6 +100,7 @@ RDF provides the graph representation model, while OWL 2 defines semantic classe
 
 Canonical enterprise facts are represented independently from runtime execution logic, allowing semantic definitions to remain stable across implementation environments.
 
+#
 
 # 3.2 Constraint Validation Layer
 
@@ -112,6 +115,7 @@ The validation layer specifies requirements such as:
 
 Validation is performed independently from the application runtime using standards-compliant tooling.
 
+#
 
 # 3.3 Runtime Execution Layer
 
@@ -126,6 +130,7 @@ Runtime components are responsible for:
 
 The runtime consumes semantic definitions rather than embedding domain constraints directly into procedural logic.
 
+#
 
 # 3.4 Materialization and Verification Layer
 
@@ -135,6 +140,7 @@ The verification framework evaluates the resulting artifacts through executable 
 
 This separation enables independent evaluation of semantic integrity without requiring inspection of internal implementation details.
 
+#
 
 # 3.5 Architectural Contribution
 
@@ -142,10 +148,9 @@ The contribution of the Peculiar Library is not a new Semantic Web language or v
 
 Instead, it demonstrates an architecture in which established semantic standards are combined with deterministic verification workflows to create a reproducible provenance-enforced knowledge graph system.
 
-
-
 # 4. Methodology
 
+#
 
 # 4.1 Evaluation Design
 
@@ -159,6 +164,7 @@ Three experiments comprise the evaluation:
 
 Each experiment executes deterministically from version-controlled artifacts.
 
+#
 
 # 4.2 Reference Environment
 
@@ -169,6 +175,7 @@ The evaluation was performed using Apache Jena 6.1.0 [@apache-jena], specificall
 
 Python 3.11 was used to execute the accompanying verification scripts included within the replication package.
 
+#
 
 # 4.3 Experiment 1 — Ontology Validation
 
@@ -178,6 +185,7 @@ Apache Jena RIOT is executed against every ontology and vocabulary artifact dist
 
 The experiment succeeds only if every document parses successfully without syntax errors.
 
+#
 
 # 4.4 Experiment 2 — Positive SHACL Validation
 
@@ -187,6 +195,7 @@ The graph is expected to satisfy every declared structural constraint.
 
 Successful validation demonstrates that the materialization pipeline produces graphs conforming to the semantic specification.
 
+#
 
 # 4.5 Experiment 3 — Adversarial Validation
 
@@ -198,6 +207,7 @@ The experiment succeeds only if the SHACL validator rejects the modified graph.
 
 This demonstrates that structural provenance violations are detected independently of the runtime implementation.
 
+#
 
 # 4.6 Deterministic Execution
 
@@ -211,6 +221,7 @@ Each workflow specifies:
 
 No stochastic components participate in the evaluation.
 
+#
 
 # 4.7 Evaluation Criteria
 
@@ -223,6 +234,7 @@ Measured outcomes are binary:
 
 No probabilistic measures or statistical inference are used.
 
+#
 
 # 4.8 Reproducibility
 
@@ -230,14 +242,13 @@ All experiments are distributed as executable scripts within the replication pac
 
 Running the documented workflows from the tagged reference implementation is expected to produce identical experimental outcomes when executed in equivalent software environments.
 
-
-
 # 5. Experimental Evaluation
 
 The evaluation investigates whether the Peculiar Library reference implementation satisfies its declared semantic and structural integrity requirements.
 
 Three experiments were executed using the documented verification workflows.
 
+#
 
 # 5.1 Experiment 1 — Ontology Syntax Validation
 
@@ -245,11 +256,13 @@ The first experiment validates the syntactic correctness of ontology and vocabul
 
 Apache Jena RIOT is executed against the distributed semantic documents to verify that each artifact conforms to RDF parsing requirements.
 
+#
 
 ## Result
 
 All evaluated semantic artifacts successfully passed syntax validation.
 
+#
 
 # 5.2 Experiment 2 — Positive SHACL Validation
 
@@ -257,11 +270,13 @@ The second experiment evaluates whether the canonical enterprise knowledge graph
 
 The materialized graph is validated against the constraint library using Apache Jena SHACL.
 
+#
 
 ## Result
 
 The canonical graph successfully satisfies all declared structural constraints.
 
+#
 
 # 5.3 Experiment 3 — Adversarial SHACL Validation
 
@@ -271,11 +286,13 @@ A deterministic adversarial graph is generated by removing a mandatory provenanc
 
 The modified graph is then submitted to the same SHACL validation process.
 
+#
 
 ## Result
 
 The corrupted graph is rejected by the validator, demonstrating that provenance integrity constraints are actively enforced.
 
+#
 
 # 5.4 Evaluation Summary
 
@@ -287,23 +304,21 @@ The three experiments demonstrate:
 
 The results support the claim that declarative semantic constraints can be independently evaluated using standards-compliant Semantic Web tooling.
 
-
-
 # 6. Reproducibility
 
 All experiments reported in this paper are distributed as executable workflows within the accompanying reference implementation.
 
-**Repository**
+**Archived replication package (DOI)**
+
+https://doi.org/10.5281/zenodo.21341462
+
+**Development repository**
 
 https://github.com/PeculiarLibrarian/paper001-reference-implementation
 
-**Verified Release**
+**Archived release**
 
 paper001-v1.0.1
-
-**Branch**
-
-paper001-release
 
 The replication package contains:
 
@@ -322,10 +337,9 @@ The adversarial experiment generates a corrupted graph deterministically by remo
 
 Only the documented verification artifacts and experimental workflows are used to support the evaluation reported in this paper; the remaining repository contents provide supporting implementation infrastructure and architectural documentation.
 
-Running the documented workflows from the `paper001-v1.0.1` release in an equivalent software environment is expected to reproduce the reported experimental results.
+The archived Zenodo release (DOI: https://doi.org/10.5281/zenodo.21341462) constitutes the canonical replication package for this publication. The GitHub repository serves as the active development repository for subsequent revisions.
 
-
-
+Running the documented workflows from the archived release in an equivalent software environment is expected to reproduce the experimental results reported in this paper.
 # 7. Limitations
 
 This work evaluates the structural integrity of the reference implementation using standards-compliant Semantic Web tooling.
@@ -337,8 +351,6 @@ Performance benchmarking, distributed execution, heterogeneous deployment enviro
 Similarly, the experiments validate structural provenance constraints rather than the factual correctness of enterprise information itself.
 
 Future work will investigate larger datasets, distributed validation workflows, formal verification of selected architectural properties, and comparative evaluation against additional semantic validation frameworks.
-
-
 
 # 8. Conclusion
 
@@ -356,6 +368,19 @@ These results show that declarative semantic constraints can be evaluated indepe
 
 The archived Paper 001 reference implementation provides executable experiments, automated verification procedures, and deterministic evaluation artifacts that enable independent reproduction of the reported results.
 
-
-
 # References
+
+The manuscript bibliography is maintained in `bibliography.bib` and contains the cited standards and academic references supporting the evaluation.
+
+The primary references include:
+
+- RDF 1.1 Concepts and Abstract Syntax — W3C Recommendation.
+- OWL 2 Web Ontology Language — W3C Recommendation.
+- Simple Knowledge Organization System (SKOS) Reference — W3C Recommendation.
+- Shapes Constraint Language (SHACL) — W3C Recommendation.
+- PROV-O: The PROV Ontology — W3C Recommendation.
+- Apache Jena documentation and implementation resources.
+- Hitzler, P., Krötzsch, M., Parsia, B., Patel-Schneider, P. F., & Rudolph, S. *Semantic Web for the Working Ontologist*. 2nd Edition. IOS Press, 2020.
+
+The complete citation metadata is provided in `bibliography.bib`.
+
