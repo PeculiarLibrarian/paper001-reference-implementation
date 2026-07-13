@@ -1,6 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -e
 
+SHACL="./apache-jena-6.1.0/bin/shacl"
+
 python tests/adversarial/generate_missing_source_graph.py
 
 GRAPH="peculiarlibrary/STORE/graphstore/invalid_graph.ttl"
@@ -12,7 +14,7 @@ echo "============================================================"
 echo "Generated adversarial graph: $GRAPH"
 echo
 
-OUTPUT=$(shacl validate \
+OUTPUT=$("$SHACL" validate \
   --shapes peculiarlibrary/SHACL/core_shacl.ttl \
   --data "$GRAPH")
 

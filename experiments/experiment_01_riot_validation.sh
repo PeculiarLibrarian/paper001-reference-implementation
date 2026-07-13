@@ -1,6 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -e
 
+RIOT="./apache-jena-6.1.0/bin/riot"
+
 echo "============================================================"
 echo "Experiment 01"
 echo "RIOT Syntax Validation"
@@ -16,7 +18,7 @@ FILES=(
 
 for file in "${FILES[@]}"; do
     echo "Validating: $file"
-    riot --validate "$file"
+    "$RIOT" --validate "$file"
 done
 
 echo
