@@ -16,14 +16,20 @@ license: MIT
 authors:
   - family-names: Gitandu
     given-names: Samuel Muriithi
-    alias: Peculiar Librarian
+    suffix: B.S.
+    affiliation: "Independent Researcher, Nairobi, Kenya"
+    orcid: "https://orcid.org/0009-0009-2784-9577"
+    alias: "Peculiar Librarian"
 
 preferred-citation:
   type: software
   authors:
     - family-names: Gitandu
       given-names: Samuel Muriithi
+      suffix: B.S.
+      orcid: "https://orcid.org/0009-0009-2784-9577"
   title: "Paper 001 v1.0.1 — Deterministic Provenance-Enforced Knowledge Graph Reference Implementation"
   version: "paper001-v1.0.1"
   doi: 10.5281/zenodo.21341462
   year: 2026
+  publisher: Zenodo
