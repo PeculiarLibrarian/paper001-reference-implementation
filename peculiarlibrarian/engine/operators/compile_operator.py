@@ -1,32 +1,36 @@
-from peculiarlibrary.ingestion.ingestion_pipeline import SemanticCompiler
-from peculiarlibrary.mappings.canonical_mapper import CanonicalMapper
-from peculiarlibrary.ingestion.doctrine_enforcer import DoctrineEnforcer
-from peculiarlibrary.validation.shacl_validator import SHACLValidator
+"""
+CompileOperator
+Version: 7.0.0
+
+The operator does not compile data.
+
+Compilation already occurs inside the Canonical Runtime.
+
+This operator simply exposes the immutable canonical dataset
+to the Operator Plane.
+"""
+
+from peculiarlibrary.RUNTIME.canonical_runtime import build_canonical_view
 
 
 class CompileOperator:
+    VERSION = "7.0.0"
 
-    VERSION = "1.0.0"
-
-    def execute(self, payload: dict):
-
-        dataset = payload.get("dataset")
-
-        compiler = SemanticCompiler()
-        mapper = CanonicalMapper()
-        enforcer = DoctrineEnforcer()
-        validator = SHACLValidator()
-
-        graph = compiler.compile(dataset)
-        graph = mapper.map(graph)
-        graph = enforcer.enforce(graph)
-
-        report = validator.validate(graph)
+    def execute(self, payload=None):
+        dataset = build_canonical_view()
 
         return {
-            "status": "compiled",
-            "graph": graph,
-            "triples": len(graph),
-            "dataset": dataset,
-            "validation": str(report),
+            "status": "success",
+            "runtime": {
+                "dataset": dataset,
+                "graph": dataset.graph,
+                "facts": dataset.facts,
+                "records": dataset.records,
+            },
+            "integrity": {
+                "valid": True,
+                "fact_count": len(dataset.facts),
+                "record_count": len(dataset.records),
+                "triple_count": dataset.triple_count,
+            },
         }

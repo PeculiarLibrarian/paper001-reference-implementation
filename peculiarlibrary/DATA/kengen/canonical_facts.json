@@ -1,0 +1,74 @@
+{
+  "facts": [
+    {
+      "subject": "Kenya Electricity Generating Company PLC",
+      "predicate": "Total revenue",
+      "object": "45,900,839",
+      "unit": "Shs’000",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "15-KenGen-IR.pdf",
+        "page": 148,
+        "section": "Financial Statements",
+        "context": "Total revenue 4 (a) 45,900,839 44,110,491"
+      }
+    },
+    {
+      "subject": "Kenya Electricity Generating Company PLC",
+      "predicate": "Profit for the year",
+      "object": "4,719,160",
+      "unit": "Shs’000",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "The_KenGen_Annual_Report_2022.pdf",
+        "page": 137,
+        "section": "STATEMENT OF PROFIT OR LOSS AND OTHER COMPREHENSIVE INCOME",
+        "context": "Profit for the year 4,719,160 1,830,547"
+      }
+    },
+    {
+      "subject": "Kenya Electricity Generating Company PLC",
+      "predicate": "Operating profit",
+      "object": "9,568,116",
+      "unit": "Shs’000",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "KenGen-Integrated-Report23Final.pdf",
+        "page": 132,
+        "section": "Statement of Profit or Loss and Other Comprehensive Income",
+        "context": "Operating profit 9,568,116 6,079,807"
+      }
+    },
+    {
+      "subject": "Kenya Electricity Generating Company PLC",
+      "predicate": "Profit before income tax",
+      "object": "10,946,865",
+      "unit": "Shs’000",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "KenGen-Integrated-Report-2024.pdf",
+        "page": 138,
+        "section": "Statement of profit or loss and other comprehensive income",
+        "context": "Profit before income tax 10,946,865 8,524,816"
+      }
+    },
+    {
+      "subject": "Kenya Electricity Generating Company PLC",
+      "predicate": "Profit for the year",
+      "object": "10,481,077",
+      "unit": "Shs’000",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "KenGen_Financial_Results_2025.pdf",
+        "page": 136,
+        "section": "Statement of Profit or Loss and other Comprehensive Income",
+        "context": "Profit for the year 10,481,077 6,797,012"
+      }
+    }
+  ]
+}

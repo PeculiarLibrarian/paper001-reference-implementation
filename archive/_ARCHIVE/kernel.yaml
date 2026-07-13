@@ -1,0 +1,35 @@
+kernel:
+  name: PADI Semantic Kernel
+  version: "1.0.0"
+  status: locked
+
+planes:
+  control:
+    version: "1.0.0"
+    manifest: control_plane/manifest.py
+
+  execution:
+    version: "1.0.0"
+    manifest: execution/manifest.py
+
+pipeline:
+  version: "0.9.3"
+  compiler: SemanticCompiler
+  mapper: CanonicalMapper
+
+reasoner:
+  engine: InferenceEngine
+  skos: SKOSExpander
+
+governance:
+  constitution: constitution/constitution.yaml
+  audits: 14
+
+integrity:
+  rdf: true
+  shacl: true
+  jena: true
+  compiler: true
+  mapping: true
+  domain: true
+  reasoner: true

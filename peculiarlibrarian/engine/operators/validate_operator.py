@@ -2,19 +2,31 @@ from peculiarlibrary.validation.shacl_validator import SHACLValidator
 
 
 class ValidateOperator:
+    """
+    Deterministic SHACL validation operator.
 
-    VERSION = "1.0.0"
+    Contract:
+    - Input: rdflib.Graph (from ReasonOperator)
+    - Output: validated graph + integrity flag
+    """
 
-    def execute(self, payload: dict):
+    def __init__(self):
+        self.validator = SHACLValidator()
 
+    def execute(self, payload):
         graph = payload.get("graph")
 
-        validator = SHACLValidator()
-        report = validator.validate(graph)
+        if graph is None:
+            raise ValueError("ValidateOperator requires 'graph' from ReasonOperator")
+
+        # Run SHACL validation (now ACTIVATED)
+        try:
+            conforms = self.validator.validate(graph)
+        except Exception as e:
+            raise RuntimeError(f"SHACL validation failed: {str(e)}")
 
         return {
             "status": "validated",
-            "conforms": True,
-            "graph_size": len(graph),
-            "report": str(report),
+            "conforms": conforms,
+            "graph": graph
         }

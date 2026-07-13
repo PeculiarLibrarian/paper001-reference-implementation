@@ -1,0 +1,242 @@
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+padi:Fact_00001 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:metric "service_revenue" ;
+    padi:period "FY2021" ;
+    padi:unit "KES Millions" ;
+    padi:value 2.503518e+05 .
+
+padi:Fact_00002 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00002 ;
+    padi:metric "ebitda" ;
+    padi:period "FY2021" ;
+    padi:unit "KES Millions" ;
+    padi:value 1.341292e+05 .
+
+padi:Fact_00003 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00003 ;
+    padi:metric "board_approval_date" ;
+    padi:period "FY2021" ;
+    padi:value "2021-05-12" .
+
+padi:Fact_00004 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00004 ;
+    padi:metric "service_revenue" ;
+    padi:period "FY2022" ;
+    padi:unit "KES Millions" ;
+    padi:value 2.811073e+05 .
+
+padi:Fact_00005 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00005 ;
+    padi:metric "ebitda" ;
+    padi:period "FY2022" ;
+    padi:unit "KES Millions" ;
+    padi:value 1.490619e+05 .
+
+padi:Fact_00006 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00006 ;
+    padi:metric "board_approval_date" ;
+    padi:period "FY2022" ;
+    padi:value "2022-05-11" .
+
+padi:Fact_00007 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00007 ;
+    padi:metric "service_revenue" ;
+    padi:period "FY2023" ;
+    padi:unit "KES Millions" ;
+    padi:value 2.956923e+05 .
+
+padi:Fact_00008 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomTelecommunicationEthiopiaPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00008 ;
+    padi:metric "monetary_gain_ias29" ;
+    padi:period "FY2023" ;
+    padi:unit "KES Millions" ;
+    padi:value 1.03831e+04 .
+
+padi:Fact_00009 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00009 ;
+    padi:metric "board_approval_date" ;
+    padi:period "FY2023" ;
+    padi:value "2023-05-10" .
+
+padi:Fact_00010 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00010 ;
+    padi:metric "service_revenue" ;
+    padi:period "FY2024" ;
+    padi:unit "KES Millions" ;
+    padi:value 3.353531e+05 .
+
+padi:Fact_00011 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomTelecommunicationEthiopiaPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00011 ;
+    padi:metric "monetary_gain_ias29" ;
+    padi:period "FY2024" ;
+    padi:unit "KES Millions" ;
+    padi:value 2.23632e+04 .
+
+padi:Fact_00012 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00012 ;
+    padi:metric "board_approval_date" ;
+    padi:period "FY2024" ;
+    padi:value "2024-05-08" .
+
+padi:Fact_00013 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00013 ;
+    padi:metric "service_revenue" ;
+    padi:period "FY2025" ;
+    padi:unit "KES Millions" ;
+    padi:value 3.714154e+05 .
+
+padi:Fact_00014 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00014 ;
+    padi:metric "mpesa_revenue" ;
+    padi:period "FY2025" ;
+    padi:unit "KES Millions" ;
+    padi:value 1.611312e+05 .
+
+padi:Fact_00015 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomTelecommunicationEthiopiaPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00015 ;
+    padi:metric "monetary_gain_ias29" ;
+    padi:period "FY2025" ;
+    padi:unit "KES Millions" ;
+    padi:value 1.12223e+04 .
+
+padi:Fact_00016 a padi:CanonicalFact ;
+    padi:aboutEntity padi:SafaricomPLC ;
+    padi:confidence 1.0 ;
+    padi:hasSource padi:Source_00016 ;
+    padi:metric "mpesa_capacity_tps" ;
+    padi:period "FY2025" ;
+    padi:unit "transactions per second" ;
+    padi:value 4500 .
+
+padi:Source_00001 a padi:SourceRecord ;
+    padi:context "Service revenue 80,635.8 167,550.0 248,185.8 83,135.6 166,693.4 249,829.0" ;
+    padi:document "2021_Annual_Report_Single_Spread_Final.pdf" ;
+    padi:page 49 ;
+    padi:section "Notes to the Financial Statements" .
+
+padi:Source_00002 a padi:SourceRecord ;
+    padi:context "Earnings before interest, taxes, depreciation and amortisation (EBITDA) 134,129.2" ;
+    padi:document "2021_Annual_Report_Single_Spread_Final.pdf" ;
+    padi:page 40 ;
+    padi:section "Statement of Profit or Loss" .
+
+padi:Source_00003 a padi:SourceRecord ;
+    padi:context "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 12 May 2021." ;
+    padi:document "2021_Annual_Report_Single_Spread_Final.pdf" ;
+    padi:page 7 ;
+    padi:section "Board approval" .
+
+padi:Source_00004 a padi:SourceRecord ;
+    padi:context "Service revenue 281,107.3" ;
+    padi:document "2024-Annual-Report-Update.pdf" ;
+    padi:page 105 ;
+    padi:section "Chief Finance Officer’s review" .
+
+padi:Source_00005 a padi:SourceRecord ;
+    padi:context "Earnings before interest, taxes, depreciation and amortisation (EBITDA) 149,061.9" ;
+    padi:document "Safaricom_IR_2022_Final.pdf" ;
+    padi:page 105 ;
+    padi:section "Statement of Profit or Loss" .
+
+padi:Source_00006 a padi:SourceRecord ;
+    padi:context "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 11 May 2022." ;
+    padi:document "Safaricom_IR_2022_Final.pdf" ;
+    padi:page 3 ;
+    padi:section "About our report" .
+
+padi:Source_00007 a padi:SourceRecord ;
+    padi:context "Service revenue 117,117.9 178,063.4 295,181.3 – 518.9 518.9 (7.9) 295,692.3" ;
+    padi:document "2023-Safaricom-Annual-Report.pdf" ;
+    padi:page 167 ;
+    padi:section "Notes to the Financial Statements" .
+
+padi:Source_00008 a padi:SourceRecord ;
+    padi:context "The gain in monetary position as a result of translating the financial statements as at 31 March 2023 was KShs 10,383.1 million." ;
+    padi:document "2023-Safaricom-Annual-Report.pdf" ;
+    padi:page 207 ;
+    padi:section "Notes to the Financial Statements" .
+
+padi:Source_00009 a padi:SourceRecord ;
+    padi:context "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 10 May 2023." ;
+    padi:document "2023-Safaricom-Annual-Report.pdf" ;
+    padi:page 85 ;
+    padi:section "About Our Report" .
+
+padi:Source_00010 a padi:SourceRecord ;
+    padi:context "Service revenue 335,353.1" ;
+    padi:document "2024-Annual-Report-Update.pdf" ;
+    padi:page 253 ;
+    padi:section "Chief Finance Officer’s review" .
+
+padi:Source_00011 a padi:SourceRecord ;
+    padi:context "The gain in monetary position as a result of translating the financial statements as at 31 March 2024 was KShs 22,363.2 million" ;
+    padi:document "2024-Annual-Report-Update.pdf" ;
+    padi:page 330 ;
+    padi:section "Notes to the Financial Statements" .
+
+padi:Source_00012 a padi:SourceRecord ;
+    padi:context "the Board approved the Safaricom PLC Consolidated Audited Financial Statements on 8 May 2024." ;
+    padi:document "2024-Annual-Report-Update.pdf" ;
+    padi:page 225 ;
+    padi:section "About Our Report" .
+
+padi:Source_00013 a padi:SourceRecord ;
+    padi:context "371,415.4" ;
+    padi:document "annual-2025-report.pdf" ;
+    padi:page 419 ;
+    padi:section "Commercial Value" .
+
+padi:Source_00014 a padi:SourceRecord ;
+    padi:context "M-PESA revenue 161,131.2" ;
+    padi:document "annual-2025-report.pdf" ;
+    padi:page 401 ;
+    padi:section "Key Highlights" .
+
+padi:Source_00015 a padi:SourceRecord ;
+    padi:context "The gain in monetary position as a result of translating the financial statements as at 31 March 2025 was KShs 11,222.3 million." ;
+    padi:document "annual-2025-report.pdf" ;
+    padi:page 450 ;
+    padi:section "Notes to the Financial Statements" .
+
+padi:Source_00016 a padi:SourceRecord ;
+    padi:context "4,500 transactions/sec on M-PESA" ;
+    padi:document "annual-2025-report.pdf" ;
+    padi:page 413 ;
+    padi:section "Our value-creating business model" .
+
+padi:SafaricomTelecommunicationEthiopiaPLC a padi:Entity .
+
+padi:SafaricomPLC a padi:Entity .
+

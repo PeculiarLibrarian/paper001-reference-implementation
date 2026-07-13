@@ -1,47 +1,23 @@
-def cmd_validate(args):
-    """
-    Standalone SHACL validation command
-    MECE-structured implementation:
-    1. Input Resolution
-    2. Guard Conditions
-    3. Graph Construction
-    4. Validation Execution + Output
-    """
+from peculiarlibrary.engine.validation.compile_validation import CompileValidation
 
-    from pathlib import Path
-    from rdflib import Graph
-    from peculiarlibrarian.validation.shacl_validator import SHACLValidator
 
-    #################################################################
-    # 1. INPUT RESOLUTION (deterministic paths)
-    #################################################################
-    dataset_path = Path(args.dataset).expanduser().resolve()
-    shapes_path = Path(args.shapes).expanduser().resolve()
+def validate_result(result):
+    validator = CompileValidation()
+    report = validator.validate(result)
 
-    #################################################################
-    # 2. GUARD CONDITIONS (fail fast preflight)
-    #################################################################
-    if not dataset_path.exists():
-        raise FileNotFoundError(f"Dataset not found: {dataset_path}")
+    print("\n======================")
+    print("SYSTEM VALIDATION")
+    print("======================")
 
-    if not shapes_path.exists():
-        raise FileNotFoundError(f"Shapes file not found: {shapes_path}")
+    if report["valid"]:
+        print("STATUS: ✅ VALID")
+    else:
+        print("STATUS: ❌ INVALID")
+        for e in report["errors"]:
+            print("ERROR:", e)
 
-    #################################################################
-    # 3. GRAPH CONSTRUCTION (materialization)
-    #################################################################
-    graph = Graph()
-    graph.parse(str(dataset_path), format=args.format)
+    print("\nGRAPH SIZE:", report["graph_size"])
+    print("FACT TRIPLES:", report["fact_triples"])
+    print("SEMANTIC TRIPLES:", report["semantic_triples"])
 
-    #################################################################
-    # 4. VALIDATION EXECUTION + OUTPUT
-    #################################################################
-    validator = SHACLValidator()
-
-    result = validator.validate(
-        graph=graph,
-        shapes_path=str(shapes_path)
-    )
-
-    print("[VALIDATION RESULT]")
-    print(result)
+    return report["valid"]

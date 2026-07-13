@@ -1,0 +1,268 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+#################################################################
+#
+# PADI Inference Taxonomy
+# Version 2.0.0
+#
+#################################################################
+
+###############################################################
+# Scheme
+###############################################################
+
+padi:InferenceTaxonomy
+    a skos:ConceptScheme ;
+    skos:prefLabel "PADI Inference Taxonomy"@en ;
+    skos:definition "Controlled semantic taxonomy governing deterministic inference."@en .
+
+###############################################################
+# Top Concepts
+###############################################################
+
+padi:InstitutionConcept
+    a skos:Concept ;
+    skos:prefLabel "Inference Institution"@en ;
+    skos:topConceptOf padi:InferenceTaxonomy .
+
+padi:RuleConcept
+    a skos:Concept ;
+    skos:prefLabel "Inference Rule"@en ;
+    skos:topConceptOf padi:InferenceTaxonomy .
+
+padi:EvidenceConcept
+    a skos:Concept ;
+    skos:prefLabel "Evidence Metric"@en ;
+    skos:topConceptOf padi:InferenceTaxonomy .
+
+padi:AssertionConcept
+    a skos:Concept ;
+    skos:prefLabel "Derived Assertion"@en ;
+    skos:topConceptOf padi:InferenceTaxonomy .
+
+padi:OperatorConcept
+    a skos:Concept ;
+    skos:prefLabel "Comparison Operator"@en ;
+    skos:topConceptOf padi:InferenceTaxonomy .
+
+###############################################################
+# Institutions
+###############################################################
+
+padi:TrendDetection
+    a skos:Concept ;
+    skos:prefLabel "Trend Detection"@en ;
+    skos:broader padi:InstitutionConcept .
+
+padi:GrowthProjection
+    a skos:Concept ;
+    skos:prefLabel "Growth Projection"@en ;
+    skos:broader padi:InstitutionConcept .
+
+padi:RiskIdentification
+    a skos:Concept ;
+    skos:prefLabel "Risk Identification"@en ;
+    skos:broader padi:InstitutionConcept .
+
+padi:OpportunityIdentification
+    a skos:Concept ;
+    skos:prefLabel "Opportunity Identification"@en ;
+    skos:broader padi:InstitutionConcept .
+
+padi:RecommendationGeneration
+    a skos:Concept ;
+    skos:prefLabel "Recommendation Generation"@en ;
+    skos:broader padi:InstitutionConcept .
+
+###############################################################
+# Evidence Metrics
+###############################################################
+
+padi:Revenue
+    a skos:Concept ;
+    skos:prefLabel "Revenue"@en ;
+    skos:broader padi:EvidenceConcept .
+
+padi:MpesaRevenue
+    a skos:Concept ;
+    skos:prefLabel "M-PESA Revenue"@en ;
+    skos:broader padi:EvidenceConcept .
+
+padi:EBITDA
+    a skos:Concept ;
+    skos:prefLabel "EBITDA"@en ;
+    skos:broader padi:EvidenceConcept .
+
+###############################################################
+# Comparison Operators
+###############################################################
+
+padi:GreaterThan
+    a skos:Concept ;
+    skos:prefLabel "Greater Than"@en ;
+    skos:broader padi:OperatorConcept .
+
+padi:LessThan
+    a skos:Concept ;
+    skos:prefLabel "Less Than"@en ;
+    skos:broader padi:OperatorConcept .
+
+padi:EqualTo
+    a skos:Concept ;
+    skos:prefLabel "Equal To"@en ;
+    skos:broader padi:OperatorConcept .
+
+###############################################################
+# Trend Assertions
+###############################################################
+
+padi:PositiveTrend
+    a skos:Concept ;
+    skos:prefLabel "Positive Trend"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:NegativeTrend
+    a skos:Concept ;
+    skos:prefLabel "Negative Trend"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:StableTrend
+    a skos:Concept ;
+    skos:prefLabel "Stable Trend"@en ;
+    skos:broader padi:AssertionConcept .
+
+###############################################################
+# Growth Assertions
+###############################################################
+
+padi:PositiveGrowthProjection
+    a skos:Concept ;
+    skos:prefLabel "Positive Growth Projection"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:NegativeGrowthProjection
+    a skos:Concept ;
+    skos:prefLabel "Negative Growth Projection"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:StableGrowthProjection
+    a skos:Concept ;
+    skos:prefLabel "Stable Growth Projection"@en ;
+    skos:broader padi:AssertionConcept .
+
+###############################################################
+# Risk Assertions
+###############################################################
+
+padi:LowRisk
+    a skos:Concept ;
+    skos:prefLabel "Low Risk"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:ModerateRisk
+    a skos:Concept ;
+    skos:prefLabel "Moderate Risk"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:HighRisk
+    a skos:Concept ;
+    skos:prefLabel "High Risk"@en ;
+    skos:broader padi:AssertionConcept .
+
+###############################################################
+# Opportunity Assertions
+###############################################################
+
+padi:HighOpportunity
+    a skos:Concept ;
+    skos:prefLabel "High Opportunity"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:ModerateOpportunity
+    a skos:Concept ;
+    skos:prefLabel "Moderate Opportunity"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:LowOpportunity
+    a skos:Concept ;
+    skos:prefLabel "Low Opportunity"@en ;
+    skos:broader padi:AssertionConcept .
+
+###############################################################
+# Recommendation Assertions
+###############################################################
+
+padi:RecommendInvest
+    a skos:Concept ;
+    skos:prefLabel "Recommend Invest"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:RecommendMonitor
+    a skos:Concept ;
+    skos:prefLabel "Recommend Monitor"@en ;
+    skos:broader padi:AssertionConcept .
+
+padi:RecommendAvoid
+    a skos:Concept ;
+    skos:prefLabel "Recommend Avoid"@en ;
+    skos:broader padi:AssertionConcept .
+
+
+###############################################################
+# Relationship Vocabulary
+###############################################################
+
+padi:RelationshipConcept
+    a skos:Concept ;
+    skos:prefLabel "Inference Relationship"@en ;
+    skos:topConceptOf padi:InferenceTaxonomy .
+
+padi:consumesMetric
+    a skos:Concept ;
+    skos:prefLabel "Consumes Metric"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:consumesAssertion
+    a skos:Concept ;
+    skos:prefLabel "Consumes Assertion"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:producesAssertion
+    a skos:Concept ;
+    skos:prefLabel "Produces Assertion"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:comparisonOperator
+    a skos:Concept ;
+    skos:prefLabel "Comparison Operator Relationship"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:ruleIdentifier
+    a skos:Concept ;
+    skos:prefLabel "Rule Identifier"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:priority
+    a skos:Concept ;
+    skos:prefLabel "Priority"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:institutionName
+    a skos:Concept ;
+    skos:prefLabel "Institution Name"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:executesStage
+    a skos:Concept ;
+    skos:prefLabel "Executes Stage"@en ;
+    skos:broader padi:RelationshipConcept .
+
+padi:nextInstitution
+    a skos:Concept ;
+    skos:prefLabel "Next Institution"@en ;
+    skos:broader padi:RelationshipConcept .
+

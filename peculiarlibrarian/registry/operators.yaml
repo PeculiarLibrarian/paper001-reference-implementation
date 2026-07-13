@@ -7,26 +7,37 @@ operators:
 
   compile:
     class: CompileOperator
+    module: peculiarlibrarian.engine.operators.compile_operator
     stage: compile
     description: Execute semantic compilation.
 
   reason:
     class: ReasonOperator
+    module: peculiarlibrarian.engine.operators.reason_operator
     stage: reason
     description: Execute semantic inference.
 
   validate:
     class: ValidateOperator
+    module: peculiarlibrarian.engine.operators.validate_operator
     stage: validate
     description: Execute invariance validation.
 
   audit:
     class: AuditOperator
+    module: peculiarlibrarian.engine.operators.audit_operator
     stage: audit
     description: Execute kernel audits.
+
+  sparql:
+    class: SPARQLOperator
+    module: peculiarlibrarian.engine.operators.sparql_operator
+    stage: query
+    description: Execute SPARQL query against the current graph.
 
 defaults:
   compile: compile
   reason: reason
   validate: validate
   audit: audit
+  sparql: sparql

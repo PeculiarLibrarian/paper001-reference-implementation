@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canonical Facts Contract (L0) Schema",
+  "description": "The L0 extraction contract for capturing immutable, source-faithful observations with absolute provenance.",
+  "type": "object",
+  "required": ["facts"],
+  "properties": {
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "subject",
+          "predicate",
+          "object",
+          "unit",
+          "period",
+          "confidence",
+          "source"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "The exact name of the entity as identified in the report, unified for identity stability."
+          },
+          "predicate": {
+            "type": "string",
+            "description": "A stable canonical reporting term or organization-specific metric (e.g., turnover, ebitda, mpesa_capacity_tps)."
+          },
+          "object": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "number" },
+              { "type": "boolean" }
+            ],
+            "description": "The literal extracted value reflecting the document exactly as written."
+          },
+          "unit": {
+            "type": ["string", "null"],
+            "description": "The explicit unit of measure provided in the document, or null if not applicable."
+          },
+          "period": {
+            "type": "string",
+            "description": "The reporting period associated with the fact (e.g., FY2025)."
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "The extraction confidence level, typically 1.0 for explicit observations."
+          },
+          "source": {
+            "type": "object",
+            "required": ["document", "page", "section", "context"],
+            "description": "Provenance metadata for independent verification of the fact.",
+            "properties": {
+              "document": {
+                "type": "string",
+                "description": "The filename of the original source document."
+              },
+              "page": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "The exact page number within the source document."
+              },
+              "section": {
+                "type": "string",
+                "description": "The verbatim title of the report section where the fact was identified."
+              },
+              "context": {
+                "type": "string",
+                "description": "The original lexical snippet/fragment containing the fact to preserve source fidelity."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

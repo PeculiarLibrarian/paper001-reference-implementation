@@ -1,0 +1,174 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+#################################################################
+#
+# PADI Executable Inference Rules
+#
+#################################################################
+
+###############################################################
+# Institution Chain
+###############################################################
+
+padi:TrendDetection
+    a padi:InferenceInstitution ;
+    padi:institutionName "TrendDetection" ;
+    padi:executesStage padi:TrendDetectionStage ;
+    padi:nextInstitution padi:GrowthProjection .
+
+padi:GrowthProjection
+    a padi:InferenceInstitution ;
+    padi:institutionName "GrowthProjection" ;
+    padi:executesStage padi:GrowthProjectionStage ;
+    padi:nextInstitution padi:RiskIdentification .
+
+padi:RiskIdentification
+    a padi:InferenceInstitution ;
+    padi:institutionName "RiskIdentification" ;
+    padi:executesStage padi:RiskIdentificationStage ;
+    padi:nextInstitution padi:OpportunityIdentification .
+
+padi:OpportunityIdentification
+    a padi:InferenceInstitution ;
+    padi:institutionName "OpportunityIdentification" ;
+    padi:executesStage padi:OpportunityIdentificationStage ;
+    padi:nextInstitution padi:RecommendationGeneration .
+
+padi:RecommendationGeneration
+    a padi:InferenceInstitution ;
+    padi:institutionName "RecommendationGeneration" ;
+    padi:executesStage padi:RecommendationGenerationStage .
+
+###############################################################
+# Rule 0001 — Trend Detection
+###############################################################
+
+padi:Rule0001
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0001" ;
+    padi:priority 1 ;
+    padi:consumesMetric padi:Revenue ;
+    padi:comparisonOperator padi:GreaterThan ;
+    padi:producesAssertion padi:PositiveTrend .
+
+padi:Rule0001B
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0001B" ;
+    padi:priority 2 ;
+    padi:consumesMetric padi:Revenue ;
+    padi:comparisonOperator padi:LessThan ;
+    padi:producesAssertion padi:NegativeTrend .
+
+padi:Rule0001C
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0001C" ;
+    padi:priority 3 ;
+    padi:consumesMetric padi:Revenue ;
+    padi:comparisonOperator padi:EqualTo ;
+    padi:producesAssertion padi:StableTrend .
+
+###############################################################
+# Rule 0002 — Growth Projection
+###############################################################
+
+padi:Rule0002
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0002" ;
+    padi:priority 10 ;
+    padi:consumesAssertion padi:PositiveTrend ;
+    padi:producesAssertion padi:PositiveGrowthProjection .
+
+padi:Rule0002B
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0002B" ;
+    padi:priority 11 ;
+    padi:consumesAssertion padi:NegativeTrend ;
+    padi:producesAssertion padi:NegativeGrowthProjection .
+
+padi:Rule0002C
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0002C" ;
+    padi:priority 12 ;
+    padi:consumesAssertion padi:StableTrend ;
+    padi:producesAssertion padi:StableGrowthProjection .
+
+###############################################################
+# Rule 0003 — Risk Identification
+###############################################################
+
+padi:Rule0003
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0003" ;
+    padi:priority 20 ;
+    padi:consumesAssertion padi:PositiveGrowthProjection ;
+    padi:producesAssertion padi:LowRisk .
+
+padi:Rule0003B
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0003B" ;
+    padi:priority 21 ;
+    padi:consumesAssertion padi:StableGrowthProjection ;
+    padi:producesAssertion padi:ModerateRisk .
+
+padi:Rule0003C
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0003C" ;
+    padi:priority 22 ;
+    padi:consumesAssertion padi:NegativeGrowthProjection ;
+    padi:producesAssertion padi:HighRisk .
+
+###############################################################
+# Rule 0004 — Opportunity Identification
+###############################################################
+
+padi:Rule0004
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0004" ;
+    padi:priority 30 ;
+    padi:consumesAssertion padi:PositiveGrowthProjection ;
+    padi:consumesAssertion padi:LowRisk ;
+    padi:producesAssertion padi:HighOpportunity .
+
+padi:Rule0004B
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0004B" ;
+    padi:priority 31 ;
+    padi:consumesAssertion padi:StableGrowthProjection ;
+    padi:consumesAssertion padi:ModerateRisk ;
+    padi:producesAssertion padi:ModerateOpportunity .
+
+padi:Rule0004C
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0004C" ;
+    padi:priority 32 ;
+    padi:consumesAssertion padi:NegativeGrowthProjection ;
+    padi:consumesAssertion padi:HighRisk ;
+    padi:producesAssertion padi:LowOpportunity .
+
+###############################################################
+# Rule 0005 — Recommendation Generation
+###############################################################
+
+padi:Rule0005
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0005" ;
+    padi:priority 40 ;
+    padi:consumesAssertion padi:HighOpportunity ;
+    padi:producesAssertion padi:RecommendInvest .
+
+padi:Rule0005B
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0005B" ;
+    padi:priority 41 ;
+    padi:consumesAssertion padi:ModerateOpportunity ;
+    padi:producesAssertion padi:RecommendMonitor .
+
+padi:Rule0005C
+    a padi:InferenceRule ;
+    padi:ruleIdentifier "Rule0005C" ;
+    padi:priority 42 ;
+    padi:consumesAssertion padi:LowOpportunity ;
+    padi:producesAssertion padi:RecommendAvoid .

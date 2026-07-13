@@ -1,0 +1,187 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+#################################################################
+#
+# PADI Inference Schema
+# Version 3.0.0
+#
+#################################################################
+
+padi:InferenceOntology
+    a owl:Ontology ;
+    rdfs:label "PADI Inference Schema"@en .
+
+###############################################################
+# Classes
+###############################################################
+
+padi:InferenceInstitution
+    a owl:Class ;
+    rdfs:label "Inference Institution"@en .
+
+padi:InferenceStage
+    a owl:Class ;
+    rdfs:label "Inference Stage"@en .
+
+padi:InferenceRule
+    a owl:Class ;
+    rdfs:label "Inference Rule"@en .
+
+padi:Metric
+    a owl:Class ;
+    rdfs:label "Metric"@en .
+
+padi:ComparisonOperator
+    a owl:Class ;
+    rdfs:label "Comparison Operator"@en .
+
+padi:Assertion
+    a owl:Class ;
+    rdfs:label "Derived Assertion"@en .
+
+###############################################################
+# Object Properties
+###############################################################
+
+padi:executesStage
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceInstitution ;
+    rdfs:range padi:InferenceStage .
+
+padi:nextInstitution
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceInstitution ;
+    rdfs:range padi:InferenceInstitution .
+
+padi:consumesMetric
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceRule ;
+    rdfs:range padi:Metric .
+
+padi:consumesAssertion
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceRule ;
+    rdfs:range padi:Assertion .
+
+padi:comparisonOperator
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceRule ;
+    rdfs:range padi:ComparisonOperator .
+
+padi:producesAssertion
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceRule ;
+    rdfs:range padi:Assertion .
+
+###############################################################
+# Datatype Properties
+###############################################################
+
+padi:institutionName
+    a owl:DatatypeProperty ;
+    rdfs:domain padi:InferenceInstitution ;
+    rdfs:range xsd:string .
+
+padi:ruleIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain padi:InferenceRule ;
+    rdfs:range xsd:string .
+
+padi:priority
+    a owl:DatatypeProperty ;
+    rdfs:domain padi:InferenceRule ;
+    rdfs:range xsd:integer .
+
+###############################################################
+# Stage Individuals
+###############################################################
+
+padi:TrendDetectionStage
+    a padi:InferenceStage .
+
+padi:GrowthProjectionStage
+    a padi:InferenceStage .
+
+padi:RiskIdentificationStage
+    a padi:InferenceStage .
+
+padi:OpportunityIdentificationStage
+    a padi:InferenceStage .
+
+padi:RecommendationGenerationStage
+    a padi:InferenceStage .
+
+###############################################################
+# Institution Individuals
+###############################################################
+
+padi:TrendDetection
+    a padi:InferenceInstitution .
+
+padi:GrowthProjection
+    a padi:InferenceInstitution .
+
+padi:RiskIdentification
+    a padi:InferenceInstitution .
+
+padi:OpportunityIdentification
+    a padi:InferenceInstitution .
+
+padi:RecommendationGeneration
+    a padi:InferenceInstitution .
+
+###############################################################
+# Metrics
+###############################################################
+
+padi:Revenue
+    a padi:Metric .
+
+padi:MpesaRevenue
+    a padi:Metric .
+
+padi:EBITDA
+    a padi:Metric .
+
+###############################################################
+# Operators
+###############################################################
+
+padi:GreaterThan
+    a padi:ComparisonOperator .
+
+padi:LessThan
+    a padi:ComparisonOperator .
+
+padi:EqualTo
+    a padi:ComparisonOperator .
+
+###############################################################
+# Assertion Individuals
+###############################################################
+
+padi:PositiveTrend a padi:Assertion .
+padi:NegativeTrend a padi:Assertion .
+padi:StableTrend a padi:Assertion .
+
+padi:PositiveGrowthProjection a padi:Assertion .
+padi:NegativeGrowthProjection a padi:Assertion .
+padi:StableGrowthProjection a padi:Assertion .
+
+padi:LowRisk a padi:Assertion .
+padi:ModerateRisk a padi:Assertion .
+padi:HighRisk a padi:Assertion .
+
+padi:HighOpportunity a padi:Assertion .
+padi:ModerateOpportunity a padi:Assertion .
+padi:LowOpportunity a padi:Assertion .
+
+padi:RecommendInvest a padi:Assertion .
+padi:RecommendMonitor a padi:Assertion .
+padi:RecommendAvoid a padi:Assertion .
+

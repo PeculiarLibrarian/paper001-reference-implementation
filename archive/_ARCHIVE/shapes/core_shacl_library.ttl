@@ -1,0 +1,110 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+###############################################################
+# PADI CORE SHACL LIBRARY
+# Structural validation only.
+# No business rules.
+###############################################################
+
+###############################################################
+# Canonical Fact
+###############################################################
+
+padi:CanonicalFactShape
+    a sh:NodeShape ;
+    sh:targetClass padi:CanonicalFact ;
+
+    sh:property [
+        sh:path padi:aboutEntity ;
+        sh:class padi:Entity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:metric ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        sh:path padi:value ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:unit ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:period ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:confidence ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:hasSource ;
+        sh:class padi:SourceRecord ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+###############################################################
+# Source Record
+###############################################################
+
+padi:SourceRecordShape
+    a sh:NodeShape ;
+    sh:targetClass padi:SourceRecord ;
+
+    sh:property [
+        sh:path padi:document ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:page ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:section ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:context ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+###############################################################
+# Entity
+###############################################################
+
+padi:EntityShape
+    a sh:NodeShape ;
+    sh:targetClass padi:Entity .
+

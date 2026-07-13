@@ -1,0 +1,82 @@
+# ============================================================
+# PADI Semantic Performance Report
+# Analyst-facing semantic interpretation view
+# ============================================================
+
+
+[SEMANTIC_PERFORMANCE_REPORT]
+TYPE=REPORT
+CATEGORY=ANALYTICS
+
+PREFIX padi: <http://padi.engine/ontology#>
+PREFIX core: <http://padi.s.m.gitandu.bs/core#>
+
+SELECT
+    ?entity
+    ?metric
+    ?previousPeriod
+    ?period
+    ?previousValue
+    ?value
+    ?change
+    ?interpretation
+    ?businessSignal
+WHERE {
+
+    ?previousFact
+        a core:CanonicalFact ;
+        core:aboutEntity ?entity ;
+        core:metric ?metric ;
+        core:period ?previousPeriod ;
+        core:value ?previousValue .
+
+    ?currentFact
+        a core:CanonicalFact ;
+        core:aboutEntity ?entity ;
+        core:metric ?metric ;
+        core:period ?period ;
+        core:value ?value .
+
+    FILTER(?previousPeriod != ?period)
+
+    BIND(
+        (?value - ?previousValue)
+        AS ?change
+    )
+
+    ?metric
+        padi:signalInterpretation ?interpretation .
+
+    BIND(
+        IF(
+            ?interpretation = padi:DIRECT_SIGNAL
+            && ?change > 0,
+            "POSITIVE_GROWTH",
+
+        IF(
+            ?interpretation = padi:DIRECT_SIGNAL
+            && ?change < 0,
+            "NEGATIVE_GROWTH",
+
+        IF(
+            ?interpretation = padi:INVERSE_SIGNAL
+            && ?change > 0,
+            "RISK_DETERIORATION",
+
+        IF(
+            ?interpretation = padi:INVERSE_SIGNAL
+            && ?change < 0,
+            "RISK_IMPROVEMENT",
+
+        IF(
+            ?interpretation = padi:NEUTRAL_SIGNAL,
+            "NEUTRAL_CHANGE",
+
+        "UNCLASSIFIED"
+        )))))
+        AS ?businessSignal
+    )
+}
+
+ORDER BY DESC(?change)
+

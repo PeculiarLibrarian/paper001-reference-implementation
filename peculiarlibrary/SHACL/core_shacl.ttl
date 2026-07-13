@@ -1,0 +1,142 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+#################################################################
+# PADI Core SHACL Library
+#################################################################
+
+padi:
+    a owl:Ontology ;
+    owl:versionInfo "3.1.0" .
+
+#################################################################
+# Knowledge Shapes
+#################################################################
+
+padi:EntityShape
+    a sh:NodeShape ;
+    sh:targetClass padi:Entity ;
+    sh:nodeKind sh:IRI .
+
+padi:CanonicalFactShape
+    a sh:NodeShape ;
+    sh:targetClass padi:CanonicalFact ;
+
+    sh:property [
+        sh:path padi:aboutEntity ;
+        sh:class padi:Entity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:hasSource ;
+        sh:class padi:SourceRecord ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path padi:value ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+padi:SourceRecordShape
+    a sh:NodeShape ;
+    sh:targetClass padi:SourceRecord ;
+
+    sh:property [
+        sh:path padi:document ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+#################################################################
+# Dataset Shapes
+#################################################################
+
+padi:DatasetShape
+    a sh:NodeShape ;
+    sh:targetClass padi:Dataset ;
+
+    sh:property [
+        sh:path padi:containsFact ;
+        sh:class padi:CanonicalFact ;
+    ] .
+
+#################################################################
+# Runtime Shapes
+#################################################################
+
+padi:RuntimeExecutionShape
+    a sh:NodeShape ;
+    sh:targetClass padi:RuntimeExecution ;
+
+    sh:property [
+        sh:path padi:executesDataset ;
+        sh:class padi:Dataset ;
+        sh:minCount 1 ;
+    ] .
+
+padi:ExecutionFinalityShape
+    a sh:NodeShape ;
+    sh:targetClass padi:ExecutionFinality ;
+
+    sh:property [
+        sh:path padi:status ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+#################################################################
+# Inference Shapes
+#################################################################
+
+padi:DerivedAssertionShape
+    a sh:NodeShape ;
+    sh:targetClass padi:DerivedAssertion ;
+
+    sh:property [
+        sh:path padi:supportedByFact ;
+        sh:class padi:CanonicalFact ;
+    ] ;
+
+    sh:property [
+        sh:path padi:generatedByRule ;
+        sh:class padi:InferenceRule ;
+    ] .
+
+padi:InferenceProvenanceShape
+    a sh:NodeShape ;
+    sh:targetClass padi:InferenceProvenance ;
+
+    sh:property [
+        sh:path padi:timestamp ;
+        sh:datatype xsd:dateTime ;
+    ] .
+
+#################################################################
+# Governance Shapes
+#################################################################
+
+padi:ValidationResultShape
+    a sh:NodeShape ;
+    sh:targetClass padi:ValidationResult ;
+
+    sh:property [
+        sh:path padi:status ;
+        sh:datatype xsd:string ;
+    ] .
+
+#################################################################
+# Query Shapes
+#################################################################
+
+padi:SPARQLQueryShape
+    a sh:NodeShape ;
+    sh:targetClass padi:SPARQLQuery .
+

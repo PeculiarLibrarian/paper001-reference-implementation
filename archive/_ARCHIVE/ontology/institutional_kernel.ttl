@@ -1,0 +1,334 @@
+@prefix pk: <https://peculiarlibrary.org/kernel#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://peculiarlibrary.org/kernel>
+    rdf:type owl:Ontology ;
+    dcterms:title "Peculiar Library Institutional Kernel" ;
+    dcterms:creator "Peculiar Library" ;
+    dcterms:description "Upper ontology defining constitutional institutional concepts." ;
+    owl:versionInfo "1.1.0" .
+
+#################################################################
+# Root Classes
+#################################################################
+
+pk:Institution
+    rdf:type owl:Class ;
+    rdfs:label "Institution" ;
+    rdfs:comment "A real-world institutional entity." .
+
+pk:PracticeArea
+    rdf:type owl:Class ;
+    rdfs:label "Practice Area" ;
+    rdfs:comment "A bounded domain of institutional expertise." .
+
+pk:Engagement
+    rdf:type owl:Class ;
+    rdfs:label "Engagement" ;
+    rdfs:comment "An institutional analytical engagement." .
+
+pk:KnowledgeObject
+    rdf:type owl:Class ;
+    rdfs:label "Knowledge Object" ;
+    rdfs:comment "Root class for all institutional knowledge." .
+
+pk:KnowledgeAsset
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeObject ;
+    rdfs:label "Knowledge Asset" .
+
+pk:Evidence
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeObject ;
+    rdfs:label "Evidence" .
+
+pk:Finding
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeObject ;
+    rdfs:label "Finding" .
+
+pk:Issue
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:Finding ;
+    rdfs:label "Issue" .
+
+pk:Risk
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:Issue ;
+    rdfs:label "Risk" .
+
+pk:Opportunity
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:Issue ;
+    rdfs:label "Opportunity" .
+
+pk:Recommendation
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeObject ;
+    rdfs:label "Recommendation" .
+
+pk:Decision
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeObject ;
+    rdfs:label "Decision" .
+
+pk:Outcome
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeObject ;
+    rdfs:label "Outcome" .
+
+pk:ExecutiveReport
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeAsset ;
+    rdfs:label "Executive Report" .
+
+#################################################################
+# Object Properties
+#################################################################
+
+pk:hasEvidence
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has evidence" .
+
+pk:supportsFinding
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "supports finding" .
+
+pk:identifiesIssue
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "identifies issue" .
+
+pk:producesRecommendation
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "produces recommendation" .
+
+pk:informsDecision
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "informs decision" .
+
+pk:producesOutcome
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "produces outcome" .
+
+pk:documents
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "documents" .
+
+pk:belongsToPracticeArea
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "belongs to practice area" .
+
+pk:belongsToEngagement
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "belongs to engagement" .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+pk:identifier
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "identifier" .
+
+pk:title
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "title" .
+
+pk:description
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "description" .
+
+pk:createdAt
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "created at" .
+
+pk:updatedAt
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "updated at" .
+
+#################################################################
+# Formal Semantics (v1.2.0)
+# Domains and Ranges
+#################################################################
+
+pk:hasEvidence
+    rdfs:domain pk:Finding ;
+    rdfs:range pk:Evidence .
+
+pk:supportsFinding
+    rdfs:domain pk:Evidence ;
+    rdfs:range pk:Finding .
+
+pk:identifiesIssue
+    rdfs:domain pk:Finding ;
+    rdfs:range pk:Issue .
+
+pk:producesRecommendation
+    rdfs:domain pk:Issue ;
+    rdfs:range pk:Recommendation .
+
+pk:informsDecision
+    rdfs:domain pk:Recommendation ;
+    rdfs:range pk:Decision .
+
+pk:producesOutcome
+    rdfs:domain pk:Decision ;
+    rdfs:range pk:Outcome .
+
+pk:documents
+    rdfs:domain pk:ExecutiveReport ;
+    rdfs:range pk:KnowledgeObject .
+
+pk:belongsToPracticeArea
+    rdfs:domain pk:Engagement ;
+    rdfs:range pk:PracticeArea .
+
+pk:belongsToEngagement
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range pk:Engagement .
+
+pk:identifier
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:string .
+
+pk:title
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:string .
+
+pk:description
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:string .
+
+pk:createdAt
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:dateTime .
+
+pk:updatedAt
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:dateTime .
+
+
+#################################################################
+# Formal Semantics (v1.3.0)
+# Inverse Properties
+#################################################################
+
+pk:hasEvidence owl:inverseOf pk:supportsFinding .
+
+pk:supportsFinding owl:inverseOf pk:hasEvidence .
+
+pk:identifiesIssue owl:inverseOf pk:producedFromFinding .
+
+pk:producesRecommendation owl:inverseOf pk:derivedFromIssue .
+
+pk:informsDecision owl:inverseOf pk:informedByRecommendation .
+
+pk:producesOutcome owl:inverseOf pk:resultOfDecision .
+
+pk:belongsToPracticeArea owl:inverseOf pk:hasEngagement .
+
+pk:belongsToEngagement owl:inverseOf pk:containsKnowledgeObject .
+
+
+#################################################################
+# Formal Semantics (v1.3.1)
+# Inverse Property Anchors
+#################################################################
+
+pk:producedFromFinding
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pk:Issue ;
+    rdfs:range pk:Finding .
+
+pk:derivedFromIssue
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pk:Recommendation ;
+    rdfs:range pk:Issue .
+
+pk:informedByRecommendation
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pk:Decision ;
+    rdfs:range pk:Recommendation .
+
+pk:resultOfDecision
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pk:Outcome ;
+    rdfs:range pk:Decision .
+
+pk:hasEngagement
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pk:PracticeArea ;
+    rdfs:range pk:Engagement .
+
+pk:containsKnowledgeObject
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pk:Engagement ;
+    rdfs:range pk:KnowledgeObject .
+
+
+#################################################################
+# Formal Semantics (v1.4.0)
+# Disjointness Constraints
+#################################################################
+
+pk:Risk owl:disjointWith pk:Opportunity .
+
+pk:Evidence owl:disjointWith pk:Recommendation .
+
+pk:Finding owl:disjointWith pk:Decision .
+
+pk:Issue owl:disjointWith pk:Outcome .
+
+
+#################################################################
+# Formal Semantics (v1.5.0)
+# Identity & Functional Semantics
+#################################################################
+
+pk:identifier
+    rdf:type owl:FunctionalProperty .
+
+pk:identifier
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:string .
+
+pk:title
+    rdf:type owl:DatatypeProperty .
+
+pk:description
+    rdf:type owl:DatatypeProperty .
+
+pk:createdAt
+    rdf:type owl:FunctionalProperty ;
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:dateTime .
+
+pk:updatedAt
+    rdf:type owl:FunctionalProperty ;
+    rdfs:domain pk:KnowledgeObject ;
+    rdfs:range xsd:dateTime .
+
+#################################################################
+# Identity Traceability (Inverse Functional Anchors)
+#################################################################
+
+pk:documents
+    rdf:type owl:InverseFunctionalProperty .
+
+pk:documents
+    rdfs:domain pk:ExecutiveReport ;
+    rdfs:range pk:KnowledgeObject .
+
+pk:producesRecommendation
+    rdf:type owl:InverseFunctionalProperty .
+
+pk:informsDecision
+    rdf:type owl:InverseFunctionalProperty .
+
+pk:producesOutcome
+    rdf:type owl:InverseFunctionalProperty .
+

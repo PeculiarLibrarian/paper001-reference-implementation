@@ -1,0 +1,226 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+#################################################################
+# PADI Core Vocabulary Scheme
+#################################################################
+
+padi:CoreVocabulary
+    a skos:ConceptScheme ;
+    skos:prefLabel "PADI Core Vocabulary" ;
+    skos:definition "Domain-agnostic semantic vocabulary for the Peculiar Library knowledge substrate." .
+
+#################################################################
+# Root Concepts
+#################################################################
+
+padi:KnowledgeConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:prefLabel "Knowledge" .
+
+padi:GovernanceConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:prefLabel "Governance" .
+
+padi:InferenceConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:prefLabel "Inference" .
+
+padi:RuntimeConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:prefLabel "Runtime" .
+
+padi:MaterializationConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:prefLabel "Materialization" .
+
+padi:QueryConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:prefLabel "Query" .
+
+#################################################################
+# Knowledge Layer
+#################################################################
+
+padi:EntityConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:KnowledgeConcept ;
+    skos:prefLabel "Entity" .
+
+padi:CanonicalFactConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:KnowledgeConcept ;
+    skos:prefLabel "Canonical Fact" .
+
+padi:MetricConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:KnowledgeConcept ;
+    skos:prefLabel "Metric" .
+
+padi:ObservationConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:KnowledgeConcept ;
+    skos:prefLabel "Observation" .
+
+padi:DatasetConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:KnowledgeConcept ;
+    skos:prefLabel "Dataset" .
+
+padi:SourceRecordConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:KnowledgeConcept ;
+    skos:prefLabel "Source Record" .
+
+#################################################################
+# Governance Layer
+#################################################################
+
+padi:ConstitutionConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:GovernanceConcept ;
+    skos:prefLabel "Constitution" .
+
+padi:ConstraintConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:GovernanceConcept ;
+    skos:prefLabel "Constraint" .
+
+padi:InvariantConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:GovernanceConcept ;
+    skos:prefLabel "Invariant" .
+
+padi:ValidationConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:GovernanceConcept ;
+    skos:prefLabel "Validation" .
+
+padi:FinalityConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:GovernanceConcept ;
+    skos:prefLabel "Finality" .
+
+#################################################################
+# Inference Layer
+#################################################################
+
+padi:InferenceRuleConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:InferenceConcept ;
+    skos:prefLabel "Inference Rule" .
+
+padi:DerivedAssertionConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:InferenceConcept ;
+    skos:prefLabel "Derived Assertion" .
+
+padi:InferenceExecutionConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:InferenceConcept ;
+    skos:prefLabel "Inference Execution" .
+
+padi:InferenceProvenanceConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:InferenceConcept ;
+    skos:prefLabel "Inference Provenance" .
+
+padi:InferenceFinalityConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:InferenceConcept ;
+    skos:prefLabel "Inference Finality" .
+
+#################################################################
+# Runtime Layer
+#################################################################
+
+padi:SemanticDatasetConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:RuntimeConcept ;
+    skos:prefLabel "Semantic Dataset" .
+
+padi:RuntimeExecutionConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:RuntimeConcept ;
+    skos:prefLabel "Runtime Execution" .
+
+padi:ExecutionSnapshotConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:RuntimeConcept ;
+    skos:prefLabel "Execution Snapshot" .
+
+padi:ExecutionFinalityConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:RuntimeConcept ;
+    skos:prefLabel "Execution Finality" .
+
+#################################################################
+# Materialization Layer
+#################################################################
+
+padi:MaterializerConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:MaterializationConcept ;
+    skos:prefLabel "Materializer" .
+
+padi:MaterializationConceptNode
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:MaterializationConcept ;
+    skos:prefLabel "Materialization" .
+
+padi:GraphStoreConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:MaterializationConcept ;
+    skos:prefLabel "Graph Store" .
+
+#################################################################
+# Query Layer
+#################################################################
+
+padi:SPARQLQueryConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:QueryConcept ;
+    skos:prefLabel "SPARQL Query" .
+
+padi:QueryLibraryConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:QueryConcept ;
+    skos:prefLabel "Query Library" .
+
+padi:QueryExecutionConcept
+    a skos:Concept ;
+    skos:inScheme padi:CoreVocabulary ;
+    skos:broader padi:QueryConcept ;
+    skos:prefLabel "Query Execution" .
+

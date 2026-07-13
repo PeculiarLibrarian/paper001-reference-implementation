@@ -1,0 +1,208 @@
+# ============================================================
+# PADI SPARQL CORE QUERY LIBRARY
+# Semantic Analytics Runtime (v3)
+#
+# This library targets the Semantic Analytics View.
+# It does NOT query the Canonical Layer directly.
+# ============================================================
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+PREFIX core: <http://padi.s.m.gitandu.bs/core#>
+PREFIX padi: <http://padi.engine/ontology#>
+
+# ------------------------------------------------------------
+# QUERY: ALL_TRIPLES
+# ------------------------------------------------------------
+SELECT ?s ?p ?o
+WHERE {
+    ?s ?p ?o .
+}
+
+# ------------------------------------------------------------
+# QUERY: GRAPH_SUMMARY
+# ------------------------------------------------------------
+SELECT
+    (COUNT(DISTINCT ?obs) AS ?performanceObservations)
+    (COUNT(DISTINCT ?entity) AS ?entities)
+    (COUNT(DISTINCT ?metric) AS ?metrics)
+WHERE {
+
+    OPTIONAL {
+        ?obs
+            a padi:PerformanceObservation ;
+            padi:aboutEntity ?entity ;
+            padi:metric ?metric .
+    }
+
+}
+
+# ------------------------------------------------------------
+# QUERY: ENTITY_SUMMARY
+# ------------------------------------------------------------
+SELECT
+    ?entity
+    (COUNT(?obs) AS ?observations)
+WHERE {
+
+    ?obs
+        a padi:PerformanceObservation ;
+        padi:aboutEntity ?entity .
+
+}
+GROUP BY ?entity
+ORDER BY DESC(?observations)
+
+# ------------------------------------------------------------
+# QUERY: ENTITIES
+# ------------------------------------------------------------
+SELECT DISTINCT ?entity
+WHERE {
+
+    ?obs
+        a padi:PerformanceObservation ;
+        padi:aboutEntity ?entity .
+
+}
+ORDER BY ?entity
+
+# ------------------------------------------------------------
+# QUERY: CANONICAL_FACTS
+#
+# Analytics runtime no longer exposes CanonicalFact.
+# PerformanceObservation is now the canonical analytical unit.
+# ------------------------------------------------------------
+SELECT
+    ?obs
+    ?entity
+    ?metric
+    ?previousPeriod
+    ?period
+    ?previousValue
+    ?value
+    ?change
+WHERE {
+
+    ?obs
+        a padi:PerformanceObservation ;
+        padi:aboutEntity ?entity ;
+        padi:metric ?metric ;
+        padi:previousPeriod ?previousPeriod ;
+        padi:period ?period ;
+        padi:previousValue ?previousValue ;
+        padi:currentValue ?value ;
+        padi:change ?change .
+
+}
+ORDER BY ?entity ?metric ?period
+
+# ------------------------------------------------------------
+# QUERY: FACTS_BY_ENTITY
+# ------------------------------------------------------------
+SELECT
+    ?entity
+    ?metric
+    ?period
+    ?value
+    ?change
+WHERE {
+
+    ?obs
+        a padi:PerformanceObservation ;
+        padi:aboutEntity ?entity ;
+        padi:metric ?metric ;
+        padi:period ?period ;
+        padi:currentValue ?value ;
+        padi:change ?change .
+
+}
+ORDER BY ?entity ?metric ?period
+
+# ------------------------------------------------------------
+# QUERY: FACTS_BY_METRIC
+# ------------------------------------------------------------
+SELECT
+    ?metric
+    ?entity
+    ?period
+    ?value
+    ?change
+WHERE {
+
+    ?obs
+        a padi:PerformanceObservation ;
+        padi:metric ?metric ;
+        padi:aboutEntity ?entity ;
+        padi:period ?period ;
+        padi:currentValue ?value ;
+        padi:change ?change .
+
+}
+ORDER BY ?metric ?entity ?period
+
+# ------------------------------------------------------------
+# QUERY: FACTS_BY_PERIOD
+# ------------------------------------------------------------
+SELECT
+    ?period
+    ?entity
+    ?metric
+    ?value
+    ?change
+WHERE {
+
+    ?obs
+        a padi:PerformanceObservation ;
+        padi:period ?period ;
+        padi:aboutEntity ?entity ;
+        padi:metric ?metric ;
+        padi:currentValue ?value ;
+        padi:change ?change .
+
+}
+ORDER BY ?period ?entity ?metric
+
+# ------------------------------------------------------------
+# QUERY: ENTITY_METRIC_MATRIX
+# ------------------------------------------------------------
+SELECT
+    ?entity
+    ?metric
+    (COUNT(?obs) AS ?observations)
+WHERE {
+
+    ?obs
+        a padi:PerformanceObservation ;
+        padi:aboutEntity ?entity ;
+        padi:metric ?metric .
+
+}
+GROUP BY ?entity ?metric
+ORDER BY ?entity ?metric
+
+# ------------------------------------------------------------
+# QUERY: SOURCE_RECORDS
+#
+# Analytics runtime intentionally contains no provenance.
+# Returns an empty result by design.
+# ------------------------------------------------------------
+SELECT ?source ?document ?page
+WHERE {
+    FILTER(false)
+}
+
+# ------------------------------------------------------------
+# QUERY: SOURCE_TRACEABILITY
+#
+# Provenance belongs to the canonical layer.
+# ------------------------------------------------------------
+SELECT
+    ?entity
+    ?metric
+    ?document
+    ?page
+WHERE {
+    FILTER(false)
+}
+

@@ -1,24 +1,35 @@
 from peculiarlibrary.reasoning.inference_engine import InferenceEngine
-from peculiarlibrary.reasoning.skos_expander import SKOSExpander
 
 
 class ReasonOperator:
+    """
+    Deterministic reasoning operator.
 
-    VERSION = "1.0.0"
+    Contract:
+    - Input: rdflib.Graph (from compile stage)
+    - Output: dict with graph preserved + reasoning metadata
+    - No graph mutation outside inference engine
+    """
 
-    def execute(self, payload: dict):
+    def __init__(self):
+        pass
 
+    def execute(self, payload):
         graph = payload.get("graph")
 
-        engine = InferenceEngine()
-        expander = SKOSExpander()
+        # HARD SAFETY: graph must exist
+        if graph is None:
+            raise ValueError("ReasonOperator requires 'graph' from compile stage")
 
-        graph = engine.infer(graph)
-        graph = expander.expand(graph)
+        # Delegate reasoning
+        engine = InferenceEngine(graph)
+        inferred_graph = engine.run()
+
+        if inferred_graph is None:
+            raise ValueError("InferenceEngine returned invalid graph state")
 
         return {
             "status": "reasoned",
-            "graph": graph,
-            "expanded_concepts": 1,
-            "triples": len(graph),
+            "graph": inferred_graph,
+            "expanded_concepts": 1
         }

@@ -1,0 +1,44 @@
+name: Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install Apache Jena
+        run: |
+          wget https://archive.apache.org/dist/jena/binaries/apache-jena-6.1.0.tar.gz
+          tar -xzf apache-jena-6.1.0.tar.gz
+          echo "$PWD/apache-jena-6.1.0/bin" >> $GITHUB_PATH
+
+      - name: Experiment 01 — RIOT Validation
+        run: |
+          ./experiments/experiment_01_riot_validation.sh
+
+      - name: Experiment 02 — Positive SHACL Validation
+        run: |
+          ./experiments/experiment_02_positive_shacl_validation.sh \
+          | tee experiment02.log
+
+          grep -q "sh:conforms  true" experiment02.log
+
+      - name: Experiment 03 — Adversarial SHACL Validation
+        run: |
+          ./experiments/experiment_03_adversarial_validation.sh \
+          | tee experiment03.log
+
+          grep -q "sh:conforms  false" experiment03.log

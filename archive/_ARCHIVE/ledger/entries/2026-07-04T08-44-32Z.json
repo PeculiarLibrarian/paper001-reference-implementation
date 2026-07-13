@@ -1,0 +1,37 @@
+{
+  "ledger_id": "86a70907-8363-46a7-9039-5fc415fbc651",
+  "timestamp": "2026-07-04T08:44:32Z",
+  "dataset": "peculiarlibrary/datasets/safaricom/canonical_facts.json",
+  "compile": {
+    "dataset": "peculiarlibrary/datasets/safaricom/canonical_facts.json",
+    "commands": 16,
+    "integrity": {
+      "valid": true,
+      "length": 16
+    }
+  },
+  "reason": {
+    "status": "reasoned",
+    "expanded_concepts": 1
+  },
+  "integrity": {
+    "valid": true,
+    "length": 16
+  },
+  "artifacts": {
+    "graph": {
+      "sha256": "74d8ff38f71e4c5fabf553ea9334500651a44f260ed9121a9bbb59ffe5d352f7",
+      "format": "turtle",
+      "location": "peculiarlibrary/graphstore/74d8ff38f71e4c5fabf553ea9334500651a44f260ed9121a9bbb59ffe5d352f7.ttl",
+      "triples": 16
+    }
+  },
+  "runtime": {
+    "version": "4.0.0",
+    "python": "3.13.13"
+  },
+  "execution": {
+    "fingerprint": "be9d5a38965f619624efd896bf3c9d48aa0b0e2860d32b7603871e6842002557",
+    "operator_count": 4
+  }
+}

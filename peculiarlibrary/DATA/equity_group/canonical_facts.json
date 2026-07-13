@@ -1,0 +1,214 @@
+{
+  "facts": [
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "total_assets",
+      "object": 1304.9,
+      "unit": "Shs billion",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2021-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 44,
+        "section": "DELIVERING COMMERCIAL VALUE",
+        "context": "Total assets 1,015.1 1,304.9 29%"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "customer_deposits",
+      "object": 959.0,
+      "unit": "Shs billion",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2021-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 44,
+        "section": "DELIVERING COMMERCIAL VALUE",
+        "context": "Deposits 740.8 959.0 29%"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "profit_before_tax",
+      "object": 51.9,
+      "unit": "Shs billion",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2021-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 44,
+        "section": "DELIVERING COMMERCIAL VALUE",
+        "context": "PBT 22.2 51.9 134%"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "total_assets",
+      "object": 1.45,
+      "unit": "trillion Shs",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2022-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 265,
+        "section": "WHO WE ARE",
+        "context": "total assets at Shs 1.45 trillion (USD 11.7bn)"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "net_profit",
+      "object": 46103,
+      "unit": "Shs million",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2022-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 320,
+        "section": "DIRECTORS’ REPORT",
+        "context": "Profit for the year of Shs 46,103 million (2021: Shs 40,072 million)"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "dividend_per_share",
+      "object": 4,
+      "unit": "Shs",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2022-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 320,
+        "section": "DIRECTORS’ REPORT",
+        "context": "The directors recommend payment of a dividend of Shs 4 per share (2021: Shs 3 per share)."
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "profit_before_tax",
+      "object": 51.9,
+      "unit": "Shs billion",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2023-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 165,
+        "section": "FINANCIAL REVIEW",
+        "context": "Profit Before Tax (Shs) 51.9bn 2022: 59.8bn"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "customer_deposits",
+      "object": 1358.2,
+      "unit": "Shs billion",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2023-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 148,
+        "section": "CHAIRMAN’S STATEMENT",
+        "context": "customer deposit growth of 29% closing the year at Shs 1,358.2 billion."
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "non_performing_loans_ratio",
+      "object": 11.7,
+      "unit": "percentage",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2023-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 165,
+        "section": "FINANCIAL REVIEW",
+        "context": "NPL 11.7% 2022: 7.7%"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "profit_before_tax",
+      "object": 60.7,
+      "unit": "Shs billion",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2024-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 387,
+        "section": "LEADERSHIP PERSPECTIVES / OUR PERFORMANCE",
+        "context": "Profit Before Tax (PBT), which increased by 17% to Shs 60.7 billion."
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "earnings_per_share",
+      "object": 12.3,
+      "unit": "Shs",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2024-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 387,
+        "section": "LEADERSHIP PERSPECTIVES / OUR PERFORMANCE",
+        "context": "Earnings Per Share (EPS) grew by 11% to Shs 12.3"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "non_performing_loans_ratio",
+      "object": 12.2,
+      "unit": "percentage",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2024-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 388,
+        "section": "LEADERSHIP PERSPECTIVES / OUR PERFORMANCE",
+        "context": "The Non-Performing Loan (NPL) ratio remained below the industry average at 12.2%"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "profit_before_tax",
+      "object": 92115,
+      "unit": "Shs million",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-Plc-Annual-Report-and-Financial-Statements-for-the-Year-Ended-31st-December-2025.pdf",
+        "page": 485,
+        "section": "Directors' report",
+        "context": "Profit before tax increased by 52% to Shs 92,115 million from Shs 60,741 million in 2024"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "dividend_per_share",
+      "object": 5.75,
+      "unit": "Shs per share",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-Plc-Annual-Report-and-Financial-Statements-for-the-Year-Ended-31st-December-2025.pdf",
+        "page": 485,
+        "section": "Directors' report",
+        "context": "The directors recommend payment of a final dividend of Shs 5.75 per share (2024: Shs 4.25 per share)."
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "return_on_equity",
+      "object": 26.7,
+      "unit": "percentage",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-Plc-Annual-Report-and-Financial-Statements-for-the-Year-Ended-31st-December-2025.pdf",
+        "page": 485,
+        "section": "Directors' report",
+        "context": "resulting to a return on average equity (ROAE) of 26.7% (2024: 21.5%)"
+      }
+    }
+  ]
+}

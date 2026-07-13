@@ -1,0 +1,233 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+#################################################################
+# PADI Core Ontology
+#################################################################
+
+padi:
+    a owl:Ontology ;
+    rdfs:label "PADI Core Ontology" ;
+    rdfs:comment "Foundational ontology for the Peculiar Library semantic substrate." ;
+    owl:versionInfo "3.1.0" .
+
+#################################################################
+# Knowledge Layer
+#################################################################
+
+padi:Entity
+    a owl:Class .
+
+padi:CanonicalFact
+    a owl:Class .
+
+padi:Metric
+    a owl:Class .
+
+padi:Observation
+    a owl:Class .
+
+padi:Dataset
+    a owl:Class .
+
+padi:SourceRecord
+    a owl:Class .
+
+#################################################################
+# Runtime Layer
+#################################################################
+
+padi:SemanticDataset
+    a owl:Class .
+
+padi:CanonicalRuntime
+    a owl:Class .
+
+padi:RuntimeExecution
+    a owl:Class .
+
+padi:ExecutionSnapshot
+    a owl:Class .
+
+padi:ExecutionFinality
+    a owl:Class .
+
+#################################################################
+# Governance Layer
+#################################################################
+
+padi:Constitution
+    a owl:Class .
+
+padi:Constraint
+    a owl:Class .
+
+padi:ConstraintKernel
+    a owl:Class .
+
+padi:Invariant
+    a owl:Class .
+
+padi:ValidationResult
+    a owl:Class .
+
+padi:FinalityReport
+    a owl:Class .
+
+#################################################################
+# Inference Layer
+#################################################################
+
+padi:InferenceRule
+    a owl:Class .
+
+padi:InferenceInstitution
+    a owl:Class .
+
+padi:DerivedAssertion
+    a owl:Class .
+
+padi:InferenceProvenance
+    a owl:Class .
+
+padi:InferenceExecution
+    a owl:Class .
+
+padi:InferenceFinality
+    a owl:Class .
+
+#################################################################
+# Materialization Layer
+#################################################################
+
+padi:Materializer
+    a owl:Class .
+
+padi:Materialization
+    a owl:Class .
+
+padi:MaterializationLibrary
+    a owl:Class .
+
+padi:GraphStoreEntry
+    a owl:Class .
+
+#################################################################
+# Query Layer
+#################################################################
+
+padi:SPARQLQuery
+    a owl:Class .
+
+padi:QueryLibrary
+    a owl:Class .
+
+padi:QueryExecution
+    a owl:Class .
+
+#################################################################
+# Object Properties
+#################################################################
+
+padi:aboutEntity
+    a owl:ObjectProperty ;
+    rdfs:domain padi:CanonicalFact ;
+    rdfs:range padi:Entity .
+
+padi:hasMetric
+    a owl:ObjectProperty ;
+    rdfs:domain padi:CanonicalFact ;
+    rdfs:range padi:Metric .
+
+padi:hasSource
+    a owl:ObjectProperty ;
+    rdfs:domain padi:CanonicalFact ;
+    rdfs:range padi:SourceRecord .
+
+padi:containsFact
+    a owl:ObjectProperty ;
+    rdfs:domain padi:Dataset ;
+    rdfs:range padi:CanonicalFact .
+
+padi:executesDataset
+    a owl:ObjectProperty ;
+    rdfs:domain padi:RuntimeExecution ;
+    rdfs:range padi:Dataset .
+
+padi:producesAssertion
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceExecution ;
+    rdfs:range padi:DerivedAssertion .
+
+padi:supportedByFact
+    a owl:ObjectProperty ;
+    rdfs:domain padi:DerivedAssertion ;
+    rdfs:range padi:CanonicalFact .
+
+padi:generatedByRule
+    a owl:ObjectProperty ;
+    rdfs:domain padi:DerivedAssertion ;
+    rdfs:range padi:InferenceRule .
+
+padi:implementsRule
+    a owl:ObjectProperty ;
+    rdfs:domain padi:InferenceInstitution ;
+    rdfs:range padi:InferenceRule .
+
+padi:evaluatesConstraint
+    a owl:ObjectProperty ;
+    rdfs:domain padi:ConstraintKernel ;
+    rdfs:range padi:Constraint .
+
+padi:sealsExecution
+    a owl:ObjectProperty ;
+    rdfs:domain padi:ExecutionFinality ;
+    rdfs:range padi:RuntimeExecution .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+padi:value
+    a owl:DatatypeProperty .
+
+padi:unit
+    a owl:DatatypeProperty .
+
+padi:period
+    a owl:DatatypeProperty .
+
+padi:confidence
+    a owl:DatatypeProperty .
+
+padi:document
+    a owl:DatatypeProperty .
+
+padi:page
+    a owl:DatatypeProperty .
+
+padi:section
+    a owl:DatatypeProperty .
+
+padi:context
+    a owl:DatatypeProperty .
+
+padi:timestamp
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime .
+
+padi:status
+    a owl:DatatypeProperty .
+
+padi:version
+    a owl:DatatypeProperty .
+
+padi:executionId
+    a owl:DatatypeProperty .
+
+padi:ruleId
+    a owl:DatatypeProperty .
+

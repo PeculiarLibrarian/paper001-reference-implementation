@@ -1,0 +1,77 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix padi: <http://padi.s.m.gitandu.bs/core#> .
+
+#################################################################
+# PADI Core Concept Scheme
+#################################################################
+
+padi:CoreConceptScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "PADI Core Concept Scheme" .
+
+#################################################################
+# Top-Level Concepts
+#################################################################
+
+padi:FinancialMetric
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "Financial Metric" .
+
+padi:OperationalMetric
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "Operational Metric" .
+
+padi:GovernanceMetric
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "Governance Metric" .
+
+#################################################################
+# Financial Metrics
+#################################################################
+
+padi:ServiceRevenue
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "Service Revenue" ;
+    skos:broader padi:FinancialMetric .
+
+padi:EBITDA
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "EBITDA" ;
+    skos:broader padi:FinancialMetric .
+
+padi:MPESARevenue
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "M-PESA Revenue" ;
+    skos:broader padi:FinancialMetric .
+
+padi:MonetaryGainIAS29
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "Monetary Gain IAS 29" ;
+    skos:broader padi:FinancialMetric .
+
+#################################################################
+# Operational Metrics
+#################################################################
+
+padi:MPESACapacityTPS
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "M-PESA Capacity TPS" ;
+    skos:broader padi:OperationalMetric .
+
+#################################################################
+# Governance Metrics
+#################################################################
+
+padi:BoardApprovalDate
+    a skos:Concept ;
+    skos:inScheme padi:CoreConceptScheme ;
+    skos:prefLabel "Board Approval Date" ;
+    skos:broader padi:GovernanceMetric .

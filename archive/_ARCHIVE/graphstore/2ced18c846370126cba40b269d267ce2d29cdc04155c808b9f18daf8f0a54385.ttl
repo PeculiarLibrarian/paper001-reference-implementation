@@ -1,0 +1,22 @@
+@prefix ns1: <http://padi.s.m.gitandu.bs/ontology#http://padi.s.m.gitandu.bs/ontology#> .
+@prefix ns2: <http://padi.s.m.gitandu.bs/ontology#http://padi.s.m.gitandu.bs/finance#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://padi.s.m.gitandu.bs/entity/Safaricom_PLC> ns2:ebitda 134129.2,
+        149061.9 ;
+    ns1:board_approval_date "2021-05-12"^^xsd:date,
+        "2022-05-11"^^xsd:date,
+        "2023-05-10"^^xsd:date,
+        "2024-05-08"^^xsd:date ;
+    ns1:mpesa_capacity_tps 4500 ;
+    ns1:mpesa_revenue 161131.2 ;
+    ns1:service_revenue 250351.8,
+        281107.3,
+        295692.3,
+        335353.1,
+        371415.4 .
+
+<http://padi.s.m.gitandu.bs/entity/Safaricom_Telecommunication_Ethiopia_PLC> ns1:monetary_gain_ias29 10383.1,
+        11222.3,
+        22363.2 .
+

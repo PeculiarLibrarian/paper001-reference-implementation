@@ -1,0 +1,72 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix padi: <http://padi.engine/ontology#> .
+
+padi:MetricVocabulary
+    a skos:ConceptScheme ;
+    dcterms:title "Business Intelligence Metric Vocabulary" .
+
+padi:FinancialPerformance
+    a skos:Concept ;
+    skos:prefLabel "Financial Performance" ;
+    skos:topConceptOf padi:MetricVocabulary .
+
+padi:Revenue
+    a skos:Concept ;
+    skos:prefLabel "Revenue" ;
+    skos:broader padi:FinancialPerformance .
+
+padi:EBITDA
+    a skos:Concept ;
+    skos:prefLabel "EBITDA" ;
+    skos:broader padi:FinancialPerformance .
+
+padi:NetIncome
+    a skos:Concept ;
+    skos:prefLabel "Net Income" ;
+    skos:broader padi:FinancialPerformance .
+
+padi:CapitalExpenditure
+    a skos:Concept ;
+    skos:prefLabel "Capital Expenditure" ;
+    skos:broader padi:FinancialPerformance .
+
+padi:OperationalPerformance
+    a skos:Concept ;
+    skos:prefLabel "Operational Performance" ;
+    skos:topConceptOf padi:MetricVocabulary .
+
+padi:Subscribers
+    a skos:Concept ;
+    skos:prefLabel "Subscribers" ;
+    skos:broader padi:OperationalPerformance .
+
+padi:MPesaUsers
+    a skos:Concept ;
+    skos:prefLabel "M-PESA Users" ;
+    skos:broader padi:OperationalPerformance .
+
+padi:DataTraffic
+    a skos:Concept ;
+    skos:prefLabel "Data Traffic" ;
+    skos:broader padi:OperationalPerformance .
+
+padi:StrategicIndicators
+    a skos:Concept ;
+    skos:prefLabel "Strategic Indicators" ;
+    skos:topConceptOf padi:MetricVocabulary .
+
+padi:GrowthTrend
+    a skos:Concept ;
+    skos:prefLabel "Growth Trend" ;
+    skos:broader padi:StrategicIndicators .
+
+padi:RiskIndicator
+    a skos:Concept ;
+    skos:prefLabel "Risk Indicator" ;
+    skos:broader padi:StrategicIndicators .
+
+padi:OpportunityIndicator
+    a skos:Concept ;
+    skos:prefLabel "Opportunity Indicator" ;
+    skos:broader padi:StrategicIndicators .

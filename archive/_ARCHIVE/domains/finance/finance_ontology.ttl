@@ -1,0 +1,103 @@
+@prefix pf: <https://peculiarlibrary.org/finance#> .
+@prefix pk: <https://peculiarlibrary.org/kernel#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://peculiarlibrary.org/finance>
+    rdf:type owl:Ontology ;
+    owl:imports <https://peculiarlibrary.org/kernel> ;
+    owl:versionInfo "1.0.0" .
+
+#################################################################
+# Finance Practice Area Root
+#################################################################
+
+pf:FinancialInstitution
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:Institution .
+
+pf:FinancialEngagement
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:Engagement .
+
+#################################################################
+# Financial Knowledge Objects
+#################################################################
+
+pf:FinancialStatement
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeAsset .
+
+pf:BalanceSheet
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialStatement .
+
+pf:IncomeStatement
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialStatement .
+
+pf:CashFlowStatement
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialStatement .
+
+pf:FinancialMetric
+    rdf:type owl:Class ;
+    rdfs:subClassOf pk:KnowledgeObject .
+
+pf:Revenue
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialMetric .
+
+pf:Cost
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialMetric .
+
+pf:Profit
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialMetric .
+
+pf:Debt
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialMetric .
+
+pf:Asset
+    rdf:type owl:Class ;
+    rdfs:subClassOf pf:FinancialMetric .
+
+#################################################################
+# Financial Relationships
+#################################################################
+
+pf:hasFinancialStatement
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pf:FinancialInstitution ;
+    rdfs:range pf:FinancialStatement .
+
+pf:hasMetric
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pf:FinancialStatement ;
+    rdfs:range pf:FinancialMetric .
+
+pf:contributesToProfit
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pf:Revenue ;
+    rdfs:range pf:Profit .
+
+pf:consumesProfit
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pf:Cost ;
+    rdfs:range pf:Profit .
+
+#################################################################
+# Competency Question Alignment (Explicit Mapping Layer)
+#################################################################
+
+pf:answersCQ007 rdfs:comment "Financial health of institution" .
+pf:answersCQ008 rdfs:comment "Drivers of financial performance" .
+pf:answersCQ009 rdfs:comment "Financial risks" .
+pf:answersCQ010 rdfs:comment "Financial resilience indicators" .
+pf:answersCQ011 rdfs:comment "Value-generating units" .
+pf:answersCQ012 rdfs:comment "Asset return contribution" .
+

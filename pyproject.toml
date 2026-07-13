@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "padi-sovereign-bureau"
+version = "1.0.0"
+description = "PADI Sovereign Bureau - Deterministic Semantic Interoperability Infrastructure"
+readme = "bureau/README.md"
+requires-python = ">=3.10"
+
+authors = [
+    {name = "Peculiar Librarian"}
+]
+
+dependencies = [
+    "rdflib>=7.0",
+    "pyshacl>=0.40",
+    "owlrl>=7.6"
+]
+
+
+[tool.setuptools]
+packages = [
+    "peculiarlibrary",
+    "peculiarlibrary.APPLICATION",
+    "peculiarlibrary.ARCHITECTURE",
+    "peculiarlibrary.DATA",
+    "peculiarlibrary.INFERENCE",
+    "peculiarlibrary.INFERENCE.INSTITUTIONS",
+    "peculiarlibrary.MIS",
+    "peculiarlibrary.MIS.analytics",
+    "peculiarlibrary.MIS.dashboards",
+    "peculiarlibrary.MIS.decision_support",
+    "peculiarlibrary.MIS.interfaces",
+    "peculiarlibrary.MIS.orchestration",
+    "peculiarlibrary.MIS.reports",
+    "peculiarlibrary.MIS.signals",
+    "peculiarlibrary.MODEL",
+    "peculiarlibrary.RDF",
+    "peculiarlibrary.RDF.OWL",
+    "peculiarlibrary.RUNTIME",
+    "peculiarlibrary.SHACL",
+    "peculiarlibrary.SKOS",
+    "peculiarlibrary.SPARQL",
+    "peculiarlibrary.STORE",
+    "peculiarlibrary.query"
+]
+
+
+[tool.setuptools.package-data]
+"peculiarlibrary" = [
+    "**/*.ttl",
+    "**/*.json",
+    "**/*.jsonld",
+    "**/*.md",
+    "**/*.sparql"
+]

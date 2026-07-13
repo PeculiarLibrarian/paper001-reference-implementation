@@ -1,0 +1,242 @@
+{
+  "facts": [
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "turnover",
+      "object": 24896,
+      "unit": "Kes’million",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Bamburi-Cement-Annual-Report-2025-1.pdf",
+        "page": 32,
+        "section": "CONSOLIDATED STATEMENT OF PROFIT OR LOSS AND OTHER COMPREHENSIVE INCOME",
+        "context": "Revenue from contracts with customers 4 24,896"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "acquired_by",
+      "object": "AMSONS Group",
+      "unit": null,
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Bamburi-Cement-Annual-Report-2025-1.pdf",
+        "page": 12,
+        "section": "OVERVIEW",
+        "context": "acquisition of Bamburi Cement PLC by AMSONS Group"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "board_approval_date",
+      "object": "2026-04-16",
+      "unit": null,
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Bamburi-Cement-Annual-Report-2025-1.pdf",
+        "page": 30,
+        "section": "Consolidated Statement of Financial Position",
+        "context": "approved and authorised for issue by the Board of Directors on 16 April 2026"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "turnover",
+      "object": 21914,
+      "unit": "Kes Million",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "BCPlc-Integrated-Report-2024.pdf",
+        "page": 10,
+        "section": "Group - Key Financial Highlights",
+        "context": "Group Turnover - Kes Millions ... 2024 ... 21,914"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "specific_net_co2_emissions",
+      "object": 513.3,
+      "unit": "KgCO2/ton",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "BCPlc-Integrated-Report-2024.pdf",
+        "page": 12,
+        "section": "Sustainability Data",
+        "context": "Specific Net CO2 Emissions KgCO2/tons ... 2024 513.3"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "specific_gross_co2_emissions",
+      "object": 523.26,
+      "unit": "KgCO2/tons",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "BCPlc-Integrated-Report-2024.pdf",
+        "page": 139,
+        "section": "Sustainability Data",
+        "context": "Specific Gross CO2 Emissions KgCO2/tons ... 2024 523.26"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "solar_plant_capacity",
+      "object": 20,
+      "unit": "MW",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "BCPlc-Integrated-Report-2024.pdf",
+        "page": 11,
+        "section": "SUSTAINABILITY REVIEW",
+        "context": "Commissioning of 20MW solar project"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "board_approval_date",
+      "object": "2025-04-15",
+      "unit": null,
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "BCPlc-Integrated-Report-2024.pdf",
+        "page": 60,
+        "section": "Consolidated Statement of Financial Position",
+        "context": "approved and authorised for issue by the Board of Directors on 15 April 2025"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "turnover",
+      "object": 45245,
+      "unit": "Kes Million",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi-annual-report-final-2024-revised-14-2.pdf",
+        "page": 14,
+        "section": "Group - Key Financial Highlights",
+        "context": "Group Turnover - Kes Millions ... 2023 ... 45,245"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "ebitda",
+      "object": 3907,
+      "unit": "Kes Million",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi-annual-report-final-2024-revised-14-2.pdf",
+        "page": 14,
+        "section": "Group - Key Financial Highlights",
+        "context": "Group EBITDA - Kes Million ... 2023 ... 3,907"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "board_approval_date",
+      "object": "2024-04-16",
+      "unit": null,
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi-annual-report-final-2024-revised-14-2.pdf",
+        "page": 70,
+        "section": "STATEMENT OF DIRECTORS’ RESPONSIBILITIES",
+        "context": "Approved by the Board of directors on 16 April 2024"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "turnover",
+      "object": 38998,
+      "unit": "Kes Million",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi-cement-annual-report-2022.pdf",
+        "page": 12,
+        "section": "Group - Key Financial Highlights",
+        "context": "Group Turnover - Kes Millions ... 2022 ... 38,998"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "ebitda",
+      "object": 3285,
+      "unit": "Kes Million",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi-cement-annual-report-2022.pdf",
+        "page": 12,
+        "section": "Group - Key Financial Highlights",
+        "context": "Group EBITDA - Kes Million ... 2022 ... 3,285"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "board_approval_date",
+      "object": "2023-04-27",
+      "unit": null,
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi-cement-annual-report-2022.pdf",
+        "page": 87,
+        "section": "Consolidated Statement of Financial Position",
+        "context": "approved and authorised for issue by the Board of Directors on 27 April 2023"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "turnover",
+      "object": 41381,
+      "unit": "Kes Millions",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi_annual_report_2021_web_option-min_.pdf",
+        "page": 20,
+        "section": "Group - Key Financial Highlights",
+        "context": "Group Turnover - Kes Millions ... 2021 ... 41,381"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "board_approval_date",
+      "object": "2022-04-26",
+      "unit": null,
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi_annual_report_2021_web_option-min_.pdf",
+        "page": 142,
+        "section": "Consolidated Statement of Financial Position",
+        "context": "approved and authorised for issue by the Board of Directors on 26 April 2022"
+      }
+    },
+    {
+      "subject": "Bamburi Cement Public Limited Company",
+      "predicate": "year_started",
+      "object": 1954,
+      "unit": null,
+      "period": "N/A",
+      "confidence": 1.0,
+      "source": {
+        "document": "bamburi_annual_report_2021_web_option-min_.pdf",
+        "page": 2,
+        "section": "WHO WE ARE",
+        "context": "Started in 1954, Bamburi Cement is a leading cement and concrete producer"
+      }
+    }
+  ]
+}

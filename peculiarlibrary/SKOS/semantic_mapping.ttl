@@ -1,0 +1,54 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix padi: <http://padi.engine/ontology#> .
+
+padi:SemanticMapping
+    a skos:ConceptScheme ;
+    skos:prefLabel "Canonical Predicate Semantic Mapping" .
+
+
+# Financial Metrics
+
+padi:ServiceRevenue
+    a skos:Concept ;
+    skos:prefLabel "Service Revenue" ;
+    padi:sourcePredicate "service_revenue" ;
+    skos:broader padi:FinancialPerformance .
+
+
+padi:EBITDA
+    a skos:Concept ;
+    skos:prefLabel "EBITDA" ;
+    padi:sourcePredicate "ebitda" ;
+    skos:broader padi:FinancialPerformance .
+
+
+padi:MPESARevenue
+    a skos:Concept ;
+    skos:prefLabel "M-PESA Revenue" ;
+    padi:sourcePredicate "mpesa_revenue" ;
+    skos:broader padi:FinancialPerformance .
+
+
+# Operational Metrics
+
+padi:MPESACapacity
+    a skos:Concept ;
+    skos:prefLabel "M-PESA Transaction Capacity" ;
+    padi:sourcePredicate "mpesa_capacity_tps" ;
+    skos:broader padi:OperationalPerformance .
+
+
+# Strategic / Contextual Metrics
+
+padi:IAS29MonetaryGain
+    a skos:Concept ;
+    skos:prefLabel "IAS 29 Monetary Gain" ;
+    padi:sourcePredicate "monetary_gain_ias29" ;
+    skos:broader padi:StrategicIndicators .
+
+
+padi:BoardApprovalDate
+    a skos:Concept ;
+    skos:prefLabel "Board Approval Date" ;
+    padi:sourcePredicate "board_approval_date" ;
+    skos:broader padi:CorporateGovernance .

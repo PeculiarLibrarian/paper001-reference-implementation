@@ -1,0 +1,88 @@
+{
+  "facts": [
+    {
+      "subject": "East African Breweries PLC",
+      "predicate": "Revenue from contracts with customers",
+      "object": "128,790,557",
+      "unit": "Kshs ‘000",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "eabl-2025-integrated-annual-report (1).pdf",
+        "page": 124,
+        "section": "CONSOLIDATED STATEMENT OF PROFIT OR LOSS",
+        "context": "Revenue from contracts with customers ... 128,790,557"
+      }
+    },
+    {
+      "subject": "East African Breweries PLC",
+      "predicate": "Profit for the year",
+      "object": "12,197,769",
+      "unit": "Kshs ‘000",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "eabl-2025-integrated-annual-report (1).pdf",
+        "page": 124,
+        "section": "CONSOLIDATED STATEMENT OF PROFIT OR LOSS",
+        "context": "Profit for the year ... 12,197,769"
+      }
+    },
+    {
+      "subject": "East African Breweries PLC",
+      "predicate": "Revenue from contracts with customers",
+      "object": "124,130,660",
+      "unit": "Kshs ‘000",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "eabl-2024-annual-report-interactive-version (1).pdf",
+        "page": 148,
+        "section": "Consolidated statement of profit or loss",
+        "context": "Revenue from contracts with customers ... 124,130,660"
+      }
+    },
+    {
+      "subject": "East African Breweries PLC",
+      "predicate": "Revenue from contracts with customers",
+      "object": "109,649,413",
+      "unit": "Ksh ‘000",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "eabl-2023-annual-report (1).pdf",
+        "page": 144,
+        "section": "Consolidated statement of profit or loss",
+        "context": "Revenue from contracts with customers ... 109,649,413"
+      }
+    },
+    {
+      "subject": "East African Breweries PLC",
+      "predicate": "Revenue from contracts with customers",
+      "object": "109,409,027",
+      "unit": "Kshs ‘000",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "eabl-2022-annual-report (1).pdf",
+        "page": 134,
+        "section": "Independent auditor’s report to the shareholders of East African Breweries Plc (continued)",
+        "context": "Revenue from contracts with customers ... 109,409,027"
+      }
+    },
+    {
+      "subject": "East African Breweries PLC",
+      "predicate": "Revenue from contracts with customers",
+      "object": "85,961,815",
+      "unit": "Kshs ‘000",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "eabl-2021-annual-report-abridged.pdf",
+        "page": 59,
+        "section": "Consolidated statement of profit or loss",
+        "context": "Revenue from contracts with customers ... 85,961,815"
+      }
+    }
+  ]
+}

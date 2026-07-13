@@ -1,71 +1,125 @@
 """
-Operator Runtime
-Version: 1.4.0
+PADI Operator Runtime
 
-Stateful semantic execution bus with full pipeline awareness.
+Version: 8.1.0
+
+Canonical runtime façade.
+
+Responsibilities
+----------------
+- Build the Canonical Runtime exactly once.
+- Expose runtime services.
+- Dispatch high-level operations.
+- Never construct reasoning engines directly.
 """
 
-from peculiarlibrarian.engine.registry_loader import OperatorRegistryLoader
-from peculiarlibrarian.engine.registry_validator import OperatorRegistryValidator
+from peculiarlibrary.RUNTIME.canonical_runtime import build_canonical_view
+from peculiarlibrary.RUNTIME.runtime_executor import RuntimeExecutor
+from peculiarlibrary.query.nl_financial_compiler import NLFinancialCompiler
 
 
 class OperatorRuntime:
 
-    VERSION = "1.4.0"
+    VERSION = "8.1.0"
 
     def __init__(self):
+        self._compiler = NLFinancialCompiler()
 
-        OperatorRegistryValidator().validate()
-
-        self.loader = OperatorRegistryLoader()
-        self.registry = self.loader.load()
-
-        self.context = {}
-
-    def resolve(self, name: str):
-
-        op_meta = self.registry["operators"][name]
-
-        module_path = f"peculiarlibrarian.engine.operators.{name}_operator"
-        class_name = op_meta["class"]
-
-        try:
-            module = __import__(module_path, fromlist=[class_name])
-            return getattr(module, class_name)()
-
-        except Exception as e:
-            raise RuntimeError(
-                f"Operator resolution failed for '{name}' | "
-                f"module={module_path} class={class_name} | "
-                f"cause={repr(e)}"
-            ) from e
-
-    def execute(self, name: str, payload=None):
+    def execute(self, operation, payload=None):
 
         payload = payload or {}
 
-        # ---- CONTEXT INJECTION ----
-        if name == "reason" and "graph" not in payload:
-            payload["graph"] = self.context.get("compile_graph")
+        if operation == "compile":
 
-        if name == "validate" and "graph" not in payload:
-            payload["graph"] = self.context.get("reason_graph")
+            dataset = build_canonical_view()
 
-        # ---- EXECUTION ----
-        operator = self.resolve(name)
-        result = operator.execute(payload)
+            executor = RuntimeExecutor(dataset)
 
-        # ---- CONTEXT CAPTURE ----
-        if name == "compile":
-            self.context["compile_graph"] = result.get("graph")
+            runtime = {
+                "dataset": dataset,
+                "executor": executor,
+            }
 
-        if name == "reason":
-            self.context["reason_graph"] = result.get("graph")
+            return {
+                "runtime": runtime,
+                "dataset": dataset,
+                "integrity": {
+                    "facts": len(dataset.facts),
+                    "records": len(dataset.records),
+                    "triples": len(dataset.graph),
+                },
+            }
 
-        self.context[name] = result
+        runtime = payload["runtime"]
+        executor = runtime["executor"]
 
-        return {
-            "operator": name,
-            "stage": self.registry["operators"][name]["stage"],
-            "result": result,
-        }
+        if operation == "query":
+
+            compiled = self._compiler.compile(
+                payload["query"],
+                runtime,
+            )
+
+            op = compiled["operation"]
+
+            if op == "rank":
+                return executor.rank(
+                    payload["metric"]
+                )
+
+            if op == "compare":
+                return executor.compare(
+                    payload["metric"]
+                )
+
+            if op == "time_series":
+                return executor.time_series(
+                    payload["entity"],
+                    payload["metric"],
+                )
+
+            if op == "growth":
+                return executor.growth_strength(
+                    payload["entity"],
+                    payload["metric"],
+                )
+
+            if op == "health":
+                return executor.health_score(
+                    payload["entity"],
+                    payload["metric"],
+                )
+
+            return compiled
+
+        if operation == "rank":
+            return executor.rank(
+                payload["metric"]
+            )
+
+        if operation == "compare":
+            return executor.compare(
+                payload["metric"]
+            )
+
+        if operation == "time_series":
+            return executor.time_series(
+                payload["entity"],
+                payload["metric"],
+            )
+
+        if operation == "growth":
+            return executor.growth_strength(
+                payload["entity"],
+                payload["metric"],
+            )
+
+        if operation == "health":
+            return executor.health_score(
+                payload["entity"],
+                payload["metric"],
+            )
+
+        raise ValueError(
+            f"Unknown operation: {operation}"
+        )

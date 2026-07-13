@@ -1,0 +1,18 @@
+{
+  "facts": [
+    {
+      "subject": "Exact name of the entity as identified in the report",
+      "predicate": "canonical_reporting_term",
+      "object": "Literal extracted value (numeric, string, or boolean)",
+      "unit": "Explicit unit of measure or null",
+      "period": "Reporting period (e.g., FY2025)",
+      "confidence": 1.0,
+      "source": {
+        "document": "filename.pdf",
+        "page": 0,
+        "section": "Verbatim title of the report section",
+        "context": "Original lexical snippet containing the extracted fact"
+      }
+    }
+  ]
+}

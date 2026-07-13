@@ -1,0 +1,182 @@
+{
+  "facts": [
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "total_assets",
+      "object": 1304.9,
+      "unit": "Shs billion",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2021-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 44,
+        "section": "DELIVERING COMMERCIAL VALUE",
+        "context": "Total assets 1,015.1 1,304.9 29%"
+      }
+    },
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "non_performing_loans_ratio",
+      "object": 8.3,
+      "unit": "percentage",
+      "period": "FY2021",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2021-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 42,
+        "section": "Asset quality, distribution and risk mitigation",
+        "context": "With the Group NPL ratio at 8.3%, against an industry average of 13.1%"
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "total_revenue",
+      "object": 145.9,
+      "unit": "Shs billion",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2022-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 234,
+        "section": "WHO WE ARE",
+        "context": "Total revenue (Shs) 145.9bn"
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "earnings_per_share",
+      "object": 11.9,
+      "unit": "Shs",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2022-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 234,
+        "section": "WHO WE ARE",
+        "context": "EPS (Shs) 11.9"
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "dividend_per_share",
+      "object": 4,
+      "unit": "Shs per share",
+      "period": "FY2022",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2022-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 272,
+        "section": "DIRECTORS’ REPORT",
+        "context": "The directors recommend payment of a dividend of Shs 4 per share (2021: Shs 3 per share)."
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "customer_deposits",
+      "object": 1358.2,
+      "unit": "Shs billion",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2023-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 113,
+        "section": "GROUP MANAGING DIRECTOR AND CHIEF EXECUTIVE OFFICER’S STATEMENT",
+        "context": "customer deposit growth of 29% closing the year at Shs 1,358.2 billion."
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "trees_planted",
+      "object": 25.2,
+      "unit": "million",
+      "period": "FY2023",
+      "confidence": 1.0,
+      "source": {
+        "document": "EGH-PLC-2023-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 118,
+        "section": "GROUP MANAGING DIRECTOR AND CHIEF EXECUTIVE OFFICER’S STATEMENT",
+        "context": "Under the foundation’s initiatives in the Energy, Environment and Climate Change, we had planted 25.2 million trees cumulatively by year end."
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "profit_before_tax",
+      "object": 60.7,
+      "unit": "Shs billion",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2024-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 390,
+        "section": "FINANCIAL REVIEW",
+        "context": "Profit Before Tax (Shs) 60.7bn"
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "return_on_assets",
+      "object": 2.8,
+      "unit": "percentage",
+      "period": "FY2024",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-PLC-2024-Integrated-Report-and-Financial-Statements.pdf",
+        "page": 389,
+        "section": "FINANCIAL REVIEW",
+        "context": "Return on Assets (ROA) of 2.8% were both above industry averages."
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "net_profit",
+      "object": 75548,
+      "unit": "Shs' millions",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-Plc-Annual-Report-and-Financial-Statements-for-the-Year-Ended-31st-December-2025.pdf",
+        "page": 527,
+        "section": "Consolidated statement of profit or loss",
+        "context": "Profit for the year 75,548"
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "capital_adequacy_ratio",
+      "object": 20.5,
+      "unit": "percentage",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-Plc-Annual-Report-and-Financial-Statements-for-the-Year-Ended-31st-December-2025.pdf",
+        "page": 520,
+        "section": "Directors’ report",
+        "context": "total capital ratio of 20.5% (2024: 19.0%)"
+      }
+    },
+
+    {
+      "subject": "Equity Group Holdings PLC",
+      "predicate": "trees_planted",
+      "object": 44.6,
+      "unit": "million",
+      "period": "FY2025",
+      "confidence": 1.0,
+      "source": {
+        "document": "Equity-Group-Holdings-Plc-Annual-Report-and-Financial-Statements-for-the-Year-Ended-31st-December-2025.pdf",
+        "page": 521,
+        "section": "Directors’ report",
+        "context": "On climate action, Equity has planted 44.6 million trees"
+      }
+    }
+  ]
+}
