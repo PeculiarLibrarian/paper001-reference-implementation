@@ -1,9 +1,0 @@
-id: telecommunications
-version: 1.0.0
-
-artifacts:
-  ontology: ontology.ttl
-  taxonomy: taxonomy.ttl
-  shapes: shapes.ttl
-  queries: queries.sparql
-  context: context.jsonld
